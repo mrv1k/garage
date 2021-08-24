@@ -17,7 +17,12 @@ type SeoProps = {
   meta: Record<string, unknown>[];
 };
 
-function Seo({ title, description = "", lang = `en`, meta = [] }: SeoProps) {
+function Seo({
+  title,
+  description = "",
+  lang = `en`,
+  meta = [],
+}: SeoProps): JSX.Element {
   const { site } = useStaticQuery(
     graphql`
       query {

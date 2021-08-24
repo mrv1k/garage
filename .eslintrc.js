@@ -76,7 +76,9 @@ module.exports = {
         "jest/globals": true,
       },
       extends: ["prettier"],
-      rules: {},
+      rules: {
+        "react/no-unescaped-entities": 0,
+      },
       plugins: [
         "jest",
         "jest-dom",
