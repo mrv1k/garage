@@ -1,0 +1,5 @@
+{
+  "name": "ui",
+  "packageManager": "yarn@3.0.0",
+  "main": "index.js"
+}
