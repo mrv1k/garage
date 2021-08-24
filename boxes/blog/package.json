@@ -1,0 +1,18 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Viktor Khotimchenko <viktorkhotimchenko@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.0.0",
+  "dependencies": {
+    "gatsby": "^3.12.0",
+    "gatsby-theme-mrv1k": "workspace:gatsby-theme-mrv1k",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9"
+  }
+}

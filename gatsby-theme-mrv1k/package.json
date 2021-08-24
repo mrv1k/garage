@@ -1,0 +1,13 @@
+{
+  "name": "gatsby-theme-mrv1k",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.0.0",
+  "main": "gatsby-config.js",
+  "author": "Viktor Khotimchenko <viktorkhotimchenko@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "*",
+    "react": "*",
+    "react-dom": "*"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Viktor Khotimchenko <viktorkhotimchenko@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.0.0",
+  "keywords": [],
+  "dependencies": {
+    "gatsby": "^3.12.0",
+    "gatsby-plugin-image": "^1.12.0",
+    "gatsby-plugin-react-helmet": "^4.12.0",
+    "gatsby-plugin-sharp": "^3.12.0",
+    "gatsby-source-filesystem": "^3.12.0",
+    "gatsby-theme-mrv1k": "workspace:gatsby-theme-mrv1k",
+    "gatsby-transformer-sharp": "^3.12.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-helmet": "^6"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+}
