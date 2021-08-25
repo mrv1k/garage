@@ -1,11 +1,17 @@
-/* eslint-disable global-require */
+const autoprefixer = require("autoprefixer");
+const tailwindcss = require("tailwindcss");
+const tailwindConfig = require("./tailwind.config");
+
+const tailwindThemeConfig = tailwindcss(tailwindConfig);
+
+// ! Remember, config file doesn't hot reload. Restart manually.
 
 module.exports = {
   plugins: [
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require("tailwindcss"), require(`autoprefixer`)],
+        postCssPlugins: [tailwindThemeConfig, autoprefixer],
       },
     },
     {
