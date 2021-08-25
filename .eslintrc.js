@@ -31,9 +31,10 @@ module.exports = {
         tsx: "never",
       },
     ],
-    "jest/no-hooks": "off",
+    "jest/no-hooks": 0,
   },
   overrides: [
+    // TypeScript
     {
       files: ["**/*.ts", "**/*.tsx"],
       env: {
@@ -59,7 +60,9 @@ module.exports = {
         "prettier",
       ],
       rules: {
-        "react/require-default-props": "off",
+        "react/require-default-props": 0,
+        "react/no-unescaped-entities": 0,
+        "arrow-body-style": 0,
       },
 
       parser: "@typescript-eslint/parser",
@@ -68,6 +71,7 @@ module.exports = {
         project: ["./tsconfig.json", "**/tsconfig.json"],
       },
     },
+    // JavaScript
     {
       files: ["**/*.js", "**/*.jsx"],
       env: {
@@ -76,9 +80,6 @@ module.exports = {
         "jest/globals": true,
       },
       extends: ["prettier"],
-      rules: {
-        "react/no-unescaped-entities": 0,
-      },
       plugins: [
         "jest",
         "jest-dom",
@@ -89,6 +90,7 @@ module.exports = {
         "prettier",
       ],
     },
+    // JS/TS Test
     {
       files: [
         "**/test/**",
@@ -99,7 +101,7 @@ module.exports = {
       ],
       plugins: ["jest"],
       rules: {
-        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/unbound-method": 0,
         "jest/unbound-method": "error",
         "import/no-extraneous-dependencies": [
           "error",

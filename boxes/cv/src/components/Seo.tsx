@@ -14,7 +14,7 @@ type SeoProps = {
   description?: string;
   lang?: string;
   // meta: PropTypes.arrayOf(PropTypes.object),
-  meta: Record<string, unknown>[];
+  meta?: Record<string, unknown>[];
 };
 
 function Seo({
