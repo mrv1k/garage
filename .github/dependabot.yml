@@ -1,27 +1,26 @@
 version: 2
 updates:
-
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/themes/advanced/"
+    directory: "/gatsby-theme-mrv1k"
     schedule:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/themes/amaranth/"
+    directory: "/boxes/blog"
     schedule:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/examples/advanced-demo/"
+    directory: "/boxes/cv"
     schedule:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/examples/amaranth-demo/"
+    directory: "/boxes/garden"
     schedule:
       interval: "monthly"
