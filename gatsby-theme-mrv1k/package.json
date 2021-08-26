@@ -11,6 +11,9 @@
     "react-dom": "*"
   },
   "dependencies": {
+    "@fontsource/jetbrains-mono": "^4.5.0",
+    "@fontsource/montserrat": "^4.5.1",
+    "@fontsource/roboto": "^4.5.0",
     "autoprefixer": "^10.3.2",
     "gatsby-plugin-postcss": "^4.12.0",
     "gatsby-plugin-purgecss": "^6.0.2",
