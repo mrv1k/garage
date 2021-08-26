@@ -5,3 +5,27 @@
 body {
   @apply bg-logo-white;
 }
+
+.container {
+  /* max-w-screen-lg	max-width: 1024px; */
+  /* max-w-screen-md	max-width: 768px; */
+  /* After some very sophisticated calculations I came up with 768 and 256 numbers */
+  display: grid;
+  grid-template-areas:
+    "nav nav"
+    "main aside";
+  grid-template-columns: 768px 256px;
+  gap: 1rem;
+  @apply max-w-screen-lg;
+  margin: 0 auto;
+}
+
+.nav {
+  grid-area: nav;
+}
+.main {
+  grid-area: main;
+}
+.aside {
+  grid-area: aside;
+}

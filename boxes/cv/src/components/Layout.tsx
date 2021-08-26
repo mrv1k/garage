@@ -34,28 +34,21 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-      <div
-        className="grid justify-center gap-4"
-        style={{ gridTemplateColumns: "minmax(22rem, 44rem)" }}
-      >
-        <header className="border-2 bg-logo-white text-logo-orange border-logo-black">
-          hed
-        </header>
+      <div className="container">
+        <nav className="nav">
+          <ol className="flex">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+          </ol>
+        </nav>
+        <aside className="aside">
+          <header className="border-2 bg-logo-white text-logo-orange border-logo-black">
+            what's the difference between header and h1? todo: find out
+          </header>
+        </aside>
 
-        <main className="bg-white">{children}</main>
-        <ul className="list-disc">
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
-        </ul>
-
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          footer
-        </footer>
+        <main className="bg-white main">{children}</main>
       </div>
     </>
   );
