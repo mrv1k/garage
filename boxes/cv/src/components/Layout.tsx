@@ -34,19 +34,29 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-      <header className="bg-blue-300">hed</header>
-      <div className="grid grid-cols-3 gap-4">
-        <main>{children}</main>
-      </div>
-      <footer
-        style={{
-          marginTop: `2rem`,
-        }}
+      <div
+        className="grid justify-center gap-4"
+        style={{ gridTemplateColumns: "minmax(22rem, 44rem)" }}
       >
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+        <header className="border-2 bg-logo-white text-logo-orange border-logo-black">
+          hed
+        </header>
+
+        <main className="bg-white">{children}</main>
+        <ul className="list-disc">
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+        </ul>
+
+        <footer
+          style={{
+            marginTop: `2rem`,
+          }}
+        >
+          footer
+        </footer>
+      </div>
     </>
   );
 };
