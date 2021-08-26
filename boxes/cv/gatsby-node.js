@@ -1,3 +1,5 @@
+// gatsby-node.js - build time and development generation and resolvers
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *

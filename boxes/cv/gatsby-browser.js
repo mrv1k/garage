@@ -1,3 +1,5 @@
+// gatsby-browser.js - client side code bundled to run in a user’s browser
+
 /**
  * Implement Gatsby's Browser APIs in this file.
  *

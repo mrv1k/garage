@@ -1,3 +1,5 @@
+// gatsby - ssr.js - code that should run when server - side rendering
+
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *
