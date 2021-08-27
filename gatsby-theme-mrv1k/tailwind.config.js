@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
+        serif: ["Montserrat", ...defaultTheme.fontFamily.serif],
         // font family is sans without a class
+        // ? use 'Roboto Slab' instead?
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
         mono: ["'JetBrains Mono'", ...defaultTheme.fontFamily.mono],
       },
