@@ -8,6 +8,7 @@ const tailwindThemeConfig = tailwindcss(tailwindConfig);
 
 module.exports = {
   plugins: [
+    `gatsby-remark-smartypants`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
