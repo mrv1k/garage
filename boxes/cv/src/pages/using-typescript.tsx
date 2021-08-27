@@ -5,13 +5,13 @@ import { PageProps, Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
-type DataProps = {
+type Props = {
   site: {
     buildTime: string;
   };
 };
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
+const UsingTypescript = ({ data, path }: PageProps<Props>): JSX.Element => (
   <Layout>
     <Seo title="Using TypeScript" />
     <h1>Gatsby supports TypeScript by default!</h1>

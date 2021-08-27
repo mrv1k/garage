@@ -9,21 +9,22 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-type SeoProps = {
-  title: string;
-  description?: string;
-  lang?: string;
-  // meta: PropTypes.arrayOf(PropTypes.object),
-  meta?: Record<string, unknown>[];
+type Query = {
+  site: {
+    siteMetadata: {
+      title: string;
+      description: string;
+      author: {
+        name: string;
+      };
+    };
+  };
 };
 
-function Seo({
-  title,
-  description = "",
-  lang = `en`,
-  meta = [],
-}: SeoProps): JSX.Element {
-  const { site } = useStaticQuery(
+type Props = { title: string; description?: string; lang?: string };
+
+function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
+  const { site } = useStaticQuery<Query>(
     graphql`
       query {
         site {
@@ -48,7 +49,7 @@ function Seo({
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={`%s | ${defaultTitle}`}
       meta={[
         {
           name: `description`,
@@ -82,8 +83,9 @@ function Seo({
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]}
     />
   );
 }
+
 export default Seo;

@@ -6,7 +6,7 @@ module.exports = {
   // },
 
   siteMetadata: {
-    title: `CV | Viktor Khotimchenko`,
+    title: `Viktor Khotimchenko CV`,
     description: `Viktor Khotimchenko portfolio website`,
     siteUrl: `https://mrv1k.me`,
     author: {
