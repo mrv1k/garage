@@ -8,7 +8,8 @@ const tailwindThemeConfig = tailwindcss(tailwindConfig);
 
 module.exports = {
   plugins: [
-    `gatsby-remark-smartypants`,
+    // ! Doesn't work. It's a plugin for gatsby-transformer-remark (markdown parser)
+    // `gatsby-remark-smartypants`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {

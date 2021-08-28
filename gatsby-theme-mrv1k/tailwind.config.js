@@ -18,7 +18,7 @@ module.exports = {
         logo: {
           orange: "#eb4a2e", // hand
           black: "#1d3131", // wrench
-          white: "#fcf8ed", // background
+          beige: "#fcf8ed", // background
         },
       },
     },

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "gatsby";
-// import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
@@ -18,7 +17,7 @@ const IndexPage = (): JSX.Element => (
       abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzkk
     </p>
     <br />
-    <p className="font-serif text-xl 80-digits">
+    <p className="font-serif 80-digits">
       1234567890123456789012345678901234567890123456789012345678901234567890123456789!
     </p>
     <p className="font-serif 80-chars">
@@ -40,12 +39,3 @@ const IndexPage = (): JSX.Element => (
 );
 
 export default IndexPage;
-
-// <StaticImage
-//   src=""
-//   width={300}
-//   quality={95}
-//   formats={["auto", "webp", "avif"]}
-//   alt="A Gatsby astronaut"
-//   style={{ marginBottom: `1.45rem` }}
-// />
