@@ -10,6 +10,12 @@ const NotFoundPage = (): JSX.Element => (
       <Seo title="About" />
       <section className="col-span-3 col-start-1 row-start-1">
         <h1 className="text-4xl text-logo-orange">About</h1>
+        <h1 className="text-4xl font-semibold text-logo-orange">About</h1>
+        <h1 className="text-4xl font-bold text-logo-orange">About</h1>
+        <h1 className="text-4xl font-extrabold text-logo-orange">About</h1>
+        <h1 className="text-4xl font-black text-logo-orange">About</h1>
+        <div />
+        <p>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefgh</p>
         <p>
           Alas, I wasn't always as happy and as determined with my career path.
         </p>

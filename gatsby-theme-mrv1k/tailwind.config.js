@@ -6,11 +6,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      // default font family is "sans"
       fontFamily: {
-        serif: ["Montserrat", ...defaultTheme.fontFamily.serif],
-        // font family is sans without a class
-        // ? use 'Roboto Slab' instead?
-        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
+        serif: defaultTheme.fontFamily.serif,
+        sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
         mono: ["'JetBrains Mono'", ...defaultTheme.fontFamily.mono],
       },
       colors: {

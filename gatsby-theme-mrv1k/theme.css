@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --logo-orange: #eb4a2e;
+  --logo-black: #1d3131;
+  --logo-beige: #fcf8ed;
+}
+
 body {
   @apply bg-logo-beige;
+}
+
+* {
+  @apply text-logo-black;
+}
+
+/* https://eager.io/blog/smarter-link-underlines/ */
+a {
+  @apply underline;
 }

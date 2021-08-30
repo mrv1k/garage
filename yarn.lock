@@ -2095,24 +2095,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/inter@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "@fontsource/inter@npm:4.5.0"
+  checksum: 1e5d35587287f966ea51035fd8c04d7bbbc7d13d5f494996642574f32863d97e7a17446ca4c682d2237a856ac035285ea70138b80211c2764e5576e4f5ae331d
+  languageName: node
+  linkType: hard
+
 "@fontsource/jetbrains-mono@npm:^4.5.0":
   version: 4.5.0
   resolution: "@fontsource/jetbrains-mono@npm:4.5.0"
   checksum: 3de42f6f26506e597026c2460e9f34dc002cb8b34d7e04871ad0d2a15f277d087170ab9e0604176d23ae4ec90fefe2730660672b6b9ffd7f4cc8335ead11e134
-  languageName: node
-  linkType: hard
-
-"@fontsource/montserrat@npm:^4.5.1":
-  version: 4.5.1
-  resolution: "@fontsource/montserrat@npm:4.5.1"
-  checksum: cd4c77889cae0a57a2810d88d4570cfaf05f6ddf2b16065011326a39e1ae7b417d395f5fc498dc57d9fa5a0490973a0c166e133c2fb9a9f311fe645d787831e2
-  languageName: node
-  linkType: hard
-
-"@fontsource/roboto@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "@fontsource/roboto@npm:4.5.0"
-  checksum: c045f5aaad68e4dcf4a293b764fefbf023298544ec453d72373104cf8d933f0e59e574d67fcf772b13ed511adfff2734d111c411e6fa6926e8379227d8460d8c
   languageName: node
   linkType: hard
 
@@ -11044,9 +11037,8 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "gatsby-theme-mrv1k@workspace:gatsby-theme-mrv1k"
   dependencies:
+    "@fontsource/inter": ^4.5.0
     "@fontsource/jetbrains-mono": ^4.5.0
-    "@fontsource/montserrat": ^4.5.1
-    "@fontsource/roboto": ^4.5.0
     autoprefixer: ^10.3.3
     gatsby-plugin-postcss: ^4.12.0
     gatsby-plugin-purgecss: ^6.0.2
