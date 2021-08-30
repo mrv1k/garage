@@ -1,0 +1,36 @@
+{
+  "name": "@mrv1k/car",
+  "packageManager": "yarn@3.0.0",
+  "version": "1.0.0",
+  "main": "n/a",
+  "author": "Viktor Khotimchenko <viktorkhotimchenko@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "dev:network": "gatsby develop -H 0.0.0.0",
+    "build": "gatsby build",
+    "build:network": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^4.5.0",
+    "@fontsource/jetbrains-mono": "^4.5.0",
+    "@mrv1k/blog": "workspace:boxes/blog",
+    "@mrv1k/cv": "workspace:boxes/cv",
+    "@mrv1k/garden": "workspace:boxes/garden",
+    "autoprefixer": "^10.3.3",
+    "gatsby": "^3.12.1",
+    "gatsby-plugin-postcss": "^4.12.0",
+    "gatsby-plugin-purgecss": "^6.0.2",
+    "gatsby-plugin-sharp": "^3.12.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "postcss": "^8.3.6"
+  }
+}

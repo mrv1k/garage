@@ -1,13 +1,12 @@
 {
-  "name": "blog",
+  "name": "@mrv1k/blog",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "gatsby-config.js",
   "author": "Viktor Khotimchenko <viktorkhotimchenko@gmail.com>",
   "license": "MIT",
   "packageManager": "yarn@3.0.0",
   "dependencies": {
     "gatsby": "^3.12.1",
-    "gatsby-theme-mrv1k": "workspace:gatsby-theme-mrv1k",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

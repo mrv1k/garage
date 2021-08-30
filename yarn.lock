@@ -3088,6 +3088,134 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mrv1k/blog@workspace:boxes/blog":
+  version: 0.0.0-use.local
+  resolution: "@mrv1k/blog@workspace:boxes/blog"
+  dependencies:
+    "@types/react": ^17.0.19
+    "@types/react-dom": ^17.0.9
+    gatsby: ^3.12.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@mrv1k/car@workspace:car":
+  version: 0.0.0-use.local
+  resolution: "@mrv1k/car@workspace:car"
+  dependencies:
+    "@fontsource/inter": ^4.5.0
+    "@fontsource/jetbrains-mono": ^4.5.0
+    "@mrv1k/blog": "workspace:boxes/blog"
+    "@mrv1k/cv": "workspace:boxes/cv"
+    "@mrv1k/garden": "workspace:boxes/garden"
+    "@types/react": ^17.0.19
+    "@types/react-dom": ^17.0.9
+    autoprefixer: ^10.3.3
+    gatsby: ^3.12.1
+    gatsby-plugin-postcss: ^4.12.0
+    gatsby-plugin-purgecss: ^6.0.2
+    gatsby-plugin-sharp: ^3.12.0
+    postcss: ^8.3.6
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    tailwindcss: ^2.2.8
+  languageName: unknown
+  linkType: soft
+
+"@mrv1k/cv@workspace:boxes/cv":
+  version: 0.0.0-use.local
+  resolution: "@mrv1k/cv@workspace:boxes/cv"
+  dependencies:
+    "@types/react": ^17.0.19
+    "@types/react-dom": ^17.0.9
+    "@types/react-helmet": ^6.1.2
+    gatsby: ^3.12.1
+    gatsby-plugin-canonical-urls: ^3.12.0
+    gatsby-plugin-image: ^1.12.0
+    gatsby-plugin-manifest: ^3.12.0
+    gatsby-plugin-offline: ^4.12.0
+    gatsby-plugin-react-helmet: ^4.12.0
+    gatsby-plugin-sharp: ^3.12.0
+    gatsby-source-filesystem: ^3.12.0
+    gatsby-transformer-sharp: ^3.12.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-helmet: ^6.1.0
+  languageName: unknown
+  linkType: soft
+
+"@mrv1k/garage@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@mrv1k/garage@workspace:."
+  dependencies:
+    "@testing-library/cypress": ^8.0.0
+    "@testing-library/jest-dom": ^5.14.1
+    "@testing-library/react": ^12.0.0
+    "@types/jest": ^27.0.1
+    "@types/node": ^16.7.4
+    "@types/react": ^17.0.19
+    "@types/react-dom": ^17.0.9
+    "@types/react-helmet": ^6.1.2
+    "@types/styled-components": ^5.1.13
+    "@typescript-eslint/eslint-plugin": ^4.29.3
+    babel-jest: ^27.1.0
+    babel-plugin-styled-components: ^1.13.2
+    cypress: ^8.3.1
+    cypress-axe: ^0.13.0
+    eslint: ^7.32.0
+    eslint-config-airbnb: ^18.2.1
+    eslint-config-airbnb-typescript: ^14.0.0
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-cypress: ^2.11.3
+    eslint-plugin-import: ^2.24.2
+    eslint-plugin-jest: ^24.4.0
+    eslint-plugin-jest-dom: ^3.9.0
+    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-prettier: ^3.4.1
+    eslint-plugin-react: ^7.24.0
+    eslint-plugin-react-hooks: ^4.2.0
+    eslint-plugin-testing-library: ^4.12.0
+    gatsby: ^3.12.1
+    gatsby-cypress: ^1.12.0
+    gatsby-plugin-styled-components: ^4.12.0
+    gh-pages: ^3.2.3
+    jest: ^27.1.0
+    jest-styled-components: ^7.0.5
+    markdownlint-cli2: ^0.2.0
+    postcss: ^8.3.6
+    prettier: ^2.3.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-query: ^3.21.0
+    start-server-and-test: ^1.13.1
+    styled-components: ^5.3.1
+    stylelint: ^13.13.1
+    stylelint-config-prettier: ^8.0.2
+    stylelint-config-recommended: ^5.0.0
+    stylelint-prettier: ^1.2.0
+    ts-jest: ^27.0.5
+    ts-node: ^10.2.1
+    ts-prune: ^0.10.0
+    typescript: ^4.4.2
+    write-good: ^1.0.8
+  peerDependencies:
+    postcss: ^8.3.6
+  languageName: unknown
+  linkType: soft
+
+"@mrv1k/garden@workspace:boxes/garden":
+  version: 0.0.0-use.local
+  resolution: "@mrv1k/garden@workspace:boxes/garden"
+  dependencies:
+    "@types/react": ^17.0.19
+    "@types/react-dom": ^17.0.9
+    gatsby: ^3.12.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.4":
   version: 2.1.4
   resolution: "@nodelib/fs.scandir@npm:2.1.4"
@@ -4983,13 +5111,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-iterate@npm:^1.0.0":
-  version: 1.1.4
-  resolution: "array-iterate@npm:1.1.4"
-  checksum: 8adc65525dfa871577b7ab91b41efd61d29c4067a08ec927340d6975e45797b9f04254dda115e366fbef11fb49277ac1c166405389886c7a251e1eddca89bd08
-  languageName: node
-  linkType: hard
-
 "array-union@npm:^1.0.1":
   version: 1.0.2
   resolution: "array-union@npm:1.0.2"
@@ -5787,19 +5908,6 @@ __metadata:
   checksum: d543e6b92e4ca715ca33c78e89a07a2290d43e5b2bc897d7ec588c5c7bbf59df93e45225ac0c9258aa6ce4320358990f99c9288f1c48280f8ec5d7a2e088d19b
   languageName: node
   linkType: hard
-
-"blog@workspace:boxes/blog":
-  version: 0.0.0-use.local
-  resolution: "blog@workspace:boxes/blog"
-  dependencies:
-    "@types/react": ^17.0.19
-    "@types/react-dom": ^17.0.9
-    gatsby: ^3.12.1
-    gatsby-theme-mrv1k: "workspace:gatsby-theme-mrv1k"
-    react: ^17.0.2
-    react-dom: ^17.0.2
-  languageName: unknown
-  linkType: soft
 
 "bluebird@npm:3.7.2, bluebird@npm:^3.7.2":
   version: 3.7.2
@@ -7644,29 +7752,6 @@ __metadata:
   checksum: 1f59fe10b5339b54b1a1eee110022f663f3495cf7cf2f480686e89edc7fa8bfe42dbab4b54f85034bc8b092a76cc7becbc2dad4f9adad332ab5831bec39ad540
   languageName: node
   linkType: hard
-
-"cv@workspace:boxes/cv":
-  version: 0.0.0-use.local
-  resolution: "cv@workspace:boxes/cv"
-  dependencies:
-    "@types/react": ^17.0.19
-    "@types/react-dom": ^17.0.9
-    "@types/react-helmet": ^6.1.2
-    gatsby: ^3.12.1
-    gatsby-plugin-canonical-urls: ^3.12.0
-    gatsby-plugin-image: ^1.12.0
-    gatsby-plugin-manifest: ^3.12.0
-    gatsby-plugin-offline: ^4.12.0
-    gatsby-plugin-react-helmet: ^4.12.0
-    gatsby-plugin-sharp: ^3.12.0
-    gatsby-source-filesystem: ^3.12.0
-    gatsby-theme-mrv1k: "workspace:gatsby-theme-mrv1k"
-    gatsby-transformer-sharp: ^3.12.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-helmet: ^6.1.0
-  languageName: unknown
-  linkType: soft
 
 "cypress-axe@npm:^0.13.0":
   version: 0.13.0
@@ -10494,78 +10579,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"garage@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "garage@workspace:."
-  dependencies:
-    "@testing-library/cypress": ^8.0.0
-    "@testing-library/jest-dom": ^5.14.1
-    "@testing-library/react": ^12.0.0
-    "@types/jest": ^27.0.1
-    "@types/node": ^16.7.4
-    "@types/react": ^17.0.19
-    "@types/react-dom": ^17.0.9
-    "@types/react-helmet": ^6.1.2
-    "@types/styled-components": ^5.1.13
-    "@typescript-eslint/eslint-plugin": ^4.29.3
-    babel-jest: ^27.1.0
-    babel-plugin-styled-components: ^1.13.2
-    cypress: ^8.3.1
-    cypress-axe: ^0.13.0
-    eslint: ^7.32.0
-    eslint-config-airbnb: ^18.2.1
-    eslint-config-airbnb-typescript: ^14.0.0
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-cypress: ^2.11.3
-    eslint-plugin-import: ^2.24.2
-    eslint-plugin-jest: ^24.4.0
-    eslint-plugin-jest-dom: ^3.9.0
-    eslint-plugin-jsx-a11y: ^6.4.1
-    eslint-plugin-prettier: ^3.4.1
-    eslint-plugin-react: ^7.24.0
-    eslint-plugin-react-hooks: ^4.2.0
-    eslint-plugin-testing-library: ^4.12.0
-    gatsby: ^3.12.1
-    gatsby-cypress: ^1.12.0
-    gatsby-plugin-styled-components: ^4.12.0
-    gh-pages: ^3.2.3
-    jest: ^27.1.0
-    jest-styled-components: ^7.0.5
-    markdownlint-cli2: ^0.2.0
-    postcss: ^8.3.6
-    prettier: ^2.3.2
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-query: ^3.21.0
-    start-server-and-test: ^1.13.1
-    styled-components: ^5.3.1
-    stylelint: ^13.13.1
-    stylelint-config-prettier: ^8.0.2
-    stylelint-config-recommended: ^5.0.0
-    stylelint-prettier: ^1.2.0
-    ts-jest: ^27.0.5
-    ts-node: ^10.2.1
-    ts-prune: ^0.10.0
-    typescript: ^4.4.2
-    write-good: ^1.0.8
-  peerDependencies:
-    postcss: ^8.3.6
-  languageName: unknown
-  linkType: soft
-
-"garden@workspace:boxes/garden":
-  version: 0.0.0-use.local
-  resolution: "garden@workspace:boxes/garden"
-  dependencies:
-    "@types/react": ^17.0.19
-    "@types/react-dom": ^17.0.9
-    gatsby: ^3.12.1
-    gatsby-theme-mrv1k: "workspace:gatsby-theme-mrv1k"
-    react: ^17.0.2
-    react-dom: ^17.0.2
-  languageName: unknown
-  linkType: soft
-
 "gatsby-cli@npm:^3.12.0":
   version: 3.12.0
   resolution: "gatsby-cli@npm:3.12.0"
@@ -10974,20 +10987,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"gatsby-remark-smartypants@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "gatsby-remark-smartypants@npm:4.9.0"
-  dependencies:
-    "@babel/runtime": ^7.14.8
-    retext: ^7.0.1
-    retext-smartypants: ^4.0.0
-    unist-util-visit: ^2.0.3
-  peerDependencies:
-    gatsby: ^3.0.0-next.0
-  checksum: 5d735ca8fafc4d914c1724d77469c3a77f339e19a2437943d43408a23700130de8d2dd3bc1fe65cbd4c689b9fd9c6c702d764c51703580503e75f9b12d844bff
-  languageName: node
-  linkType: hard
-
 "gatsby-source-filesystem@npm:^3.12.0":
   version: 3.12.0
   resolution: "gatsby-source-filesystem@npm:3.12.0"
@@ -11032,26 +11031,6 @@ fsevents@^1.2.7:
   checksum: 7d80bafb994cc533110b32bbe4a3c720e64eaf934eb65bea2ad315941c8052bed106b0b9a8a57fec6bdff8b5f2d40d3b4cc8321befa562551be62261d25c8413
   languageName: node
   linkType: hard
-
-"gatsby-theme-mrv1k@workspace:gatsby-theme-mrv1k":
-  version: 0.0.0-use.local
-  resolution: "gatsby-theme-mrv1k@workspace:gatsby-theme-mrv1k"
-  dependencies:
-    "@fontsource/inter": ^4.5.0
-    "@fontsource/jetbrains-mono": ^4.5.0
-    autoprefixer: ^10.3.3
-    gatsby-plugin-postcss: ^4.12.0
-    gatsby-plugin-purgecss: ^6.0.2
-    gatsby-remark-smartypants: ^4.9.0
-    postcss: ^8.3.6
-    tailwindcss: ^2.2.8
-  peerDependencies:
-    gatsby: "*"
-    postcss: ^8.3.6
-    react: "*"
-    react-dom: "*"
-  languageName: unknown
-  linkType: soft
 
 "gatsby-transformer-sharp@npm:^3.12.0":
   version: 3.12.0
@@ -16088,13 +16067,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"nlcst-to-string@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "nlcst-to-string@npm:2.0.4"
-  checksum: 251b5d894ca13893bfc9c4e892a0656a2effb9a053becf8c94d9655ce3d5acc50811f535b0e77cc2156f45ac4addcef29a9654fc4e5841337c86aa08fa2ea878
-  languageName: node
-  linkType: hard
-
 "no-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "no-case@npm:3.0.4"
@@ -17089,17 +17061,6 @@ fsevents@^1.2.7:
     json-parse-even-better-errors: ^2.3.0
     lines-and-columns: ^1.1.6
   checksum: 62085b17d64da57f40f6afc2ac1f4d95def18c4323577e1eced571db75d9ab59b297d1d10582920f84b15985cbfc6b6d450ccbf317644cfa176f3ed982ad87e2
-  languageName: node
-  linkType: hard
-
-"parse-latin@npm:^4.0.0":
-  version: 4.3.0
-  resolution: "parse-latin@npm:4.3.0"
-  dependencies:
-    nlcst-to-string: ^2.0.0
-    unist-util-modify-children: ^2.0.0
-    unist-util-visit-children: ^1.0.0
-  checksum: 4318342b85350f4da4dfa9613119648d4facbe61d653ef06e507f6c314b4d502b1d1956b0be2b71c9a3a863b9b6d42ce1a7af4680841d5b5d3d60097a288996b
   languageName: node
   linkType: hard
 
@@ -19381,46 +19342,6 @@ resolve@^2.0.0-next.3:
   version: 0.1.15
   resolution: "ret@npm:0.1.15"
   checksum: d76a9159eb8c946586567bd934358dfc08a36367b3257f7a3d7255fdd7b56597235af23c6afa0d7f0254159e8051f93c918809962ebd6df24ca2a83dbe4d4151
-  languageName: node
-  linkType: hard
-
-"retext-latin@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "retext-latin@npm:2.0.4"
-  dependencies:
-    parse-latin: ^4.0.0
-    unherit: ^1.0.4
-  checksum: bd549099bcfa0b420e87ba985d2f53333f8aaff006ae0222b8cdfc87dd19f981495c07f90c5bca006ff34a515ccbdc862c21f9d2c2467363160d4adc5c8684dc
-  languageName: node
-  linkType: hard
-
-"retext-smartypants@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "retext-smartypants@npm:4.0.0"
-  dependencies:
-    nlcst-to-string: ^2.0.0
-    unist-util-visit: ^2.0.0
-  checksum: a959ea698568ed5db71337fc341513e685c1b45bc5b38c76d5822fc16d61daaa7b49b8c8f4c6255781e9c173a7e89a6db68a5a7dc9a6cea4370f060aed4da045
-  languageName: node
-  linkType: hard
-
-"retext-stringify@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "retext-stringify@npm:2.0.4"
-  dependencies:
-    nlcst-to-string: ^2.0.0
-  checksum: 20109430b74d1817d95c8eca6b426370d2659a327c0bd06ba48ed6f347f25a0c5669e7338e9eb58065c8a11e87a82a9f0b0af6d45dabcbe30a8cebd49246fd60
-  languageName: node
-  linkType: hard
-
-"retext@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "retext@npm:7.0.1"
-  dependencies:
-    retext-latin: ^2.0.0
-    retext-stringify: ^2.0.0
-    unified: ^8.0.0
-  checksum: 98dccbb6e421bc07900dcbb3b4f180329b8b0051ccd25c60a016f0dcea87f6b21245ddd6395f3ddc819a692b74b92b04b2077ba401b5c9f410f6da06111c60d5
   languageName: node
   linkType: hard
 
@@ -21999,7 +21920,7 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"unified@npm:^8.0.0, unified@npm:^8.4.2":
+"unified@npm:^8.4.2":
   version: 8.4.2
   resolution: "unified@npm:8.4.2"
   dependencies:
@@ -22095,15 +22016,6 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"unist-util-modify-children@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "unist-util-modify-children@npm:2.0.0"
-  dependencies:
-    array-iterate: ^1.0.0
-  checksum: 7c8e11c320e2c8f8e0f7ab32a0d5a88317a8ed40c30ef0dca1038252eae9ca31db7e24f3c77799ae086bf1f73ee8cc34056e12334b05da304287e3a5b8700034
-  languageName: node
-  linkType: hard
-
 "unist-util-remove-position@npm:^1.0.0":
   version: 1.1.4
   resolution: "unist-util-remove-position@npm:1.1.4"
@@ -22140,13 +22052,6 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"unist-util-visit-children@npm:^1.0.0":
-  version: 1.1.4
-  resolution: "unist-util-visit-children@npm:1.1.4"
-  checksum: df41bf79851781ea1b19de854e2cfc78c9a63098f0387b32eb74b7860eb1f59bb7d12cce7ef53536baf14eea055d201e8b8268176b849a681c5a678b4d2de293
-  languageName: node
-  linkType: hard
-
 "unist-util-visit-parents@npm:^2.0.0":
   version: 2.1.2
   resolution: "unist-util-visit-parents@npm:2.1.2"
@@ -22175,7 +22080,7 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:^2.0.0, unist-util-visit@npm:^2.0.2, unist-util-visit@npm:^2.0.3":
+"unist-util-visit@npm:^2.0.0, unist-util-visit@npm:^2.0.2":
   version: 2.0.3
   resolution: "unist-util-visit@npm:2.0.3"
   dependencies:

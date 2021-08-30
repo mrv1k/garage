@@ -6,7 +6,7 @@ updates:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/gatsby-theme-mrv1k"
+    directory: "/boxes/core"
     schedule:
       interval: "monthly"
 
@@ -22,5 +22,10 @@ updates:
 
   - package-ecosystem: "npm"
     directory: "/boxes/garden"
+    schedule:
+      interval: "monthly"
+
+  - package-ecosystem: "npm"
+    directory: "/car"
     schedule:
       interval: "monthly"
