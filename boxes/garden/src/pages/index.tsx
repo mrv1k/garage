@@ -1,3 +1,3 @@
 import * as React from "react";
 
-export default (): JSX.Element => <div>blog</div>;
+export default (): JSX.Element => <div>garden</div>;

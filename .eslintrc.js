@@ -32,6 +32,7 @@ module.exports = {
       },
     ],
     "jest/no-hooks": 0,
+    "no-unused-vars": 0, // handled by TS
   },
   overrides: [
     // TypeScript
