@@ -31,7 +31,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           </header>
         </aside> */}
 
-        <main className="grid grid-cols-4 col-span-4 gap-4">{children}</main>
+        <main className="grid grid-cols-12 col-span-4">{children}</main>
       </div>
     </>
   );

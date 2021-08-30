@@ -1,9 +1,9 @@
 // gatsby - config.js - general configuration and plugins
 
 module.exports = {
-  // flags: {
-  //   DEV_WEBPACK_CACHE: true,
-  // },
+  flags: {
+    DEV_WEBPACK_CACHE: true,
+  },
 
   siteMetadata: {
     title: `Viktor Khotimchenko CV`,

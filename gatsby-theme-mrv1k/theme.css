@@ -20,3 +20,7 @@ body {
 a {
   @apply underline;
 }
+
+p {
+  @apply mb-4;
+}
