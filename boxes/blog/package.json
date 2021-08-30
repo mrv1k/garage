@@ -14,5 +14,13 @@
   "devDependencies": {
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "dev:network": "gatsby develop -H 0.0.0.0",
+    "build": "gatsby build",
+    "build:network": "gatsby serve",
+    "clean": "gatsby clean"
   }
 }

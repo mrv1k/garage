@@ -2,7 +2,7 @@
 
 module.exports = {
   flags: {
-    DEV_WEBPACK_CACHE: true,
+    FAST_DEV: true,
   },
 
   siteMetadata: {

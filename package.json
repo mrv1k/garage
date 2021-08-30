@@ -12,12 +12,6 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "develop": "gatsby develop",
-    "dev": "gatsby develop",
-    "dev:network": "gatsby develop -H 0.0.0.0",
-    "serve": "gatsby serve",
-    "build": "gatsby build",
-    "build:gh": "npm run clean && npm run build && gh-pages -d public",
     "clean": "rm -rf public && rm -rf .cache",
     "lint:js": "eslint --ext .ts,.tsx,.js,.jsx .",
     "lint:deadcode": "ts-prune -i '(test|gatsby)'",
