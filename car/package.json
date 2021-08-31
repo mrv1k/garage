@@ -24,6 +24,7 @@
     "@mrv1k/garden": "workspace:boxes/garden",
     "autoprefixer": "^10.3.3",
     "gatsby": "^3.12.1",
+    "gatsby-plugin-image": "^1.12.0",
     "gatsby-plugin-postcss": "^4.12.0",
     "gatsby-plugin-purgecss": "^6.0.2",
     "gatsby-plugin-sharp": "^3.12.0",
