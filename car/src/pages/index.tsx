@@ -7,7 +7,7 @@ import Seo from "../components/Seo";
 const IndexPage = (): JSX.Element => (
   <Layout>
     <Seo title="Home" />
-    <div className="col-span-8">
+    <div className="col-core">
       <h1 className="">Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>

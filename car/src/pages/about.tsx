@@ -13,25 +13,31 @@ const NotFoundPage = (): JSX.Element => (
         About
       </h1>
 
-      <section className="col-span-7 pb-6">
-        <h2 className="pb-4 text-3xl font-semibold">Hi, I'm Viktor</h2>
+      <section className="col-core">
+        <h2 className="text-3xl font-semibold">
+          Hi, I'm
+          <span className="text-logo-orange"> Viktor</span>, a front-end
+          developer based in Toronto, Canada.
+        </h2>
 
-        <div>
-          <p>
-            I'm a software engineer from Toronto, Canada. My focus is on writing
-            engaging &amp; performant websites for humans.
-          </p>
-          <p>
-            Recently, I got my PR and now proudly call Canada my home. With
-            immigration out of the way, I'm looking for a long term opportunity
-            as a TypeScript developer that I can just as proudly call home.
-          </p>
-        </div>
+        <p>
+          My focus is on writing engaging &amp; performant websites for humans.
+        </p>
+
+        <p>
+          Originally from Kazakhstan, Almaty. Immigration has been fun and now
+          I'm settled.
+        </p>
+        <p>
+          Looking for a long term opportunity as a TypeScript developer that I
+          can just as proudly call home.
+        </p>
       </section>
 
-      <aside className="col-span-3 col-start-9 row-span-2">
+      <aside className="row-start-2 md:row-span-3 col-aside">
         <StaticImage
-          className="rounded image-of-me aside"
+          className="image-of-me aside"
+          imgClassName="rounded"
           layout="fullWidth"
           formats={["auto", "webp", "avif"]}
           src="../images/profile-big.jpg"
@@ -40,8 +46,8 @@ const NotFoundPage = (): JSX.Element => (
         />
       </aside>
 
-      <section className="col-span-7">
-        <h2 className="pb-6 text-3xl font-semibold">Offline</h2>
+      <section className="col-core">
+        <h2 className="text-3xl font-semibold">Offline</h2>
 
         <p>
           When I'm not writing code, I'm thinking about code. After I exhaust my
@@ -50,8 +56,8 @@ const NotFoundPage = (): JSX.Element => (
         </p>
       </section>
 
-      <section className="col-span-7 pb-6">
-        <h2 className="pt-4 pb-4 text-3xl font-semibold">Online</h2>
+      <section className="col-core">
+        <h2 className="text-3xl font-semibold">Online</h2>
         <ul className="list-disc">
           <li>
             Projects are up on{" "}
@@ -76,8 +82,8 @@ const NotFoundPage = (): JSX.Element => (
         </ul>
       </section>
 
-      <aside className="col-span-7">
-        <h2 className="pt-4 pb-4 text-3xl font-semibold">How I got here</h2>
+      <aside className="col-core">
+        <h2 className="text-3xl font-semibold">How I got here</h2>
         <div>
           <p>I wasn't always as happy and as determined with my career path.</p>
           <p>
@@ -105,14 +111,15 @@ const NotFoundPage = (): JSX.Element => (
         </div>
       </aside>
 
-      <footer className="col-span-7">
-        <h2 className="pt-4 pb-4 text-3xl font-semibold">Get in touch</h2>
-        <div>Always happy to meet interesting people.</div>
-        Email is:
-        <a href="mailto:viktorkhotimchenko@gmail.com">
-          viktorkhotimchenko@gmail.com
-        </a>
-        <div>Cheers</div>
+      <footer className="mb-8 col-core md:mb-0">
+        <h2 className="text-3xl font-semibold">Get in touch</h2>
+        <p>
+          Always happy to meet interesting people. Email is:{" "}
+          <a href="mailto:viktorkhotimchenko@gmail.com">
+            viktorkhotimchenko@gmail.com
+          </a>
+        </p>
+        <p>Cheers</p>
       </footer>
     </>
   </Layout>
