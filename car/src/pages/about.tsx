@@ -4,7 +4,13 @@ import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
-const NotFoundPage = (): JSX.Element => (
+const EmailLink = () => (
+  <a className="text-logo-orange" href="mailto:viktorkhotimchenko@gmail.com">
+    viktorkhotimchenko@gmail.com
+  </a>
+);
+
+const AboutPage = (): JSX.Element => (
   <Layout>
     <>
       <Seo title="About" />
@@ -16,27 +22,21 @@ const NotFoundPage = (): JSX.Element => (
       <section className="col-core">
         <h2 className="text-3xl font-semibold">
           Hi, I'm
-          <span className="text-logo-orange"> Viktor</span>, a front-end
-          developer based in Toronto, Canada.
+          <span className="text-logo-orange"> Viktor</span>
         </h2>
-
         <p>
-          My focus is on writing engaging &amp; performant websites for humans.
+          I'm front-end developer based in Toronto, Canada. I currently work on
+          personal projects and open to new opportunities.
         </p>
 
         <p>
-          Originally from Kazakhstan, Almaty. Immigration has been fun and now
-          I'm settled.
-        </p>
-        <p>
-          Looking for a long term opportunity as a TypeScript developer that I
-          can just as proudly call home.
+          Get in touch: <EmailLink />
         </p>
       </section>
 
-      <aside className="row-start-2 md:row-span-3 col-aside">
+      <aside className="row-start-2 pb-8 md:row-start-2 md:row-end-5 col-aside md:pb-0">
         <StaticImage
-          className="image-of-me aside"
+          className="image-of-me aside "
           imgClassName="rounded"
           layout="fullWidth"
           formats={["auto", "webp", "avif"]}
@@ -47,11 +47,40 @@ const NotFoundPage = (): JSX.Element => (
       </aside>
 
       <section className="col-core">
+        <h2 className="text-3xl font-semibold">How I got here</h2>
+        <div>
+          <p>I wasn't always as happy and as determined with my career path.</p>
+          <p>
+            When I graduated college in 2015 I struggled to find a developer
+            job. Soon after, I run out of money and had to get any job. I felt
+            defeated and stopped programming.
+          </p>
+          <p>
+            I went like that till 2017 when having a job stopped being enough. I
+            wanted a career. The question was, what career? I explored
+            activities such as 3D modeling, video editing, print design and
+            others. Searching for something to overshadow programming. Nothing
+            did. After the experiment, it was clear that I must return to
+            programming. I got back up to speed with JavaScript (by reading
+            YDKJS book series and completing FCC front-end path) and was hired
+            by local e-commerce startup in 2018 where I worked for 2 years.
+          </p>
+          <p>
+            There, I was a sole developer responsible for all customer facing
+            websites. To help me manage it, I developed a Node.js build system
+            that enabled to share core functionality, improved performance and
+            enabled A/B testing. I also developed a Vue.js components library
+            that dramatically shortened website design to deployment cycle.
+          </p>
+        </div>
+      </section>
+
+      <section className="col-core">
         <h2 className="text-3xl font-semibold">Offline</h2>
 
         <p>
-          When I'm not writing code, I'm thinking about code. After I exhaust my
-          working capacity for the day I enjoy cycling, playing board games or
+          When I'm not writing code, I'm thinking about code. If I happen to
+          exhaust my working capacity I enjoy cycling, playing board games and
           watching movies.
         </p>
       </section>
@@ -82,42 +111,10 @@ const NotFoundPage = (): JSX.Element => (
         </ul>
       </section>
 
-      <aside className="col-core">
-        <h2 className="text-3xl font-semibold">How I got here</h2>
-        <div>
-          <p>I wasn't always as happy and as determined with my career path.</p>
-          <p>
-            After I graduated college in 2015 I struggled to find a developer
-            job. Soon after, I run out of money and had to get any job. I felt
-            defeated and stopped programming.
-          </p>
-          <p>
-            I went like that till 2017 when having a job stopped being enough. I
-            wanted a career. The question was, what career? I explored
-            activities such as 3D modeling, video editing, print design and
-            others. Searching for something to overshadow programming. Nothing
-            did. After the experiment, it was clear that I must return to
-            programming. I got back up to speed with JavaScript (by reading
-            YDKJS book series and completing FCC front-end path) and was hired
-            by local e-commerce startup in 2018 where I worked for 2 years.
-          </p>
-          <p>
-            There, I was a sole developer responsible for all customer facing
-            websites. To help me manage it, I developed a Node.js build system
-            that enabled to share core functionality, improved performance and
-            enabled A/B testing. I also developed a Vue.js components library
-            that dramatically shortened website design to deployment cycle.
-          </p>
-        </div>
-      </aside>
-
-      <footer className="mb-8 col-core md:mb-0">
+      <footer className="col-core md:pb-0">
         <h2 className="text-3xl font-semibold">Get in touch</h2>
         <p>
-          Always happy to meet interesting people. Email is:{" "}
-          <a href="mailto:viktorkhotimchenko@gmail.com">
-            viktorkhotimchenko@gmail.com
-          </a>
+          Always happy to meet interesting people. Email is: <EmailLink />{" "}
         </p>
         <p>Cheers</p>
       </footer>
@@ -125,4 +122,4 @@ const NotFoundPage = (): JSX.Element => (
   </Layout>
 );
 
-export default NotFoundPage;
+export default AboutPage;
