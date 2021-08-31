@@ -8,7 +8,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
-      <div className="grid max-w-screen-xl grid-cols-5 mx-auto my-9 default-layout">
+      <div className="grid max-w-screen-xl grid-cols-5 mx-auto my-10 default-layout">
         <nav className="nav">
           <ol>
             <li>
@@ -25,13 +25,8 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
             </li>
           </ol>
         </nav>
-        {/* <aside className="aside">
-          <header className="border-2 bg-logo-white text-logo-orange border-logo-black">
-            what's the difference between header and h1? todo: find out
-          </header>
-        </aside> */}
 
-        <main className="grid grid-cols-12 col-span-4">{children}</main>
+        <main className="grid grid-cols-12 col-span-4 gap-1">{children}</main>
       </div>
     </>
   );
