@@ -11,10 +11,7 @@
     "dev:network": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
     "build:network": "gatsby serve",
-    "clean": "gatsby clean",
-    "ignition": "gatsby develop",
-    "assemble": "gatsby build",
-    "drive": "gatsby serve"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.0",

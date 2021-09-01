@@ -6,8 +6,8 @@ const tailwindConfig = require("./tailwind.config");
 const tailwindThemeConfig = tailwindcss(tailwindConfig);
 
 const siteMetadata = {
-  title: `Viktor Khotimchenko CV`,
-  description: `Viktor Khotimchenko portfolio website`,
+  title: `Viktor Khotimchenko`,
+  description: `Viktor Khotimchenko web garage`,
   siteUrl: `https://mrv1k.me`,
   author: {
     name: "Viktor Khotimchenko",
@@ -15,9 +15,9 @@ const siteMetadata = {
     // summary?
   },
   social: {
-    github: "",
-    linkedin: "",
-    twitter: "",
+    linkedin: "https://www.linkedin.com/in/vkhotimchenko/",
+    twitter: "https://twitter.com/mrv1k_",
+    github: "https://github.com/mrv1k",
   },
 };
 
@@ -47,7 +47,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
+        // printRejected: true, // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector

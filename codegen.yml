@@ -1,0 +1,15 @@
+schema: http://localhost:8000/___graphql
+documents:
+  # - ./boxes/blog/**/*.{ts,tsx}
+  - ./boxes/cv/**/*.{ts,tsx}
+  # - ./boxes/garden/**/*.{ts,tsx}
+  - ./car/**/*.{ts,tsx}
+  # - ./node_modules/gatsby*/!(node_modules)/**/*.js
+generates:
+  ./codegen-graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+hooks:
+  afterAllFileWrite:
+    - prettier --write

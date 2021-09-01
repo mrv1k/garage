@@ -13,7 +13,8 @@
     "**/src/**/*",
     "**/__mocks__/**/*",
     "**/test/**/*",
-    "**/index.ts"
+    "**/index.ts",
+    "./codegen-graphql.ts"
   ],
   "compilerOptions": {
     "target": "ES2020",

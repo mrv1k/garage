@@ -31,7 +31,15 @@
     "test:e2e:dev": "CYPRESS_SUPPORT=y CYPRESS_BASE_URL=http://localhost:8000 CYPRESS_STAGE=dev start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e": "CYPRESS_SUPPORT=y npm run build && start-server-and-test serve http://localhost:9000 cy:open",
     "test:e2e:ci": "CYPRESS_SUPPORT=y npm run build && start-server-and-test serve http://localhost:9000 cy:run",
-    "write-good": "write-good $(glob 'content/**/*.md')"
+    "write-good": "write-good $(glob 'content/**/*.md')",
+    "client": "yarn workspace client start",
+    "ignition": "yarn workspace @mrv1k/car dev",
+    "revving": "yarn workspace @mrv1k/car dev:network",
+    "assemble": "yarn workspace @mrv1k/car build",
+    "drive": "yarn workspace @mrv1k/car serve",
+    "wash": "yarn workspace @mrv1k/car clean",
+    "codegen": "yarn graphql-codegen --watch '**/*.{ts,tsx}'",
+    "codegen:build": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.2",
@@ -43,6 +51,9 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.1.1",
+    "@graphql-codegen/typescript": "2.1.2",
+    "@graphql-codegen/typescript-operations": "2.1.2",
     "@testing-library/cypress": "^8.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
