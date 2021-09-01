@@ -80,7 +80,7 @@ module.exports = {
           process.env.NODE_ENV === "development"
             ? `src/images/favicon-dev.png`
             : `src/images/favicon.png`,
-        legacy: false, // don't generate icons for pre 11.3 iOS
+        // legacy: false, // don't generate icons for pre 11.3 iOS
       },
     },
     `gatsby-plugin-offline`, // after gatsby-plugin-manifest
