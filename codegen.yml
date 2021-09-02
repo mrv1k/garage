@@ -7,9 +7,13 @@ documents:
   # - ./node_modules/gatsby*/!(node_modules)/**/*.js
 generates:
   ./codegen-graphql.ts:
+    config:
+      skipTypename: true
+      avoidOptionals: true
     plugins:
       - typescript
       - typescript-operations
+
 hooks:
-  afterAllFileWrite:
+  afterOneFileWrite:
     - prettier --write

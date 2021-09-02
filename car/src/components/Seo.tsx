@@ -8,25 +8,14 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-
-type Query = {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-      author: {
-        name: string;
-      };
-    };
-  };
-};
+import { SeoQuery } from "../../../codegen-graphql";
 
 type Props = { title: string; description?: string; lang?: string };
 
 function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
-  const { site } = useStaticQuery<Query>(
+  const { site } = useStaticQuery<SeoQuery>(
     graphql`
-      query {
+      query Seo {
         site {
           siteMetadata {
             title
