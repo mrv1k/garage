@@ -4137,6 +4137,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/concurrently@npm:^6":
+  version: 6.2.1
+  resolution: "@types/concurrently@npm:6.2.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: 2fcddbdc536ce5bbe3b9c2e029afebea39c722bbb934101e1507f1c370501be15720b072ec3aa60656d0c08d07925fbe42430bc0fd3765ddf2b40d85912338ea
+  languageName: node
+  linkType: hard
+
 "@types/configstore@npm:^2.1.1":
   version: 2.1.1
   resolution: "@types/configstore@npm:2.1.1"
@@ -7908,6 +7917,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concurrently@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "concurrently@npm:6.2.1"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.16.1
+    lodash: ^4.17.21
+    read-pkg: ^5.2.0
+    rxjs: ^6.6.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^16.2.0
+  bin:
+    concurrently: bin/concurrently.js
+  checksum: 818ad5ac708df146948a2c4ac8c6a3845040454d13a4bab952ed02a52c167b5c04832d935b460e9549c239d6d05252132a94a8b2437ec9de0fff240b29225d14
+  languageName: node
+  linkType: hard
+
 "config-chain@npm:^1.1.11":
   version: 1.1.13
   resolution: "config-chain@npm:1.1.13"
@@ -8697,6 +8725,13 @@ __metadata:
   version: 2.20.0
   resolution: "date-fns@npm:2.20.0"
   checksum: d85fe87811bea42e85509c4e0a5bf3a5e2716990208e16b67b44749374626e4c505f8bbd02e4ea328c00be96ed6be127467aa0e3036f0e92eed101c8a2831205
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.16.1":
+  version: 2.23.0
+  resolution: "date-fns@npm:2.23.0"
+  checksum: 485216d550255a548552db16379e7a5cd440e262b90fbdc0362f63ee71d0e74bd00ce29ca8d76b343f6df36c1ecb6f22edba0b72848a4c32674e755619695c1f
   languageName: node
   linkType: hard
 
@@ -11550,6 +11585,7 @@ fsevents@^1.2.7:
     "@testing-library/cypress": ^8.0.0
     "@testing-library/jest-dom": ^5.14.1
     "@testing-library/react": ^12.0.0
+    "@types/concurrently": ^6
     "@types/jest": ^27.0.1
     "@types/node": ^16.7.4
     "@types/react": ^17.0.19
@@ -11559,6 +11595,7 @@ fsevents@^1.2.7:
     "@typescript-eslint/parser": ^4.30.0
     babel-jest: ^27.1.0
     babel-plugin-styled-components: ^1.13.2
+    concurrently: ^6.2.1
     cypress: ^8.3.1
     cypress-axe: ^0.13.0
     eslint: ^7.32.0
@@ -11596,6 +11633,7 @@ fsevents@^1.2.7:
     ts-node: ^10.2.1
     ts-prune: ^0.10.0
     typescript: ^4.4.2
+    wait-on: ^6.0.0
     write-good: ^1.0.8
   peerDependencies:
     postcss: ^8.3.6
@@ -21658,7 +21696,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.3.3, rxjs@npm:^6.6.0, rxjs@npm:^6.6.7":
+"rxjs@npm:^6.3.3, rxjs@npm:^6.6.0, rxjs@npm:^6.6.3, rxjs@npm:^6.6.7":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:
@@ -22462,6 +22500,13 @@ resolve@^2.0.0-next.3:
   version: 1.1.5
   resolution: "space-separated-tokens@npm:1.1.5"
   checksum: 8ef68f1cfa8ccad316b7f8d0df0919d0f1f6d32101e8faeee34ea3a923ce8509c1ad562f57388585ee4951e92d27afa211ed0a077d3d5995b5ba9180331be708
+  languageName: node
+  linkType: hard
+
+"spawn-command@npm:^0.0.2-1":
+  version: 0.0.2
+  resolution: "spawn-command@npm:0.0.2"
+  checksum: e35c5d28177b4d461d33c88cc11f6f3a5079e2b132c11e1746453bbb7a0c0b8a634f07541a2a234fa4758239d88203b758def509161b651e81958894c0b4b64b
   languageName: node
   linkType: hard
 
@@ -23286,7 +23331,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
+"supports-color@npm:^8.0.0, supports-color@npm:^8.1.0, supports-color@npm:^8.1.1":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
   dependencies:
@@ -23822,6 +23867,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     punycode: ^2.1.1
   checksum: 2b2b3dfa6bc65d027b2fac729fba0fb5b9d98af7b69ad6876c0f088ebf127f2d53e5a4d4464e5de40380cf721f392262c9183d2a05cea4967a890e8801c842f6
+  languageName: node
+  linkType: hard
+
+"tree-kill@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "tree-kill@npm:1.2.2"
+  bin:
+    tree-kill: cli.js
+  checksum: 49117f5f410d19c84b0464d29afb9642c863bc5ba40fcb9a245d474c6d5cc64d1b177a6e6713129eb346b40aebb9d4631d967517f9fbe8251c35b21b13cd96c7
   languageName: node
   linkType: hard
 
@@ -24967,7 +25021,7 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"wait-on@npm:6.0.0":
+"wait-on@npm:6.0.0, wait-on@npm:^6.0.0":
   version: 6.0.0
   resolution: "wait-on@npm:6.0.0"
   dependencies:
@@ -25862,7 +25916,7 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"yargs@npm:^16.0.3, yargs@npm:^16.1.0":
+"yargs@npm:^16.0.3, yargs@npm:^16.1.0, yargs@npm:^16.2.0":
   version: 16.2.0
   resolution: "yargs@npm:16.2.0"
   dependencies:
