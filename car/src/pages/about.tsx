@@ -4,13 +4,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
+import EmailContactLink from "../components/EmailContactLink";
 import { AboutPageQuery } from "../graphql-codegen-types";
-
-const EmailLink = () => (
-  <a className="text-logo-orange" href="mailto:viktorkhotimchenko@gmail.com">
-    viktorkhotimchenko@gmail.com
-  </a>
-);
 
 const AboutPage = (): JSX.Element => {
   const data = useStaticQuery<AboutPageQuery>(graphql`
@@ -20,16 +15,21 @@ const AboutPage = (): JSX.Element => {
           social {
             github
             linkedin
-            twitter
           }
           author {
             name
-            email
           }
         }
       }
     }
   `);
+
+  const name = data.site?.siteMetadata?.author?.name || "Viktor Khotimchenko";
+  const github =
+    data.site?.siteMetadata?.social?.github || "https://github.com/mrv1k";
+  const linkedin =
+    data.site?.siteMetadata?.social?.linkedin ||
+    "https://www.linkedin.com/in/vkhotimchenko/";
 
   return (
     <Layout>
@@ -51,7 +51,7 @@ const AboutPage = (): JSX.Element => {
           </p>
 
           <p>
-            Get in touch: <EmailLink />
+            Get in touch: <EmailContactLink />
           </p>
         </section>
 
@@ -63,7 +63,7 @@ const AboutPage = (): JSX.Element => {
             layout="fullWidth"
             src="../images/profile-big.jpg"
             quality={80}
-            alt="Viktor Khotimchenko profile picture"
+            alt={`${name} profile picture`}
           />
         </aside>
 
@@ -114,7 +114,7 @@ const AboutPage = (): JSX.Element => {
             <li>
               Projects are up on{" "}
               <a
-                href="https://github.com/mrv1k"
+                href={github}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
               >
@@ -124,7 +124,7 @@ const AboutPage = (): JSX.Element => {
             <li>
               Social network of choice is{" "}
               <a
-                href="https://www.linkedin.com/in/vkhotimchenko/"
+                href={linkedin}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
               >
@@ -137,7 +137,8 @@ const AboutPage = (): JSX.Element => {
         <footer className="col-core md:pb-0">
           <h2 className="text-3xl font-semibold">Get in touch</h2>
           <p>
-            Always happy to meet interesting people. Email is: <EmailLink />{" "}
+            Always happy to meet interesting people. Email is:{" "}
+            <EmailContactLink />{" "}
           </p>
           <p>Cheers</p>
         </footer>
