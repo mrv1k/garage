@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
-import { AboutPageQuery } from "../../../codegen-graphql";
+import { AboutPageQuery } from "../graphql-codegen-types";
 
 const EmailLink = () => (
   <a className="text-logo-orange" href="mailto:viktorkhotimchenko@gmail.com">

@@ -6,21 +6,6 @@ updates:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/boxes/blog"
-    schedule:
-      interval: "monthly"
-
-  - package-ecosystem: "npm"
-    directory: "/boxes/cv"
-    schedule:
-      interval: "monthly"
-
-  - package-ecosystem: "npm"
-    directory: "/boxes/garden"
-    schedule:
-      interval: "monthly"
-
-  - package-ecosystem: "npm"
     directory: "/car"
     schedule:
       interval: "monthly"

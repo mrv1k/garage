@@ -27,17 +27,6 @@ module.exports = {
   },
   siteMetadata,
   plugins: [
-    "@mrv1k/cv",
-    {
-      resolve: "@mrv1k/blog",
-      options: { basePath: `/blog` },
-    },
-    {
-      resolve: "@mrv1k/garden",
-      options: { basePath: `/garden` },
-    },
-
-    // baseline plugins
     {
       resolve: `gatsby-plugin-postcss`,
       options: {

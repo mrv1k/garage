@@ -14,7 +14,7 @@
     "**/__mocks__/**/*",
     "**/test/**/*",
     "**/index.ts",
-    "./codegen-graphql.ts"
+    "./car/src/graphql-codegen-types.ts"
   ],
   "compilerOptions": {
     "target": "ES2020",

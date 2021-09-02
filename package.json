@@ -1,7 +1,6 @@
 {
   "private": true,
   "workspaces": [
-    "boxes/*",
     "car"
   ],
   "name": "garage",
@@ -40,7 +39,8 @@
     "wash": "yarn workspace @mrv1k/car clean",
     "codegen": "graphql-codegen",
     "codegen:watch": "yarn wait:gatsby && yarn codegen --watch './car/**/*.{ts,tsx}'",
-    "wait:gatsby": "wait-on --log --interval 1000 http-get://127.0.0.1:8000/___graphql"
+    "wait:gatsby": "wait-on --log --interval 1000 http-get://127.0.0.1:8000/___graphql",
+    "postinstall": "codegen"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.2",

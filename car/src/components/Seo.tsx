@@ -8,7 +8,7 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-import { SeoQuery } from "../../../codegen-graphql";
+import { SeoQuery } from "../graphql-codegen-types";
 
 type Props = { title: string; description?: string; lang?: string };
 

@@ -4,7 +4,7 @@ module.exports = {
     "**/.cache/**",
     "**/static/**",
     "**/content/**",
-    "codegen-graphql.ts",
+    "**/graphql-codegen-types.ts",
   ],
   extends: [
     "plugin:jest/all",

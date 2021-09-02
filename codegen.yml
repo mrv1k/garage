@@ -4,12 +4,9 @@ schema: http://localhost:8000/___graphql
 documents:
   - ./node_modules/gatsby-*/!(node_modules)/**/*.js
   - ./.cache/fragments/*.js
-  # - ./boxes/blog/**/*.{ts,tsx}
-  - ./boxes/cv/**/*.{ts,tsx}
-  # - ./boxes/garden/**/*.{ts,tsx}
   - ./car/**/*.{ts,tsx}
 generates:
-  ./codegen-graphql.ts:
+  ./car/src/graphql-codegen-types.ts:
     config:
       avoidOptionals: true
       skipTypename: true
