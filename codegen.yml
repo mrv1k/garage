@@ -1,19 +1,28 @@
+# https://www.graphql-code-generator.com/docs/integrations/gatsby
+
 schema: http://localhost:8000/___graphql
 documents:
+  - ./node_modules/gatsby-*/!(node_modules)/**/*.js
+  - ./.cache/fragments/*.js
   # - ./boxes/blog/**/*.{ts,tsx}
   - ./boxes/cv/**/*.{ts,tsx}
   # - ./boxes/garden/**/*.{ts,tsx}
   - ./car/**/*.{ts,tsx}
-  # - ./node_modules/gatsby*/!(node_modules)/**/*.js
 generates:
   ./codegen-graphql.ts:
     config:
-      skipTypename: true
       avoidOptionals: true
+      skipTypename: true
     plugins:
-      - typescript
-      - typescript-operations
-
-hooks:
-  afterOneFileWrite:
-    - prettier --write
+      - typescript:
+          enumsAsTypes: true
+      - typescript-operations:
+          exportFragmentSpreadSubTypes: true
+pluckConfig:
+  globalIdentifier: graphql
+  modules:
+    - identifier: graphql
+      name: gatsby
+# hooks:
+#   afterOneFileWrite:
+#     - prettier --write
