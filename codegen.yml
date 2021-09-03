@@ -6,7 +6,7 @@ documents:
   - ./.cache/fragments/*.js
   - ./car/**/*.{ts,tsx}
 generates:
-  ./car/src/graphql-codegen-types.ts:
+  ./car/graphql-codegen-types.ts:
     config:
       avoidOptionals: true
       skipTypename: true
@@ -20,6 +20,6 @@ pluckConfig:
   modules:
     - identifier: graphql
       name: gatsby
-# hooks:
-#   afterOneFileWrite:
-#     - prettier --write
+hooks:
+  afterOneFileWrite:
+    - prettier --write

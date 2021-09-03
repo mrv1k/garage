@@ -1,6 +1,4 @@
 .vscode
-# types generated for graphQL by graphql-codegen
-graphql-codegen-types.ts
 
 # Logs
 logs

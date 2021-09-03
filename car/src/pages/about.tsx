@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import EmailContactLink from "../components/EmailContactLink";
-import { AboutPageQuery } from "../graphql-codegen-types";
+import { AboutPageQuery } from "../../graphql-codegen-types";
 
 const AboutPage = (): JSX.Element => {
   const data = useStaticQuery<AboutPageQuery>(graphql`

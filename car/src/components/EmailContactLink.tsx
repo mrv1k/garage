@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { EmailContactLinkQuery } from "../graphql-codegen-types";
+import { EmailContactLinkQuery } from "../../graphql-codegen-types";
 
 const EmailContactLink = (): JSX.Element => {
   const data = useStaticQuery<EmailContactLinkQuery>(graphql`
