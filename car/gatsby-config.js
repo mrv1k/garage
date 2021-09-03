@@ -1,9 +1,4 @@
 // gatsby - config.js - general configuration and plugins
-const autoprefixer = require("autoprefixer");
-const tailwindcss = require("tailwindcss");
-const tailwindConfig = require("./tailwind.config");
-
-const tailwindThemeConfig = tailwindcss(tailwindConfig);
 
 const siteMetadata = {
   cv: {
@@ -37,16 +32,7 @@ module.exports = {
   // },
   siteMetadata,
   plugins: [
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [tailwindThemeConfig, autoprefixer],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: { tailwind: true },
-    },
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
