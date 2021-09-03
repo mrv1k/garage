@@ -1,7 +1,7 @@
 // gatsby - config.js - general configuration and plugins
 
 const siteMetadata = {
-  // title and description are hardcoded String type
+  // title and description are hardcoded String type, can override but it's a hassle
   title: "Viktor Khotimchenko",
   description:
     "Viktor Khotimchenko web garage consisting of CV, Blog and Garden",
@@ -31,44 +31,7 @@ module.exports = {
   // },
   siteMetadata,
   plugins: [
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Viktor Khotimchenko`,
-        short_name: `mrv1k.me`,
-        start_url: `/`,
-        background_color: `#fcf8ed`,
-        theme_color: `#eb4a2e`,
-        display: `minimal-ui`,
-        // This path is relative to the root of the site.
-        icon:
-          process.env.NODE_ENV === "development"
-            ? `src/images/favicon-dev.png`
-            : `src/images/favicon.png`,
-        // legacy: false, // don't generate icons for pre 11.3 iOS
-      },
-    },
-    `gatsby-plugin-offline`, // after gatsby-plugin-manifest
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: `https://mrv1k.me`,
-      },
-    },
-
-    // blog plugins
+    // gatsby-source-* — a source plugin loads data from a given source (e.g. WordPress, MongoDB, the file system).
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -84,9 +47,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+
+    // gatsby-transformer-* — a transformer plugin converts data from one format (e.g. CSV, YAML) to a JavaScript object.
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          // gatsby-[plugin-name]-* — if a plugin is a plugin for another plugin
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -99,11 +72,49 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-autolink-headers`, // must come before gatsby-remark-prismjs
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: "÷",
+              showLineNumbers: true,
+            },
+          },
         ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    // gatsby-theme-* — this naming convention is used for Gatsby themes, which are a type of plugin.
+    // no gatsby-theme plugins
+
+    // gatsby-plugin-* — this is the most general plugin type. [plugins that didn't match any other categories]
+    `gatsby-plugin-image`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Viktor Khotimchenko`,
+        short_name: `mrv1k.me`,
+        start_url: `/`,
+        background_color: `#fcf8ed`,
+        theme_color: `#eb4a2e`,
+        display: `minimal-ui`,
+        // This path is relative to the root of the site.
+        icon:
+          process.env.NODE_ENV === "development"
+            ? `src/images/favicon-dev.png`
+            : `src/images/favicon.png`,
+      },
+    },
+    `gatsby-plugin-offline`, // must come after gatsby-plugin-manifest
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://mrv1k.me`,
       },
     },
   ],
