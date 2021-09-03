@@ -1,19 +1,18 @@
 // gatsby - config.js - general configuration and plugins
 
 const siteMetadata = {
-  cv: {
-    title: `Viktor Khotimchenko CV | mrv1k`,
-    description: `Viktor Khotimchenko portfolio website`,
-  },
+  // title and description are hardcoded String type
+  title: "Viktor Khotimchenko",
+  description:
+    "Viktor Khotimchenko web garage consisting of CV, Blog and Garden",
   blog: {
-    title: "mrv1k blog",
     description: "A blog about what you could, but probably shouldn't, do",
   },
   garden: {
-    title: "mrv1k garden",
     description: "Public learning space",
   },
-  siteUrl: `https://mrv1k.me`,
+
+  siteUrl: "https://mrv1k.me",
   author: {
     name: "Viktor Khotimchenko",
     email: "viktorkhotimchenko@gmail.com",

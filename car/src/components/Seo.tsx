@@ -29,8 +29,12 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaDescription =
+    description ??
+    site?.siteMetadata?.description ??
+    "Viktor Khotimchenko Personal Website";
+  const defaultTitle = site?.siteMetadata?.title ?? "Viktor Khotimchenko";
+  const name = site?.siteMetadata?.author?.name ?? "Viktor Khotimchenko";
 
   return (
     <Helmet
@@ -38,7 +42,7 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${defaultTitle}`}
+      titleTemplate={`%s - ${defaultTitle}`}
       meta={[
         {
           name: `description`,
@@ -62,7 +66,7 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author?.name || ``,
+          content: name,
         },
         {
           name: `twitter:title`,
