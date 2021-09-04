@@ -12,16 +12,36 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         <nav className="mb-4 nav col-span-full md:col-span-1 md:mb-0">
           <ol className="flex md:flex-col">
             <li className="pr-2">
-              <Link to="/">home</Link>
+              <Link
+                activeClassName="text-logo-orange no-underline disabled"
+                to="/"
+              >
+                home
+              </Link>
             </li>
             <li>
-              <Link to="/about">about</Link>
+              <Link
+                activeClassName="text-logo-orange no-underline disabled"
+                to="/about"
+              >
+                about
+              </Link>
             </li>
             <li>
-              <Link to="/blog">blog</Link>
+              <Link
+                activeClassName="text-logo-orange no-underline disabled"
+                to="/blog"
+              >
+                blog
+              </Link>
             </li>
             <li>
-              <Link to="/garden">garden</Link>
+              <Link
+                activeClassName="text-logo-orange no-underline disabled"
+                to="/garden"
+              >
+                garden
+              </Link>
             </li>
           </ol>
         </nav>

@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql, Link } from "gatsby";
 import * as React from "react";
 import { BlogIndexQuery } from "../../../graphql-codegen-types";
+import Layout from "../../components/Layout";
 
 const BlogIndex = (): JSX.Element => {
   const data = useStaticQuery<BlogIndexQuery>(graphql`
@@ -28,15 +29,17 @@ const BlogIndex = (): JSX.Element => {
   );
 
   return (
-    <div>
-      <ul>
-        {paths.map((path) => (
-          <li key={path}>
-            <Link to={path}>{path}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Layout>
+      <div className="col-core">
+        <ul className="list-decimal">
+          {paths.map((path) => (
+            <li key={path}>
+              <Link to={path}>{path}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Layout>
   );
 };
 export default BlogIndex;
