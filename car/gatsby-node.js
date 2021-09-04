@@ -9,7 +9,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === "MarkdownRemark") {
     // strip off slashes, to make nesting under /blog easier
-    const value = createFilePath({ node, getNode }).replaceAll("/", "");
+    const value = createFilePath({ node, getNode })
+      .replaceAll("/", "")
+      .toLowerCase();
 
     createNodeField({
       name: "slug",
@@ -83,7 +85,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const slug = post.frontmatter.slug || post.fields.slug;
 
       actions.createPage({
-        path: `blog/${slug.toLowerCase()}`,
+        path: `blog/${slug}`,
         component: blogPost,
         context: {
           id: post.id,
