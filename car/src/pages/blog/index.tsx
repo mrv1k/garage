@@ -1,10 +1,10 @@
 import { useStaticQuery, graphql, Link } from "gatsby";
 import * as React from "react";
-import { BlogHomePageQuery } from "../../../graphql-codegen-types";
+import { BlogIndexQuery } from "../../../graphql-codegen-types";
 
-const BlogHomePage = (): JSX.Element => {
-  const data = useStaticQuery<BlogHomePageQuery>(graphql`
-    query BlogHomePage {
+const BlogIndex = (): JSX.Element => {
+  const data = useStaticQuery<BlogIndexQuery>(graphql`
+    query BlogIndex {
       allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: ASC }
         limit: 1000
@@ -23,18 +23,15 @@ const BlogHomePage = (): JSX.Element => {
 
   const posts = data?.allMarkdownRemark?.nodes;
 
-  const paths = posts
-    .map(
-      (post, index) =>
-        post?.frontmatter?.slug ?? post?.fields?.slug ?? String(index)
-    )
-    .map((slug) => `blog/${slug}`);
+  const paths = posts.map(
+    (post) => post?.frontmatter?.slug ?? post?.fields?.slug
+  );
 
   return (
     <div>
       <ul>
         {paths.map((path) => (
-          <li>
+          <li key={path}>
             <Link to={path}>{path}</Link>
           </li>
         ))}
@@ -42,4 +39,4 @@ const BlogHomePage = (): JSX.Element => {
     </div>
   );
 };
-export default BlogHomePage;
+export default BlogIndex;

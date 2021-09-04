@@ -30,6 +30,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(/* GraphQL */ `
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
+      fields: Fields!
     }
 
     type Frontmatter {
@@ -37,6 +38,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       slug: String
       spoiler: String
+    }
+
+    type Fields {
+      slug: String!
     }
   `);
 };

@@ -362,6 +362,14 @@ export type DuotoneGradient = {
   opacity: Maybe<Scalars["Int"]>;
 };
 
+export type Fields = {
+  slug: Scalars["String"];
+};
+
+export type FieldsFilterInput = {
+  slug: Maybe<StringQueryOperatorInput>;
+};
+
 export type File = Node & {
   sourceInstanceName: Scalars["String"];
   absolutePath: Scalars["String"];
@@ -544,10 +552,10 @@ export type FileFieldsEnum =
   | "childrenMarkdownRemark___frontmatter___date"
   | "childrenMarkdownRemark___frontmatter___slug"
   | "childrenMarkdownRemark___frontmatter___spoiler"
+  | "childrenMarkdownRemark___fields___slug"
   | "childrenMarkdownRemark___excerpt"
   | "childrenMarkdownRemark___rawMarkdownBody"
   | "childrenMarkdownRemark___fileAbsolutePath"
-  | "childrenMarkdownRemark___fields___slug"
   | "childrenMarkdownRemark___html"
   | "childrenMarkdownRemark___htmlAst"
   | "childrenMarkdownRemark___excerptAst"
@@ -602,10 +610,10 @@ export type FileFieldsEnum =
   | "childMarkdownRemark___frontmatter___date"
   | "childMarkdownRemark___frontmatter___slug"
   | "childMarkdownRemark___frontmatter___spoiler"
+  | "childMarkdownRemark___fields___slug"
   | "childMarkdownRemark___excerpt"
   | "childMarkdownRemark___rawMarkdownBody"
   | "childMarkdownRemark___fileAbsolutePath"
-  | "childMarkdownRemark___fields___slug"
   | "childMarkdownRemark___html"
   | "childMarkdownRemark___htmlAst"
   | "childMarkdownRemark___excerptAst"
@@ -1452,10 +1460,10 @@ export type MarkdownHeadingLevels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type MarkdownRemark = Node & {
   id: Scalars["ID"];
   frontmatter: Maybe<Frontmatter>;
+  fields: Fields;
   excerpt: Maybe<Scalars["String"]>;
   rawMarkdownBody: Maybe<Scalars["String"]>;
   fileAbsolutePath: Maybe<Scalars["String"]>;
-  fields: Maybe<MarkdownRemarkFields>;
   html: Maybe<Scalars["String"]>;
   htmlAst: Maybe<Scalars["JSON"]>;
   excerptAst: Maybe<Scalars["JSON"]>;
@@ -1530,20 +1538,16 @@ export type MarkdownRemarkEdge = {
   previous: Maybe<MarkdownRemark>;
 };
 
-export type MarkdownRemarkFields = {
-  slug: Maybe<Scalars["String"]>;
-};
-
 export type MarkdownRemarkFieldsEnum =
   | "id"
   | "frontmatter___title"
   | "frontmatter___date"
   | "frontmatter___slug"
   | "frontmatter___spoiler"
+  | "fields___slug"
   | "excerpt"
   | "rawMarkdownBody"
   | "fileAbsolutePath"
-  | "fields___slug"
   | "html"
   | "htmlAst"
   | "excerptAst"
@@ -1642,17 +1646,13 @@ export type MarkdownRemarkFieldsEnum =
   | "internal___owner"
   | "internal___type";
 
-export type MarkdownRemarkFieldsFilterInput = {
-  slug: Maybe<StringQueryOperatorInput>;
-};
-
 export type MarkdownRemarkFilterInput = {
   id: Maybe<StringQueryOperatorInput>;
   frontmatter: Maybe<FrontmatterFilterInput>;
+  fields: Maybe<FieldsFilterInput>;
   excerpt: Maybe<StringQueryOperatorInput>;
   rawMarkdownBody: Maybe<StringQueryOperatorInput>;
   fileAbsolutePath: Maybe<StringQueryOperatorInput>;
-  fields: Maybe<MarkdownRemarkFieldsFilterInput>;
   html: Maybe<StringQueryOperatorInput>;
   htmlAst: Maybe<JsonQueryOperatorInput>;
   excerptAst: Maybe<JsonQueryOperatorInput>;
@@ -1936,10 +1936,10 @@ export type QueryAllSitePageArgs = {
 export type QueryMarkdownRemarkArgs = {
   id: Maybe<StringQueryOperatorInput>;
   frontmatter: Maybe<FrontmatterFilterInput>;
+  fields: Maybe<FieldsFilterInput>;
   excerpt: Maybe<StringQueryOperatorInput>;
   rawMarkdownBody: Maybe<StringQueryOperatorInput>;
   fileAbsolutePath: Maybe<StringQueryOperatorInput>;
-  fields: Maybe<MarkdownRemarkFieldsFilterInput>;
   html: Maybe<StringQueryOperatorInput>;
   htmlAst: Maybe<JsonQueryOperatorInput>;
   excerptAst: Maybe<JsonQueryOperatorInput>;
@@ -3462,13 +3462,13 @@ export type AboutPageQuery = {
   }>;
 };
 
-export type BlogHomePageQueryVariables = Exact<{ [key: string]: never }>;
+export type BlogIndexQueryVariables = Exact<{ [key: string]: never }>;
 
-export type BlogHomePageQuery = {
+export type BlogIndexQuery = {
   allMarkdownRemark: {
     nodes: Array<{
       frontmatter: Maybe<{ slug: Maybe<string> }>;
-      fields: Maybe<{ slug: Maybe<string> }>;
+      fields: { slug: string };
     }>;
   };
 };
@@ -3496,11 +3496,11 @@ export type BlogPostBySlugQuery = {
     }>;
   }>;
   previous: Maybe<{
-    fields: Maybe<{ slug: Maybe<string> }>;
+    fields: { slug: string };
     frontmatter: Maybe<{ title: Maybe<string> }>;
   }>;
   next: Maybe<{
-    fields: Maybe<{ slug: Maybe<string> }>;
+    fields: { slug: string };
     frontmatter: Maybe<{ title: Maybe<string> }>;
   }>;
 };
