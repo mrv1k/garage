@@ -65,7 +65,7 @@ module.exports = {
         "react/require-default-props": 0,
         "react/no-unescaped-entities": 0,
         "arrow-body-style": 0,
-        "no-unsafe-assignment": 0, // breaks with graphql autogen
+        "@typescript-eslint/no-unsafe-assignment": 0, // breaks with graphql autogen
       },
 
       parser: "@typescript-eslint/parser",

@@ -3462,6 +3462,17 @@ export type AboutPageQuery = {
   }>;
 };
 
+export type BlogHomePageQueryVariables = Exact<{ [key: string]: never }>;
+
+export type BlogHomePageQuery = {
+  allMarkdownRemark: {
+    nodes: Array<{
+      frontmatter: Maybe<{ slug: Maybe<string> }>;
+      fields: Maybe<{ slug: Maybe<string> }>;
+    }>;
+  };
+};
+
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>;
 
 export type Unnamed_1_Query = { site: Maybe<{ buildTime: Maybe<any> }> };
