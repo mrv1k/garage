@@ -23,18 +23,15 @@ const BlogIndex = (): JSX.Element => {
   `);
 
   const posts = data?.allMarkdownRemark?.nodes;
-
-  const paths = posts.map(
-    (post) => post?.frontmatter?.slug ?? post?.fields?.slug
-  );
+  const slugs = posts.map((post) => post.fields.slug);
 
   return (
     <Layout title="Blog">
       <div className="col-core">
         <ul className="list-decimal list-inside">
-          {paths.map((path) => (
-            <li key={path}>
-              <Link to={path}>{path}</Link>
+          {slugs.map((slug) => (
+            <li key={slug}>
+              <Link to={slug}>{slug}</Link>
             </li>
           ))}
         </ul>
