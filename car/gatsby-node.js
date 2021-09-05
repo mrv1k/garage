@@ -4,22 +4,7 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === "MarkdownRemark") {
-    // strip off slashes, to make nesting under /blog easier
-    const value = createFilePath({ node, getNode })
-      .replaceAll("/", "")
-      .toLowerCase();
-
-    createNodeField({
-      name: "slug",
-      node,
-      value,
-    });
-  }
-};
+// APIs are listed in execution order
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -29,12 +14,12 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   createTypes(/* GraphQL */ `
     type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
+      frontmatter: Frontmatter!
       fields: Fields!
     }
 
     type Frontmatter {
-      title: String
+      title: String!
       date: Date @dateformat
       slug: String
       spoiler: String
@@ -44,6 +29,25 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String!
     }
   `);
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === "MarkdownRemark") {
+    // strip off slashes to match with frontmatter & make nesting under /blog easier
+    const filepath = createFilePath({ node, getNode })
+      .replaceAll("/", "")
+      .toLowerCase();
+
+    const value = node.frontmatter.slug || filepath;
+
+    createNodeField({
+      node,
+      name: "slug",
+      value,
+    });
+  }
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -56,6 +60,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         nodes {
           id
           frontmatter {
+            title
             slug
           }
           fields {
@@ -68,7 +73,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (result.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
+      `There was an error loading blog posts`,
       result.errors
     );
     return;
@@ -87,10 +92,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const nextPostId =
         index === posts.length - 1 ? null : posts[index + 1].id;
 
-      const slug = post.frontmatter.slug || post.fields.slug;
+      const postPath = `blog/${post.fields.slug}`;
+
+      if (!post.frontmatter.title) {
+        reporter.panicOnBuild(
+          `Blog post: ${postPath} is missing frontmatter 'title'`
+        );
+      }
 
       actions.createPage({
-        path: `blog/${slug}`,
+        path: postPath,
         component: blogPost,
         context: {
           id: post.id,

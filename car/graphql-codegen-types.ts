@@ -962,7 +962,7 @@ export type FloatQueryOperatorInput = {
 };
 
 export type Frontmatter = {
-  title: Maybe<Scalars["String"]>;
+  title: Scalars["String"];
   date: Maybe<Scalars["Date"]>;
   slug: Maybe<Scalars["String"]>;
   spoiler: Maybe<Scalars["String"]>;
@@ -1459,7 +1459,7 @@ export type MarkdownHeadingLevels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export type MarkdownRemark = Node & {
   id: Scalars["ID"];
-  frontmatter: Maybe<Frontmatter>;
+  frontmatter: Frontmatter;
   fields: Fields;
   excerpt: Maybe<Scalars["String"]>;
   rawMarkdownBody: Maybe<Scalars["String"]>;
@@ -3823,7 +3823,7 @@ export type BlogIndexQueryVariables = Exact<{ [key: string]: never }>;
 export type BlogIndexQuery = {
   allMarkdownRemark: {
     nodes: Array<{
-      frontmatter: Maybe<{ slug: Maybe<string> }>;
+      frontmatter: { slug: Maybe<string> };
       fields: { slug: string };
     }>;
   };
@@ -3845,20 +3845,10 @@ export type BlogPostBySlugQuery = {
     id: string;
     excerpt: Maybe<string>;
     html: Maybe<string>;
-    frontmatter: Maybe<{
-      title: Maybe<string>;
-      date: Maybe<any>;
-      spoiler: Maybe<string>;
-    }>;
+    frontmatter: { title: string; date: Maybe<any>; spoiler: Maybe<string> };
   }>;
-  previous: Maybe<{
-    fields: { slug: string };
-    frontmatter: Maybe<{ title: Maybe<string> }>;
-  }>;
-  next: Maybe<{
-    fields: { slug: string };
-    frontmatter: Maybe<{ title: Maybe<string> }>;
-  }>;
+  previous: Maybe<{ fields: { slug: string }; frontmatter: { title: string } }>;
+  next: Maybe<{ fields: { slug: string }; frontmatter: { title: string } }>;
 };
 
 export type GatsbyImageSharpFixedFragment = {
