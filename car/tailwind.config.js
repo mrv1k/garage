@@ -1,4 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+/* eslint-disable global-require */
+// const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -7,13 +8,14 @@ module.exports = {
     extend: {
       // default font family is "sans"
       fontFamily: {
-        // serif: defaultTheme.fontFamily.serif,
+        // default values
         // font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-        // sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
         // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        // mono: ["'JetBrains Mono'", ...defaultTheme.fontFamily.mono],
         // font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        // font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+        // ex-custom fonts
+        // serif: defaultTheme.fontFamily.serif,
+        // sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
+        // mono: ["'JetBrains Mono'", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         // based on my favicon
@@ -28,5 +30,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

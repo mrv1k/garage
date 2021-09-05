@@ -12,7 +12,7 @@ type Props = {
 };
 
 const UsingTypescript = ({ data, path }: PageProps<Props>): JSX.Element => (
-  <Layout>
+  <Layout title="Using TypeScript">
     <Seo title="Using TypeScript" />
     <h1>Gatsby supports TypeScript by default!</h1>
     <p>

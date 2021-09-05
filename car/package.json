@@ -16,6 +16,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.0",
     "@fontsource/jetbrains-mono": "^4.5.0",
+    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.4",
     "gatsby": "^3.13.0",
     "gatsby-plugin-canonical-urls": "^3.13.0",

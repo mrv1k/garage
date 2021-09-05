@@ -1,5 +1,5 @@
 ---
-title: "Hello World"
+title: "Zdarova zaebal"
 date: 2015-05-01
 ---
 
@@ -225,6 +225,6 @@ This paragraph has some `code` in it.
 
     This paragraph has some `code` in it.
 
-![Alt Text](https://placehold.it/200x50 "Image Title")
+![Alt Text](https://via.placeholder.com/350x150 "Image Title")
 
-    ![Alt Text](https://placehold.it/200x50 "Image Title")
+    ![Alt Text](https://via.placeholder.com/350x150 "Image Title")

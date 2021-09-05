@@ -7,24 +7,23 @@ import Seo from "../components/Seo";
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
   const { previous, next } = data;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout
+      location={location}
+      title={post.frontmatter.title}
+      date={post.frontmatter.date}
+    >
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.spoiler || post.excerpt}
       />
       <article
-        className="col-span-7 blog-post"
+        className="prose col-core"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
@@ -34,7 +33,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <Bio />
         </footer> */}
       </article>
-      <nav className="blog-post-nav">
+      <nav className="blog-post-nav col-core">
         <ul
           style={{
             display: `flex`,
@@ -44,6 +43,7 @@ const BlogPostTemplate = ({ data, location }) => {
             padding: 0,
           }}
         >
+          {/* FIXME:  Broken because doesn't start with slash and therefore tries to nest under /blog/a/B! */}
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
