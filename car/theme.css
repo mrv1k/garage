@@ -18,9 +18,14 @@ body {
   @apply text-logo-black;
 }
 
-/* https://eager.io/blog/smarter-link-underlines/ */
 a {
-  @apply underline;
+  text-decoration-line: underline;
+  text-underline-position: under;
+  text-underline-offset: 1px;
+}
+a.active {
+  text-decoration-thickness: 0.15rem;
+  text-decoration-color: var(--logo-orange);
 }
 
 main p {
