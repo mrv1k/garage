@@ -46,7 +46,7 @@ const AboutPage = (): JSX.Element => {
             <span className="text-logo-orange"> Viktor</span>
           </h2>
           <p>
-            I'm front-end developer based in Toronto, Canada. I currently work
+            I'm front-end developer based in Toronto, Canada. Currently, I work
             on personal projects and open to new opportunities.
           </p>
 
