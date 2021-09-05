@@ -29,9 +29,9 @@ const BlogIndex = (): JSX.Element => {
   );
 
   return (
-    <Layout>
+    <Layout title="Blog">
       <div className="col-core">
-        <ul className="list-decimal">
+        <ul className="list-decimal list-inside">
           {paths.map((path) => (
             <li key={path}>
               <Link to={path}>{path}</Link>

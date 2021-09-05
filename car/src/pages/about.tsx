@@ -32,13 +32,9 @@ const AboutPage = (): JSX.Element => {
     "https://www.linkedin.com/in/vkhotimchenko/";
 
   return (
-    <Layout>
+    <Layout title="About">
       <>
         <Seo title="About" />
-
-        <h1 className="pb-8 text-5xl font-bold col-span-full text-logo-orange">
-          About
-        </h1>
 
         <section className="col-core">
           <h2 className="text-3xl font-semibold">

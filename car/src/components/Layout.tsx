@@ -3,15 +3,25 @@ import * as React from "react";
 
 type LayoutProps = {
   children: React.ReactNode;
+  title: string;
+  date?: string;
 };
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children, title, date }: LayoutProps): JSX.Element => {
   return (
     <>
-      <div className="grid max-w-screen-xl grid-cols-5 mx-6 my-4 md:my-10 md:mx-auto default-layout">
-        <nav className="mb-4 nav col-span-full md:col-span-1 md:mb-0">
+      <div className="grid max-w-screen-xl grid-cols-5 m-4 md:mb-8 md:mx-auto">
+        <header
+          className="mb-5 md:h-24 col-span-full md:col-start-2 md:col-end-6 md:mb-0"
+          itemProp="headline"
+        >
+          <h1 className="text-5xl font-bold text-logo-orange">{title}</h1>
+          {date && <p className="date">{date}</p>}
+        </header>
+
+        <nav className="row-start-1 mb-4 nav md:row-start-2 md:mb-0">
           <ol className="flex md:flex-col">
-            <li className="pr-2">
+            <li>
               <Link activeClassName="active" to="/">
                 home
               </Link>
@@ -26,11 +36,11 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                 blog
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link activeClassName="active" to="/garden">
                 garden
               </Link>
-            </li>
+            </li> */}
           </ol>
         </nav>
 
