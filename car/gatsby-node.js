@@ -20,6 +20,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Frontmatter {
       title: String!
+      # Can't make date non nullable because of @dateformat extension
       date: Date @dateformat
       slug: String
       spoiler: String
@@ -55,13 +56,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: ASC }
-        limit: 100
+        limit: 1000
       ) {
         nodes {
           id
+          # Only for build validation
           frontmatter {
             title
-            slug
+            date
           }
           fields {
             slug
@@ -94,9 +96,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       const postPath = `blog/${post.fields.slug}`;
 
-      if (!post.frontmatter.title) {
+      const { title, date } = post.frontmatter;
+      if (!title || !date) {
         reporter.panicOnBuild(
-          `Blog post: ${postPath} is missing frontmatter 'title'`
+          `Blog post: ${postPath} is missing required frontmatter: 'title' or 'date'`
         );
       }
 
