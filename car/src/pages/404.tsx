@@ -3,11 +3,15 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
+// TODO: F Piano
 const NotFoundPage = (): JSX.Element => (
-  <Layout>
-    <Seo title="404: Not found" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn't exist... the sadness.</p>
+  <Layout title="404: Not found">
+    <>
+      <Seo title="404: Not found" />
+      <div className="col-core">
+        <p>You just hit a route that doesn't exist... f.</p>
+      </div>
+    </>
   </Layout>
 );
 
