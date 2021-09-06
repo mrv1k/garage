@@ -1,3 +1,8 @@
+---
+title: Kitchen Sink Test
+date: 2021-09-04
+---
+
 [View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
 
 This is a paragraph.
