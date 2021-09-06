@@ -1,18 +1,21 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import { graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { SeoQuery } from "../../graphql-codegen-types";
+import { Maybe, SeoQuery } from "../../graphql-codegen-types";
 
-type Props = { title: string; description?: string; lang?: string };
+type Props = {
+  titleLeft: string;
+  path: string;
+  description?: Maybe<string>;
+  lang?: string;
+};
 
-function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
+function Seo({
+  titleLeft,
+  description,
+  lang = "en",
+  path,
+}: Props): JSX.Element {
   const { site } = useStaticQuery<SeoQuery>(
     graphql`
       query Seo {
@@ -20,6 +23,10 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
           siteMetadata {
             title
             description
+            blog {
+              title
+              description
+            }
             author {
               name
             }
@@ -29,20 +36,32 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
     `
   );
 
-  const metaDescription =
-    description ??
-    site?.siteMetadata?.description ??
-    "Viktor Khotimchenko Personal Website";
-  const defaultTitle = site?.siteMetadata?.title ?? "Viktor Khotimchenko";
   const name = site?.siteMetadata?.author?.name ?? "Viktor Khotimchenko";
+
+  // default values
+  let titleRight = name;
+  let metaDescription =
+    description ||
+    site?.siteMetadata?.description ||
+    `${name} Personal Website`;
+
+  // blog values
+  if (path.includes("blog")) {
+    if (site?.siteMetadata?.blog) {
+      const { title, description: blogDescription } = site.siteMetadata.blog;
+      if (title) titleRight = title;
+      if (blogDescription) metaDescription = blogDescription;
+    }
+  }
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s - ${defaultTitle}`}
+      title={titleLeft}
+      // titleLeft is used to replace %s, thus the name
+      titleTemplate={`%s - ${titleRight}`}
       meta={[
         {
           name: `description`,
@@ -50,7 +69,7 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
         },
         {
           property: `og:title`,
-          content: title,
+          content: titleLeft,
         },
         {
           property: `og:description`,
@@ -70,7 +89,7 @@ function Seo({ title, description = "", lang = "en" }: Props): JSX.Element {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: titleLeft,
         },
         {
           name: `twitter:description`,

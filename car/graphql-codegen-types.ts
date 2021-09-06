@@ -2246,8 +2246,8 @@ export type SiteFieldsEnum =
   | "buildTime"
   | "siteMetadata___title"
   | "siteMetadata___description"
+  | "siteMetadata___blog___title"
   | "siteMetadata___blog___description"
-  | "siteMetadata___garden___description"
   | "siteMetadata___siteUrl"
   | "siteMetadata___author___name"
   | "siteMetadata___author___email"
@@ -3348,7 +3348,6 @@ export type SiteSiteMetadata = {
   title: Maybe<Scalars["String"]>;
   description: Maybe<Scalars["String"]>;
   blog: Maybe<SiteSiteMetadataBlog>;
-  garden: Maybe<SiteSiteMetadataGarden>;
   siteUrl: Maybe<Scalars["String"]>;
   author: Maybe<SiteSiteMetadataAuthor>;
   social: Maybe<SiteSiteMetadataSocial>;
@@ -3365,10 +3364,12 @@ export type SiteSiteMetadataAuthorFilterInput = {
 };
 
 export type SiteSiteMetadataBlog = {
+  title: Maybe<Scalars["String"]>;
   description: Maybe<Scalars["String"]>;
 };
 
 export type SiteSiteMetadataBlogFilterInput = {
+  title: Maybe<StringQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3376,18 +3377,9 @@ export type SiteSiteMetadataFilterInput = {
   title: Maybe<StringQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
   blog: Maybe<SiteSiteMetadataBlogFilterInput>;
-  garden: Maybe<SiteSiteMetadataGardenFilterInput>;
   siteUrl: Maybe<StringQueryOperatorInput>;
   author: Maybe<SiteSiteMetadataAuthorFilterInput>;
   social: Maybe<SiteSiteMetadataSocialFilterInput>;
-};
-
-export type SiteSiteMetadataGarden = {
-  description: Maybe<Scalars["String"]>;
-};
-
-export type SiteSiteMetadataGardenFilterInput = {
-  description: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataSocial = {
@@ -3446,6 +3438,7 @@ export type SeoQuery = {
     siteMetadata: Maybe<{
       title: Maybe<string>;
       description: Maybe<string>;
+      blog: Maybe<{ title: Maybe<string>; description: Maybe<string> }>;
       author: Maybe<{ name: Maybe<string> }>;
     }>;
   }>;

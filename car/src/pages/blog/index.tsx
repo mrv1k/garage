@@ -1,9 +1,12 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, Link, PageProps, useStaticQuery } from "gatsby";
 import * as React from "react";
 import { BlogIndexQuery } from "../../../graphql-codegen-types";
 import Layout from "../../components/Layout";
+import Seo from "../../components/Seo";
 
-const BlogIndex = (): JSX.Element => {
+type Props = PageProps;
+
+const BlogIndex = ({ path }: Props): JSX.Element => {
   const data = useStaticQuery<BlogIndexQuery>(graphql`
     query BlogIndex {
       allMarkdownRemark(
@@ -26,8 +29,10 @@ const BlogIndex = (): JSX.Element => {
   const posts = data?.allMarkdownRemark?.nodes;
 
   return (
-    <Layout title="Blog">
+    <Layout title="Surrender to the Grind">
       <div className="col-core">
+        <Seo titleLeft="Surrender to the Grind" path={path} />
+
         <ol className="list-decimal list-outside">
           {posts.map((post) => {
             const { slug } = post.fields;

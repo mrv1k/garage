@@ -4,9 +4,9 @@ import { BlogPostBySlugQuery } from "../../graphql-codegen-types";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
-type Props = BlogPostBySlugQuery;
+type Props = PageProps<BlogPostBySlugQuery>;
 
-const BlogPostTemplate = ({ data }: PageProps<Props>): JSX.Element => {
+const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
   const post = data.markdownRemark;
 
   if (!post || !post.html) throw Error("Page is noop without post content");
@@ -15,10 +15,9 @@ const BlogPostTemplate = ({ data }: PageProps<Props>): JSX.Element => {
   return (
     <Layout title={post.frontmatter.title} date={post.frontmatter.date}>
       <Seo
-        title={post.frontmatter.title}
-        description={
-          post.frontmatter.spoiler || post.excerpt || "noop seo description"
-        }
+        titleLeft={post.frontmatter.title}
+        description={post.frontmatter.spoiler || post.excerpt}
+        path={path}
       />
       <article
         className="prose col-core"

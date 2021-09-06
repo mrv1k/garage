@@ -6,11 +6,13 @@ const siteMetadata = {
   description:
     "Viktor Khotimchenko web garage consisting of CV, Blog and Garden",
   blog: {
-    description: "A blog about what you could, but probably shouldn't, do",
+    title: "STTG",
+    description:
+      "Surrender to the Grind - a blog about what you could, but probably shouldn't, do",
   },
-  garden: {
-    description: "Public learning space",
-  },
+  // garden: {
+  //   description: "Public learning space",
+  // },
 
   siteUrl: "https://mrv1k.me",
   author: {
@@ -97,7 +99,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Viktor Khotimchenko`,
+        name: `Viktor Khotimchenko Personal Website`,
         short_name: `mrv1k.me`,
         start_url: `/`,
         background_color: `#fcf8ed`,

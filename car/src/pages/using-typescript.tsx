@@ -3,15 +3,15 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
-type Props = {
+type Props = PageProps<{
   site: {
     buildTime: string;
   };
-};
+}>;
 
-const UsingTypescript = ({ data, path }: PageProps<Props>): JSX.Element => (
+const UsingTypescript = ({ data, path }: Props): JSX.Element => (
   <Layout title="Using TypeScript">
-    <Seo title="Using TypeScript" />
+    <Seo titleLeft="Using TypeScript" path={path} />
     <h1>Gatsby supports TypeScript by default!</h1>
     <p>
       This means that you can create and write <em>.ts/.tsx</em> files for your
