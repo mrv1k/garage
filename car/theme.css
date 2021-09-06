@@ -52,3 +52,8 @@ main p:last-child {
 .col-aside {
   @apply col-span-full md:col-start-9;
 }
+
+.blog-list-date {
+  @apply inline-block font-mono text-xs text-right;
+  min-width: 15ch;
+}

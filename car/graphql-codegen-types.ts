@@ -3823,7 +3823,7 @@ export type BlogIndexQueryVariables = Exact<{ [key: string]: never }>;
 export type BlogIndexQuery = {
   allMarkdownRemark: {
     nodes: Array<{
-      frontmatter: { slug: Maybe<string> };
+      frontmatter: { title: string; date: Maybe<any> };
       fields: { slug: string };
     }>;
   };
