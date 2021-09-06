@@ -1,23 +1,24 @@
+import { graphql, Link, PageProps } from "gatsby";
 import * as React from "react";
-import { Link, graphql } from "gatsby";
-
-// import Bio from "../components/bio";
+import { BlogPostBySlugQuery } from "../../graphql-codegen-types";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
-const BlogPostTemplate = ({ data, location }) => {
+type Props = BlogPostBySlugQuery;
+
+const BlogPostTemplate = ({ data }: PageProps<Props>): JSX.Element => {
   const post = data.markdownRemark;
+
+  if (!post || !post.html) throw Error("Page is noop without post content");
   const { previous, next } = data;
 
   return (
-    <Layout
-      location={location}
-      title={post.frontmatter.title}
-      date={post.frontmatter.date}
-    >
+    <Layout title={post.frontmatter.title} date={post.frontmatter.date}>
       <Seo
         title={post.frontmatter.title}
-        description={post.frontmatter.spoiler || post.excerpt}
+        description={
+          post.frontmatter.spoiler || post.excerpt || "noop seo description"
+        }
       />
       <article
         className="prose col-core"
@@ -25,13 +26,11 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <section
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
-        {/* <footer>
-          <Bio />
-        </footer> */}
       </article>
       <nav className="blog-post-nav col-core">
         <ul
@@ -43,17 +42,16 @@ const BlogPostTemplate = ({ data, location }) => {
             padding: 0,
           }}
         >
-          {/* FIXME:  Broken because doesn't start with slash and therefore tries to nest under /blog/a/B! */}
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={`/blog/${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={`/blog/${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
