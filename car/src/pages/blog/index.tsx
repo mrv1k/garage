@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import * as React from "react";
 import { BlogIndexQuery } from "../../../graphql-codegen-types";
 import Layout from "../../components/Layout";

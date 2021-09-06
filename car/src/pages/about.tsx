@@ -1,11 +1,10 @@
-import * as React from "react";
-
-import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import * as React from "react";
+import { AboutPageQuery } from "../../graphql-codegen-types";
+import EmailContactLink from "../components/EmailContactLink";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
-import EmailContactLink from "../components/EmailContactLink";
-import { AboutPageQuery } from "../../graphql-codegen-types";
 
 const AboutPage = (): JSX.Element => {
   const data = useStaticQuery<AboutPageQuery>(graphql`
