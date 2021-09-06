@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
 import * as React from "react";
+import Navigation from "./Navigation";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -19,30 +19,7 @@ const Layout = ({ children, title, date }: LayoutProps): JSX.Element => {
           {date && <p className="date">{date}</p>}
         </header>
 
-        <nav className="row-start-1 mb-4 nav md:row-start-2 md:mb-0">
-          <ol className="flex md:flex-col">
-            <li>
-              <Link activeClassName="active" to="/">
-                home
-              </Link>
-            </li>
-            <li>
-              <Link activeClassName="active" to="/about">
-                about
-              </Link>
-            </li>
-            <li>
-              <Link activeClassName="active" to="/blog">
-                blog
-              </Link>
-            </li>
-            {/* <li>
-              <Link activeClassName="active" to="/garden">
-                garden
-              </Link>
-            </li> */}
-          </ol>
-        </nav>
+        <Navigation />
 
         <main className="grid grid-cols-12 gap-1 md:col-span-4 col-span-full">
           {children}
