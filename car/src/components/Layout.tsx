@@ -1,13 +1,13 @@
 import * as React from "react";
 import Navigation from "./Navigation";
 
-type LayoutProps = {
+type Props = {
   children: React.ReactNode;
   title: string;
   date?: string;
 };
 
-const Layout = ({ children, title, date }: LayoutProps): JSX.Element => {
+const Layout = ({ children, title, date }: Props): JSX.Element => {
   return (
     <div className="grid max-w-screen-xl grid-cols-5 m-4 md:mb-8 md:mx-auto">
       <header

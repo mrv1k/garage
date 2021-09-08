@@ -1,53 +1,11 @@
-import { MDXProvider } from "@mdx-js/react";
 import { graphql, Link, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import Highlight, { defaultProps } from "prism-react-renderer";
 import * as React from "react";
 import { BlogPostBySlugQuery } from "../../graphql-codegen-types";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
+import MDX from "../mdx";
 
 type Props = PageProps<BlogPostBySlugQuery>;
-
-const exampleCode = `
-(function someDemo() {
-  var test = "Hello World!";
-  console.log(test);
-})();
-
-return () => <App />;
-`;
-
-const CodeBlock = () => {
-  // const className = props.children.props.className || "";
-  // const matches = className.match(/language-(?<lang>.*)/);
-  return (
-    <Highlight
-      {...defaultProps}
-      theme={undefined}
-      code={exampleCode}
-      // Prism={Prism}
-      language="jsx"
-    >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
-  );
-};
-
-const components = {
-  pre: CodeBlock,
-  wrapper: ({ children }) => <div className="mdx-wrapper">{children}</div>,
-};
 
 const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
   const post = data.mdx;
@@ -67,9 +25,8 @@ const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <MDXProvider components={components}>
-          <MDXRenderer components={components}>{post.body}</MDXRenderer>
-        </MDXProvider>
+        <MDX compiledMDX={post.body} />
+
         <hr />
       </article>
       <nav className="blog-post-nav col-core">

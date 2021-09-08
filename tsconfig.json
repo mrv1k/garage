@@ -39,5 +39,5 @@
     // 4.4
     "useUnknownInCatchVariables": true,
     "exactOptionalPropertyTypes": true
-    }
+  }
 }
