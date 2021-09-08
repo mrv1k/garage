@@ -1,29 +1,35 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
-const CodeBlock = (props) => {
-  // const className = props.children.props.className || "";
-  // const matches = className.match(/language-(?<lang>.*)/);
+type Props = {
+  // "children" is compiledMDX, thus always a string
+  children: string;
+  className: string;
+};
 
-  const code = props.children.props.children.trim();
+const CodeBlock = ({
+  children,
+  className: languageClass = "",
+}: Props): JSX.Element => {
+  const code = children.trim();
+  const language = languageClass.replace(/language-/, "");
 
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
+    // @ts-expect-error. `undefined` is a valid value. Breaks because of TS 4.4 new rule: `exactOptionalPropertyTypes`
     <Highlight
       // Default props imports stripped PrismJS and a theme, provide to avoid providing custom Prism version
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
-      // @ts-expect-error. `undefined` is a valid value. Breaks because of TS 4.4 new rule: `exactOptionalPropertyTypes`
       theme={undefined}
       code={code}
-      language="jsx"
+      language={language}
     >
+      {/* numeric keys are provided via function params */}
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
           {tokens.map((line, i) => (
-            // eslint-disable-next-line react/jsx-props-no-spreading
             <div {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 <span {...getTokenProps({ token, key })} />
               ))}
             </div>
@@ -32,6 +38,7 @@ const CodeBlock = (props) => {
       )}
     </Highlight>
   );
+  /* eslint-enable react/jsx-props-no-spreading */
 };
 
 export default CodeBlock;

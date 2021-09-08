@@ -5,15 +5,17 @@ import CodeBlock from "./CodeBlock";
 import Wrapper from "./Wrapper";
 
 const components = {
-  pre: CodeBlock,
+  // eslint-disable-next-line react/jsx-props-no-spreading, @typescript-eslint/no-explicit-any
+  pre: (props: any) => <div {...props} />,
   wrapper: Wrapper,
+  code: CodeBlock,
 };
 
 type Props = { compiledMDX: string };
 
 const MDX = ({ compiledMDX }: Props): JSX.Element => (
   <MDXProvider components={components}>
-    <MDXRenderer components={components}>{compiledMDX}</MDXRenderer>
+    <MDXRenderer>{compiledMDX}</MDXRenderer>
   </MDXProvider>
 );
 
