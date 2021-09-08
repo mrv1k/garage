@@ -1,5 +1,7 @@
 // gatsby - config.js - general configuration and plugins
 
+const siteUrl = "https://mrv1k.me";
+
 const siteMetadata = {
   // title and description are hardcoded String type, can override but it's a hassle
   title: "Viktor Khotimchenko",
@@ -14,7 +16,7 @@ const siteMetadata = {
   //   description: "Public learning space",
   // },
 
-  siteUrl: "https://mrv1k.me",
+  siteUrl,
   author: {
     name: "Viktor Khotimchenko",
     email: "viktorkhotimchenko@gmail.com",
@@ -28,10 +30,13 @@ const siteMetadata = {
 };
 
 module.exports = {
-  // flags: {
-  //   FAST_DEV: true,
-  // },
+  flags: {
+    FAST_DEV: true,
+    LMDB_STORE: true,
+  },
+
   siteMetadata,
+
   plugins: [
     // gatsby-source-* — a source plugin loads data from a given source (e.g. WordPress, MongoDB, the file system).
     {
@@ -63,6 +68,8 @@ module.exports = {
         gatsbyRemarkPlugins: [
           // gatsby-[plugin-name]-* — if a plugin is a plugin for another plugin
           {
+            // gatsby-remark-images needs to be both a sub-plugin of gatsby-plugin-mdx, included in the options field
+            // and a string entry in the plugins array.
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1024,
@@ -71,7 +78,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: `margin-bottom: 1rem`,
             },
           },
           `gatsby-remark-copy-linked-files`,
@@ -92,10 +99,21 @@ module.exports = {
     // no gatsby-theme plugins
 
     // gatsby-plugin-* — this is the most general plugin type. [plugins that didn't match any other categories]
+
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    {
+      // included second time as per docs
+      resolve: `gatsby-remark-images`,
+      options: {
+        maxWidth: 1024,
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-catch-links`,
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -115,9 +133,7 @@ module.exports = {
     `gatsby-plugin-offline`, // must come after gatsby-plugin-manifest
     {
       resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: `https://mrv1k.me`,
-      },
+      options: { siteUrl },
     },
   ],
 };
