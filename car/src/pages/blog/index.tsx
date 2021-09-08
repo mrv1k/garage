@@ -9,10 +9,7 @@ type Props = PageProps;
 const BlogIndex = ({ path }: Props): JSX.Element => {
   const data = useStaticQuery<BlogIndexQuery>(graphql`
     query BlogIndex {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
-        limit: 1000
-      ) {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
         nodes {
           frontmatter {
             title
@@ -26,7 +23,7 @@ const BlogIndex = ({ path }: Props): JSX.Element => {
     }
   `);
 
-  const posts = data?.allMarkdownRemark?.nodes;
+  const posts = data?.allMdx?.nodes;
 
   return (
     <Layout title="Surrender to the Grind">

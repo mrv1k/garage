@@ -1,4 +1,5 @@
 import { graphql, Link, PageProps } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as React from "react";
 import { BlogPostBySlugQuery } from "../../graphql-codegen-types";
 import Layout from "../components/Layout";
@@ -7,9 +8,9 @@ import Seo from "../components/Seo";
 type Props = PageProps<BlogPostBySlugQuery>;
 
 const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
-  const post = data.markdownRemark;
+  const post = data.mdx;
 
-  if (!post || !post.html) throw Error("Page is noop without post content");
+  if (!post || !post.body) throw Error("NOOP! Found post without content");
   const { previous, next } = data;
 
   return (
@@ -20,15 +21,15 @@ const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
         path={path}
       />
       <article
-        className="prose col-core"
+        className="col-core"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <section
-          // eslint-disable-next-line react/no-danger
+        {/* <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
-        />
+        /> */}
+        <MDXRenderer>{post.body}</MDXRenderer>
         <hr />
       </article>
       <nav className="blog-post-nav col-core">
@@ -74,17 +75,17 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         spoiler
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -92,7 +93,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }
