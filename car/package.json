@@ -14,8 +14,6 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.0",
-    "@fontsource/jetbrains-mono": "^4.5.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@tailwindcss/typography": "^0.4.1",
@@ -36,7 +34,6 @@
     "gatsby-remark-autolink-headers": "^4.10.0",
     "gatsby-remark-copy-linked-files": "^4.10.0",
     "gatsby-remark-images": "^5.10.0",
-    "gatsby-remark-prismjs": "^5.10.0",
     "gatsby-remark-responsive-iframe": "^4.10.0",
     "gatsby-remark-smartypants": "^4.10.0",
     "gatsby-source-filesystem": "^3.13.0",
