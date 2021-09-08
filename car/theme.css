@@ -9,9 +9,10 @@
 }
 
 body {
-  /* fix layout shift on scrollbar */
-  padding-left: calc(100vw - 100%);
   @apply bg-logo-beige;
+  /* fix layout shift on scrollbar */
+  /* ! doens't work at about 960px */
+  padding-left: calc(100vw - 100%);
 }
 
 * {

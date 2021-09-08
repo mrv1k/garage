@@ -10,10 +10,10 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` instead of returning an error
+  // This way the "Mdx" queries will return `null` instead of returning an error
 
   createTypes(/* GraphQL */ `
-    type MarkdownRemark implements Node {
+    type Mdx implements Node {
       frontmatter: Frontmatter!
       fields: Fields!
     }
@@ -35,7 +35,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === "Mdx") {
     // strip off slashes to match with frontmatter & make nesting under /blog easier
     const filepath = createFilePath({ node, getNode })
       .replaceAll("/", "")
@@ -54,10 +54,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(/* GraphQL */ `
     {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: ASC }
-        limit: 1000
-      ) {
+      allMdx(sort: { fields: [frontmatter___date], order: ASC }, limit: 1000) {
         nodes {
           id
           # Only for build validation
@@ -83,7 +80,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const blogPost = path.resolve("./src/templates/BlogPost.tsx");
 
-  const posts = result.data.allMarkdownRemark.nodes;
+  const posts = result.data.allMdx.nodes;
 
   // Create blog posts pages
   // But only if there's at least one markdown file found

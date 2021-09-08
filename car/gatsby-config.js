@@ -58,9 +58,9 @@ module.exports = {
 
     // gatsby-transformer-* — a transformer plugin converts data from one format (e.g. CSV, YAML) to a JavaScript object.
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-plugin-mdx",
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           // gatsby-[plugin-name]-* — if a plugin is a plugin for another plugin
           {
             resolve: `gatsby-remark-images`,
