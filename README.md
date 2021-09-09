@@ -1,1 +1,19 @@
-Based on [gatsby-advanced-starter@c099c4e](https://github.com/Vagr9K/gatsby-advanced-starter/tree/c099c4ee69a1ff8d0d8b2ce1a81939a373a82f6b)
+# wip
+
+Port gatsby to next.js
+
+- [x] VScode Eslint
+- [x] Port about page
+- [ ] Port gatsby config info
+- [ ] Add MDX
+- [ ] Add support for post nested folders
+- [ ] About me picture
+
+- [ ] TODO: nest posts under blog folder
+- [ ] TODO: Add MDX support
+- [ ] TODO: Add directory support
+
+New
+
+- [ ] Tailwind component support
+- [ ] Try deploy on Vercel
