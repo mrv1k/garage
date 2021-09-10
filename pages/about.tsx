@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import * as React from "react";
 import EmailContactLink from "../components/EmailContactLink";
 import Layout from "../components/Layout";
 
@@ -14,7 +13,7 @@ const AboutPage = () => {
     <Layout title="About">
       {/* <Seo titleLeft="About" path={path} /> */}
 
-      <section className="col-core">
+      <section className="grid-core">
         <h2 className="text-3xl font-semibold">
           Hi, I'm
           <span className="text-logo-orange"> Viktor</span>
@@ -41,7 +40,7 @@ const AboutPage = () => {
         /> */}
       </aside>
 
-      <section className="col-core">
+      <section className="grid-core">
         <h2 className="text-3xl font-semibold">How I got here</h2>
         <div>
           <p>I wasn't always as happy and as determined with my career path.</p>
@@ -70,7 +69,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="col-core">
+      <section className="grid-core">
         <h2 className="text-3xl font-semibold">Offline</h2>
 
         <p>
@@ -80,7 +79,7 @@ const AboutPage = () => {
         </p>
       </section>
 
-      <section className="socials col-core">
+      <section className="socials grid-core">
         <h2 className="text-3xl font-semibold">Online</h2>
         <ul className="list-disc">
           <li>
@@ -102,7 +101,7 @@ const AboutPage = () => {
         </ul>
       </section>
 
-      <footer className="col-core md:pb-0">
+      <footer className="grid-core md:pb-0">
         <h2 className="text-3xl font-semibold">Get in touch</h2>
         <p>
           Always happy to meet interesting people. Email is:{" "}

@@ -1,32 +1,25 @@
 // import Head from "next/head";
-import Layout from "../components/Layout";
-import { getSortedPostsData } from "../lib/posts";
+import Layout from "../../components/Layout";
+import { getSortedPostsData } from "../../lib/posts";
 import Link from "next/link";
-// import Date from "../components/date";
+import { GetStaticProps } from "next";
+// import Date from "../components/Date";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
+};
 // <Head>
 //   <title>{siteTitle}</title>
 // </Head>
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
-      <section>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section>
-        <h2>Blog</h2>
+    <Layout title="Blog">
+      <section className="grid-core">
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
