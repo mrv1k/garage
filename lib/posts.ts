@@ -14,9 +14,6 @@ const postsDirectory = path.join(process.cwd(), "posts");
 const getPostFileNames = () =>
   fs.readdirSync(postsDirectory).filter((name) => !name.startsWith("."));
 
-// TODO: nest posts under blog folder
-// TODO: Add MDX support
-// TODO: Add directory support
 export function getSortedPostsData() {
   // Get file names under /posts and filter out files starting with "." (eg: .DS_Store)
   const fileNames = getPostFileNames();

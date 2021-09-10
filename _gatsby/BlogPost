@@ -1,5 +1,4 @@
 import { graphql, Link, PageProps } from "gatsby";
-import * as React from "react";
 import { BlogPostBySlugQuery } from "../../graphql-codegen-types";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
@@ -21,7 +20,7 @@ const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
         path={path}
       />
       <article
-        className="col-core"
+        className="grid-core"
         itemScope
         itemType="http://schema.org/Article"
       >
@@ -29,7 +28,7 @@ const BlogPostTemplate = ({ data, path }: Props): JSX.Element => {
 
         <hr />
       </article>
-      <nav className="blog-post-nav col-core">
+      <nav className="blog-post-nav grid-core">
         <ul
           style={{
             display: `flex`,
