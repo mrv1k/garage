@@ -1,4 +1,3 @@
-import * as React from "react";
 import Navigation from "./Navigation";
 
 type Props = {

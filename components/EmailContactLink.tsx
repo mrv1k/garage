@@ -1,25 +1,9 @@
-// import { graphql, useStaticQuery } from "gatsby";
-import * as React from "react";
-// import { EmailContactLinkQuery } from "../../graphql-codegen-types";
+const EMAIL = "viktorkhotimchenko@gmail.com";
 
 const EmailContactLink = (): JSX.Element => {
-  // const data = useStaticQuery<EmailContactLinkQuery>(graphql`
-  //   query EmailContactLink {
-  //     site {
-  //       siteMetadata {
-  //         author {
-  //           email
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
-  const email = "viktorkhotimchenko@gmail.com";
-
   return (
-    <a className="text-logo-orange" href={`mailto:${email}`}>
-      {email}
+    <a className="text-logo-orange" href={`mailto:${EMAIL}`}>
+      {EMAIL}
     </a>
   );
 };
