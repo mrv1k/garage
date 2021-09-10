@@ -42,12 +42,18 @@ body {
     @apply pr-4 md:pr-0;
   }
 
-  .col-core {
+  .grid-core {
     @apply md:col-span-7 col-span-full;
     @apply mb-8;
   }
 
-  .col-core h2 {
+  .grid-side {
+    @apply md:col-start-8 md:col-end-12 col-span-full;
+    @apply mb-8;
+  }
+
+  /* TODO: Remove */
+  .grid-core h2 {
     @apply mb-4;
   }
 
