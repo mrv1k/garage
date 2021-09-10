@@ -1,0 +1,4 @@
+- [ ] Add support for post folders
+- [ ] Add MDX
+- [ ] Tailwind component support
+- [ ] VScode Eslint
