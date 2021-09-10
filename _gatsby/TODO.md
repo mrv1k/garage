@@ -1,4 +1,12 @@
-- [ ] Add support for post folders
+Port
+
+- [x] VScode Eslint
+- [ ] Port gatsby config info
+- [ ] Port about page
 - [ ] Add MDX
+- [ ] Add support for post folders
+
+New
+
 - [ ] Tailwind component support
-- [ ] VScode Eslint
+- [ ] Try deploy on Vercel
