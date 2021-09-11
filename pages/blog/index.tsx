@@ -1,27 +1,30 @@
 // import Head from "next/head";
-import Layout from "../../components/Layout";
-import { getSortedPostsData } from "../../lib/posts";
-import Link from "next/link";
 import { GetStaticProps } from "next";
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import { getSortedPostsInfo, PostInfo } from "../../lib/posts";
 // import Date from "../components/Date";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
+  const allPostsInfo = getSortedPostsInfo();
   return {
     props: {
-      allPostsData,
+      allPostsInfo,
     },
   };
 };
 // <Head>
 //   <title>{siteTitle}</title>
 // </Head>
-export default function Home({ allPostsData }) {
+
+type Props = { allPostsInfo: PostInfo[] };
+
+export default function BlogIndex({ allPostsInfo }: Props) {
   return (
     <Layout title="Blog">
       <section className="grid-core">
         <ul>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsInfo.map(({ id, date, title }) => (
             <li key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>

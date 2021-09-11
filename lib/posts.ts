@@ -4,21 +4,29 @@ import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
 
-type RequiredMatter = {
+type PostMatter = {
   title: string;
   date: string;
+  spoiler?: string;
+  slug?: string;
 };
+
+type Id = { id: string };
+
+export type PostInfo = PostMatter & Id;
+
+export type Post = PostInfo & { contentHtml: string };
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
 const getPostFileNames = () =>
   fs.readdirSync(postsDirectory).filter((name) => !name.startsWith("."));
 
-export function getSortedPostsData() {
+export function getSortedPostsInfo() {
   // Get file names under /posts and filter out files starting with "." (eg: .DS_Store)
   const fileNames = getPostFileNames();
 
-  const allPostsData = fileNames.map((fileName) => {
+  const allPostsInfo: PostInfo[] = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "");
 
@@ -29,21 +37,16 @@ export function getSortedPostsData() {
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    // Combine the data with the id
+    // Combine the metadata with the id
     return {
       id,
-      ...(matterResult.data as RequiredMatter),
+      ...(matterResult.data as PostMatter),
     };
   });
-  // Sort posts by date
-  const descendingSort = allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
+
+  const descendingSort = allPostsInfo.sort(({ date: a }, { date: b }) => {
+    if (a === b) return 0;
+    return a < b ? 1 : -1;
   });
 
   return descendingSort;
@@ -58,9 +61,7 @@ export const getAllPostIds = () =>
     };
   });
 
-export type PostData = RequiredMatter & { id: string; contentHtml: string };
-
-export async function getPostData(id: string | string[]): Promise<PostData> {
+export async function getPost(id: string | string[]): Promise<Post> {
   if (Array.isArray(id))
     throw Error("Function needs an update to support array");
 
@@ -70,18 +71,16 @@ export async function getPostData(id: string | string[]): Promise<PostData> {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  console.log("REUSLT", matterResult);
-
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  // Combine the data with the id and contentHtml
+  // Combine the metadata, id and contentHtml
   return {
     id,
+    ...(matterResult.data as PostMatter),
     contentHtml,
-    ...(matterResult.data as RequiredMatter),
   };
 }

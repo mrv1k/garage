@@ -1,17 +1,15 @@
-import Head from "next/head";
-import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 // import Date from "../../components/Date";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Layout from "../../components/Layout";
+import { getAllPostIds, getPost, Post } from "../../lib/posts";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params?.id) throw Error("No post with such id found");
-  const postData = await getPostData(params.id);
-  console.log(postData);
+  const post = await getPost(params.id);
+
   return {
-    props: {
-      postData,
-    },
+    props: { post },
   };
 };
 
@@ -23,21 +21,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-type Props = {
-  postData: PostData;
-};
+type Props = { post: Post };
 
-export default function Post({ postData }: Props) {
-  console.log(postData);
+export default function PostPage({ post }: Props) {
   return (
-    <Layout title={postData.title}>
+    <Layout title={post.title}>
       <Head>
-        <title>{postData.title}</title>
+        <title>{post.title}</title>
       </Head>
       <article>
-        <h1>{postData.title}</h1>
-        <div>{/* <Date dateString={postData.date} /> */}</div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <h1>{post.title}</h1>
+        <div>{/* <Date dateString={post.date} /> */}</div>
+        <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
       </article>
     </Layout>
   );
