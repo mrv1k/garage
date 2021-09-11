@@ -1,7 +1,6 @@
 ---
 title: "Review: FEM - Intermediate TypeScript v3"
 date: "2021-08-10"
-slug: review-fem-intermediate-typescript-v3
 spoiler: "Review"
 ---
 

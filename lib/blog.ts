@@ -11,35 +11,33 @@ type PostMatter = {
   slug?: string;
 };
 
-type Id = { id: string };
+type SlugProp = { slug: string };
 
-export type PostInfo = PostMatter & Id;
+export type PostInfo = PostMatter & SlugProp;
 
 export type Post = PostInfo & { contentHtml: string };
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const BLOG_DIR = "blog";
+
+const blogDirectory = path.join(process.cwd(), BLOG_DIR);
 
 const getPostFileNames = () =>
-  fs.readdirSync(postsDirectory).filter((name) => !name.startsWith("."));
+  fs.readdirSync(blogDirectory).filter((name) => !name.startsWith("."));
 
-export function getSortedPostsInfo() {
-  // Get file names under /posts and filter out files starting with "." (eg: .DS_Store)
+export function getAllBlogPostsInfo() {
+  // Get file names under /blog and filter out files starting with "." (eg: .DS_Store)
   const fileNames = getPostFileNames();
 
   const allPostsInfo: PostInfo[] = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, "");
-
     // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
+    const fullPath = path.join(blogDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    // Combine the metadata with the id
     return {
-      id,
+      // The reason why slug is typed as string and not Slug is because Slug type is an object property
+      slug: fileName.replace(/\.md$/, ""),
       ...(matterResult.data as PostMatter),
     };
   });
@@ -52,20 +50,27 @@ export function getSortedPostsInfo() {
   return descendingSort;
 }
 
-export const getAllPostIds = () =>
+export const getAllBlogPostSlugs = () =>
   getPostFileNames().map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
+    const params: SlugProp = {
+      slug: fileName.replace(/\.md$/, ""),
+      // slug: makeSlug(fileName),
     };
+    console.log("getAllBlogPostSlugs", params);
+
+    return { params };
   });
 
-export async function getPost(id: string | string[]): Promise<Post> {
-  if (Array.isArray(id))
+export async function getPost(
+  slug: string | string[] | undefined
+): Promise<Post> {
+  if (!slug) throw Error("Can't get post without a slug.");
+  if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
 
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fullPath = path.join(blogDirectory, `${slug}.md`);
+  console.log("getPost", fullPath, "slug", slug);
+
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   // Use gray-matter to parse the post metadata section
@@ -77,9 +82,8 @@ export async function getPost(id: string | string[]): Promise<Post> {
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  // Combine the metadata, id and contentHtml
   return {
-    id,
+    slug,
     ...(matterResult.data as PostMatter),
     contentHtml,
   };

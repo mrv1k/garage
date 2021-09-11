@@ -2,11 +2,12 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { getSortedPostsInfo, PostInfo } from "../../lib/posts";
+import { getAllBlogPostsInfo, PostInfo } from "../../lib/blog";
 // import Date from "../components/Date";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsInfo = getSortedPostsInfo();
+  const allPostsInfo = getAllBlogPostsInfo();
+
   return {
     props: {
       allPostsInfo,
@@ -24,9 +25,9 @@ export default function BlogIndex({ allPostsInfo }: Props): JSX.Element {
     <Layout title="Blog">
       <section className="grid-core">
         <ul>
-          {allPostsInfo.map(({ id, date, title }) => (
-            <li key={id}>
-              <Link href={`/posts/${id}`}>
+          {allPostsInfo.map(({ slug, date, title }) => (
+            <li key={slug}>
+              <Link href={`/blog/${slug}`}>
                 <a>{title}</a>
               </Link>
               <br />
