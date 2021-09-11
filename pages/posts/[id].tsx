@@ -23,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 type Props = { post: Post };
 
-export default function PostPage({ post }: Props) {
+export default function PostPage({ post }: Props): JSX.Element {
   return (
     <Layout title={post.title}>
       <Head>

@@ -1,7 +1,7 @@
-import "../styles/theme.css";
 import type { AppProps /*, AppContext */ } from "next/app";
+import "../styles/theme.css";
 
-function Garage({ Component, pageProps }: AppProps) {
+function Garage({ Component, pageProps }: AppProps): JSX.Element {
   return <Component {...pageProps} />;
 }
 

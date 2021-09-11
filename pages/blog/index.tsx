@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 type Props = { allPostsInfo: PostInfo[] };
 
-export default function BlogIndex({ allPostsInfo }: Props) {
+export default function BlogIndex({ allPostsInfo }: Props): JSX.Element {
   return (
     <Layout title="Blog">
       <section className="grid-core">
