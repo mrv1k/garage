@@ -5,13 +5,15 @@ Port gatsby to next.js:
 - [x] VScode Eslint
 - [x] Port about page
 - [ ] Add MDX
-- [ ] Add support for post nested folders
-- [ ] About me picture
+- [ ] Add support for posts nested in folders
+- [x] About me picture
+- [ ] Pretty Blog post layout
 
 New
 
 - [ ] Tailwind component support (use twin?)
 - [ ] Try deploy on Vercel
+- [ ] Set up SEO
 
 ---
 

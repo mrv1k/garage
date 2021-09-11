@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
+import Image from "next/image";
 import EmailContactLink from "../components/EmailContactLink";
 import Layout from "../components/Layout";
+import profileBig from "../public/images/profile-big.jpg";
 
 const GITHUB = "https://github.com/mrv1k";
 const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";
@@ -26,15 +28,7 @@ const AboutPage = (): JSX.Element => (
     </section>
 
     <aside className="row-start-2 pb-8 md:row-start-2 md:row-end-5 col-aside md:pb-0">
-      {/* <StaticImage
-          className="image-of-me"
-          imgClassName="rounded"
-          formats={["auto", "webp", "avif"]}
-          layout="fullWidth"
-          src="../images/profile-big.jpg"
-          quality={80}
-          alt={`${name} profile picture`}
-        /> */}
+      <Image src={profileBig} alt="Image of Viktor" className="rounded" />
     </aside>
 
     <section className="grid-core">
