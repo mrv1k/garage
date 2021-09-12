@@ -54,9 +54,7 @@ export const getAllBlogPostSlugs = () =>
   getPostFileNames().map((fileName) => {
     const params: SlugProp = {
       slug: fileName.replace(/\.md$/, ""),
-      // slug: makeSlug(fileName),
     };
-    console.log("getAllBlogPostSlugs", params);
 
     return { params };
   });
@@ -69,7 +67,6 @@ export async function getPost(
     throw Error("Function needs an update to support array");
 
   const fullPath = path.join(blogDirectory, `${slug}.md`);
-  console.log("getPost", fullPath, "slug", slug);
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
