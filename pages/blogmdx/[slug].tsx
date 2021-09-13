@@ -18,9 +18,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => ({
 type Props = { post: Post };
 
 export default function PostPage({ post }: Props): JSX.Element {
-  const Component = React.useMemo(
-    () => getMDXComponent(post.code),
-    [post.code]
+  const MDXComponent = React.useMemo(
+    () => getMDXComponent(post.mdxCode),
+    [post.mdxCode]
   );
 
   return (
@@ -31,9 +31,7 @@ export default function PostPage({ post }: Props): JSX.Element {
       <article>
         <h1>{post.title}</h1>
         <div>{/* <Date dateString={post.date} /> */}</div>
-        <Component />
-
-        {/* <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} /> */}
+        <MDXComponent />
       </article>
     </Layout>
   );

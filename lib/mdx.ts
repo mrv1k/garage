@@ -10,11 +10,10 @@ type PostMatter = {
   slug?: string;
 };
 
-type SlugProp = { slug: string };
-
-export type PostInfo = PostMatter & SlugProp;
-
-export type Post = PostInfo & { contentHtml: string };
+type Slug = { slug: string };
+export type PostInfo = PostMatter & Slug;
+type MDXCode = { mdxCode: string };
+export type Post = PostInfo & MDXCode;
 
 const BLOG_PATH = path.join(process.cwd(), "blogmdx");
 const MDX_REGEX = /\.mdx?$/;
@@ -48,7 +47,7 @@ export const getAllBlogPostSlugs = () =>
   getBlogFileNames().map((fileName) => ({
     params: {
       slug: fileName.replace(MDX_REGEX, ""),
-    } as SlugProp,
+    } as Slug,
   }));
 
 export async function getPost(
@@ -59,17 +58,13 @@ export async function getPost(
     throw Error("Function needs an update to support array");
 
   const mdxPath = path.join(BLOG_PATH, `${slug}.mdx`);
-  console.log(mdxPath);
-  // const fileContents = fs.readFileSync(fullPath, "utf8");
-  // const contentHtml = processedContent.toString();
 
-  const { code, frontmatter } = await bundleMDXFile(mdxPath);
-  console.log(code);
+  const { code: mdxCode, frontmatter } = await bundleMDXFile(mdxPath);
 
   return {
     slug,
     // TODO: dont spread frontmatter, keep it as object
     ...(frontmatter as PostMatter),
-    code,
+    mdxCode,
   };
 }
