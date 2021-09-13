@@ -1,42 +1,75 @@
-import { bundleMDX } from "mdx-bundler";
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter"; // needed to parse all MDX files frontmatter
+import { bundleMDXFile } from "mdx-bundler";
 
-const mdxSource = `
----
-title: Example Post
-published: 2021-02-13
-description: This is some description
----
-
-# Wahoo
-
-import Demo from './demo'
-
-Here's a **neat** demo:
-
-<Demo />
-`.trim();
-
-const getMDX = async () => {
-  const result = await bundleMDX(mdxSource, {
-    files: {
-      "./demo.tsx": `
-import * as React from 'react'
-
-function Demo() {
-  return <div>Neat demo!</div>
-}
-
-export default Demo
-    `,
-    },
-  });
-  // console.log("getmdx", result);
-  // published comes in Date format, therefore breaks Nextjs JSON serialization
-  delete result.frontmatter.published;
-  delete result.matter.data.published;
-  console.log("getmdx", result);
-
-  return result;
+type PostMatter = {
+  title: string;
+  date: string;
+  spoiler?: string;
+  slug?: string;
 };
 
-export { getMDX };
+type SlugProp = { slug: string };
+
+export type PostInfo = PostMatter & SlugProp;
+
+export type Post = PostInfo & { contentHtml: string };
+
+const BLOG_PATH = path.join(process.cwd(), "blogmdx");
+const MDX_REGEX = /\.mdx?$/;
+
+const getBlogFileNames = () =>
+  fs.readdirSync(BLOG_PATH).filter((path) => MDX_REGEX.test(path));
+
+export function getAllBlogPostsInfo() {
+  const allPostsInfo: PostInfo[] = getBlogFileNames().map((fileName) => {
+    // Read markdown file as string
+    const fullPath = path.join(BLOG_PATH, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+
+    const matterResult = matter(fileContents);
+
+    return {
+      // The reason why slug is typed as string and not Slug is because Slug type is an object property
+      slug: fileName.replace(MDX_REGEX, ""),
+      // TODO: dont spread frontmatter, keep it as object
+      ...(matterResult.data as PostMatter),
+    };
+  });
+
+  // Descending order
+  return allPostsInfo.sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1
+  );
+}
+
+export const getAllBlogPostSlugs = () =>
+  getBlogFileNames().map((fileName) => ({
+    params: {
+      slug: fileName.replace(MDX_REGEX, ""),
+    } as SlugProp,
+  }));
+
+export async function getPost(
+  slug: string | string[] | undefined
+): Promise<Post> {
+  if (!slug) throw Error("Can't get post without a slug.");
+  if (Array.isArray(slug))
+    throw Error("Function needs an update to support array");
+
+  const mdxPath = path.join(BLOG_PATH, `${slug}.mdx`);
+  console.log(mdxPath);
+  // const fileContents = fs.readFileSync(fullPath, "utf8");
+  // const contentHtml = processedContent.toString();
+
+  const { code, frontmatter } = await bundleMDXFile(mdxPath);
+  console.log(code);
+
+  return {
+    slug,
+    // TODO: dont spread frontmatter, keep it as object
+    ...(frontmatter as PostMatter),
+    code,
+  };
+}
