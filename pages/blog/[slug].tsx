@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import Layout from "../../components/Layout";
-import { getAllBlogPostSlugs, getPost, Post } from "../../lib/blog";
+import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => ({
   props: { post: await getPost(params?.slug) },
@@ -15,7 +15,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
   fallback: false,
 });
 
-type Props = { post: Post };
+type Props = { post: MDXPost };
 
 export default function PostPage({ post }: Props): JSX.Element {
   const MDXComponent = React.useMemo(
@@ -24,12 +24,12 @@ export default function PostPage({ post }: Props): JSX.Element {
   );
 
   return (
-    <Layout title={post.title}>
+    <Layout title={post.frontmatter.title}>
       <Head>
-        <title>{post.title}</title>
+        <title>{post.frontmatter.title}</title>
       </Head>
       <article>
-        <h1>{post.title}</h1>
+        <h1>{post.frontmatter.title}</h1>
         <div>{/* <Date dateString={post.date} /> */}</div>
         <MDXComponent />
       </article>

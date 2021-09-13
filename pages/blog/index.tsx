@@ -2,37 +2,32 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { getAllBlogPostsInfo, PostInfo } from "../../lib/blog";
+import { AllBlogPosts, getAllBlogPosts } from "../../lib/blog";
 // import Date from "../components/Date";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsInfo = getAllBlogPostsInfo();
-
-  return {
-    props: {
-      allPostsInfo,
-    },
-  };
+  const allPosts = getAllBlogPosts();
+  return { props: { allPosts } };
 };
 // <Head>
 //   <title>{siteTitle}</title>
 // </Head>
 
-type Props = { allPostsInfo: PostInfo[] };
+type Props = { allPosts: AllBlogPosts };
 
-export default function BlogIndex({ allPostsInfo }: Props): JSX.Element {
+export default function BlogIndex({ allPosts }: Props): JSX.Element {
   return (
     <Layout title="Blog">
       <section className="grid-core">
         <ul>
-          {allPostsInfo.map(({ slug, date, title }) => (
+          {allPosts.map(({ slug, frontmatter }) => (
             <li key={slug}>
               <Link href={`/blog/${slug}`}>
-                <a>{title}</a>
+                <a>{frontmatter.title}</a>
               </Link>
               <br />
               <small>
-                {date}
+                {frontmatter.date}
                 {/* <Date dateString={date} /> */}
               </small>
             </li>

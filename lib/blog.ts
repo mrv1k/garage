@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter"; // needed to parse all MDX files frontmatter
 import { bundleMDXFile } from "mdx-bundler";
 
-type PostMatter = {
+type Frontmatter = {
   title: string;
   date: string;
   spoiler?: string;
@@ -11,48 +11,51 @@ type PostMatter = {
 };
 
 type Slug = { slug: string };
-export type PostInfo = PostMatter & Slug;
+type FrontmatterProperty = { frontmatter: Frontmatter };
 type MDXCode = { mdxCode: string };
-export type Post = PostInfo & MDXCode;
+
+export type MDXPost = Slug & FrontmatterProperty & MDXCode;
+
+export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
 const BLOG_PATH = path.join(process.cwd(), "blog");
-const MDX_REGEX = /\.mdx?$/;
+const MDX_RE = /\.mdx?$/;
 
 const getBlogFileNames = () =>
-  fs.readdirSync(BLOG_PATH).filter((path) => MDX_REGEX.test(path));
+  fs.readdirSync(BLOG_PATH).filter((path) => MDX_RE.test(path));
 
-export function getAllBlogPostsInfo() {
-  const allPostsInfo: PostInfo[] = getBlogFileNames().map((fileName) => {
+export function getAllBlogPosts(): AllBlogPosts {
+  const allPostsInfo = getBlogFileNames().map((fileName) => {
     // Read markdown file as string
     const fullPath = path.join(BLOG_PATH, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    const matterResult = matter(fileContents);
+    const matterFile = matter(fileContents);
 
     return {
       // The reason why slug is typed as string and not Slug is because Slug type is an object property
-      slug: fileName.replace(MDX_REGEX, ""),
+      slug: fileName.replace(MDX_RE, ""),
       // TODO: dont spread frontmatter, keep it as object
-      ...(matterResult.data as PostMatter),
+      frontmatter: matterFile.data as Frontmatter,
     };
   });
 
   // Descending order
   return allPostsInfo.sort((post1, post2) =>
-    post1.date > post2.date ? -1 : 1
+    post1.frontmatter.date > post2.frontmatter.date ? -1 : 1
   );
 }
 
 export const getAllBlogPostSlugs = () =>
   getBlogFileNames().map((fileName) => ({
     params: {
-      slug: fileName.replace(MDX_REGEX, ""),
+      slug: fileName.replace(MDX_RE, ""),
     } as Slug,
   }));
 
 export async function getPost(
   slug: string | string[] | undefined
-): Promise<Post> {
+): Promise<MDXPost> {
   if (!slug) throw Error("Can't get post without a slug.");
   if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
@@ -64,7 +67,7 @@ export async function getPost(
   return {
     slug,
     // TODO: dont spread frontmatter, keep it as object
-    ...(frontmatter as PostMatter),
+    frontmatter: frontmatter as Frontmatter,
     mdxCode,
   };
 }
