@@ -1,8 +1,7 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import remark from "remark";
-import html from "remark-html";
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter"; // needed to parse all MDX files frontmatter
+import { bundleMDXFile } from "mdx-bundler";
 
 type PostMatter = {
   title: string;
@@ -11,53 +10,45 @@ type PostMatter = {
   slug?: string;
 };
 
-type SlugProp = { slug: string };
+type Slug = { slug: string };
+export type PostInfo = PostMatter & Slug;
+type MDXCode = { mdxCode: string };
+export type Post = PostInfo & MDXCode;
 
-export type PostInfo = PostMatter & SlugProp;
+const BLOG_PATH = path.join(process.cwd(), "blog");
+const MDX_REGEX = /\.mdx?$/;
 
-export type Post = PostInfo & { contentHtml: string };
-
-const BLOG_DIR = "blog";
-
-const blogDirectory = path.join(process.cwd(), BLOG_DIR);
-
-const getPostFileNames = () =>
-  fs.readdirSync(blogDirectory).filter((name) => !name.startsWith("."));
+const getBlogFileNames = () =>
+  fs.readdirSync(BLOG_PATH).filter((path) => MDX_REGEX.test(path));
 
 export function getAllBlogPostsInfo() {
-  // Get file names under /blog and filter out files starting with "." (eg: .DS_Store)
-  const fileNames = getPostFileNames();
-
-  const allPostsInfo: PostInfo[] = fileNames.map((fileName) => {
+  const allPostsInfo: PostInfo[] = getBlogFileNames().map((fileName) => {
     // Read markdown file as string
-    const fullPath = path.join(blogDirectory, fileName);
+    const fullPath = path.join(BLOG_PATH, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     const matterResult = matter(fileContents);
 
     return {
       // The reason why slug is typed as string and not Slug is because Slug type is an object property
-      slug: fileName.replace(/\.md$/, ""),
+      slug: fileName.replace(MDX_REGEX, ""),
+      // TODO: dont spread frontmatter, keep it as object
       ...(matterResult.data as PostMatter),
     };
   });
 
-  const descendingSort = allPostsInfo.sort(({ date: a }, { date: b }) => {
-    if (a === b) return 0;
-    return a < b ? 1 : -1;
-  });
-
-  return descendingSort;
+  // Descending order
+  return allPostsInfo.sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1
+  );
 }
 
 export const getAllBlogPostSlugs = () =>
-  getPostFileNames().map((fileName) => {
-    const params: SlugProp = {
-      slug: fileName.replace(/\.md$/, ""),
-    };
-
-    return { params };
-  });
+  getBlogFileNames().map((fileName) => ({
+    params: {
+      slug: fileName.replace(MDX_REGEX, ""),
+    } as Slug,
+  }));
 
 export async function getPost(
   slug: string | string[] | undefined
@@ -66,22 +57,14 @@ export async function getPost(
   if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
 
-  const fullPath = path.join(blogDirectory, `${slug}.md`);
+  const mdxPath = path.join(BLOG_PATH, `${slug}.mdx`);
 
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
-
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const { code: mdxCode, frontmatter } = await bundleMDXFile(mdxPath);
 
   return {
     slug,
-    ...(matterResult.data as PostMatter),
-    contentHtml,
+    // TODO: dont spread frontmatter, keep it as object
+    ...(frontmatter as PostMatter),
+    mdxCode,
   };
 }
