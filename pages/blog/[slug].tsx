@@ -14,7 +14,6 @@ export default function PostPage({ post }: Props): JSX.Element {
     [post.mdxCode]
   );
 
-  console.log(MDXComponent, post);
   // const MDXComponent = getMDXComponent(post.mdxCode);
 
   return (
@@ -31,7 +30,7 @@ export default function PostPage({ post }: Props): JSX.Element {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = await getPost(params?.slug);
-  console.log("getStaticProps", post);
+  // console.log("getStaticProps", post);
   return {
     props: { post },
   };

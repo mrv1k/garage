@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter"; // Included in mdx-bundler but not re-exported, needed to parse all MDX files frontmatter
+import { cwd } from "node:process";
+import bundleMDXFileWithOptions from "./mdx-bundler";
 // import bundleMDXFileWithOptions from "./mdx-bundler";
 
 type Frontmatter = {
@@ -18,7 +20,7 @@ export type MDXPost = Slug & FrontmatterProperty & MDXCode;
 export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
 const MDX_RE = /\.mdx?$/;
-const BLOG_PATH = path.join(process.cwd(), "blog");
+const BLOG_PATH = path.join(cwd(), "blog");
 
 const getBlogFileNames = () =>
   fs.readdirSync(BLOG_PATH).filter((path) => MDX_RE.test(path));
@@ -27,6 +29,7 @@ const makePath = (fileName: string) => path.join(BLOG_PATH, fileName);
 
 export function getAllBlogPosts(): AllBlogPosts {
   const allPostsInfo = getBlogFileNames().map((fileName) => {
+    console.log("allpost", cwd());
     const fileContents = fs.readFileSync(makePath(fileName), "utf8");
     const matterFile = matter(fileContents);
 
@@ -61,10 +64,10 @@ export async function getPost(
   if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
 
-  // const mdxFilePath = makePath(`${slug}.mdx`);
-  // const { code, frontmatter } = await bundleMDXFileWithOptions(mdxFilePath);
-  const frontmatter = {};
-  const code = "stub";
+  const mdxFilePath = makePath(`${slug}.mdx`);
+  const { code, frontmatter } = await bundleMDXFileWithOptions(mdxFilePath);
+  // const frontmatter = {};
+  // const code = "stub";
 
   return {
     slug,

@@ -1,6 +1,7 @@
 import { bundleMDXFile } from "mdx-bundler";
 import { BundleMDXOptions } from "mdx-bundler/dist/types";
 import path from "node:path";
+import { cwd } from "node:process";
 
 const bundleMDXFileWithOptions = async (mdxPath: string) => {
   if (process.platform === "win32") {
@@ -34,8 +35,11 @@ const bundleMDXFileWithOptions = async (mdxPath: string) => {
     return options;
   };
 
+  console.log("MDX", cwd());
+
   try {
     return await bundleMDXFile(mdxPath, {
+      cwd: cwd(),
       xdmOptions,
     });
   } catch (error) {
