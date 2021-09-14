@@ -26,7 +26,7 @@ const mdxComponents: any = {
   /* Custom */
 
   /* Default Markdown */
-  pre: (props: any) => <div {...props} />,
+  // pre: undefined,
   // code: CodeBlock,
   a: CustomLink,
   // blockquote: undefined,
