@@ -28,7 +28,11 @@ const AboutPage = (): JSX.Element => (
     </section>
 
     <aside className="row-start-2 pb-8 md:row-start-2 md:row-end-5 col-aside md:pb-0">
-      <Image src={profileBig} alt="Image of Viktor" className="rounded" />
+      <Image
+        src={profileBig}
+        alt="Image of Viktor"
+        className="rounded image-of-me"
+      />
     </aside>
 
     <section className="grid-core">
