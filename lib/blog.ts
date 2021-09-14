@@ -1,7 +1,8 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from "fs";
+import path from "path";
 import matter from "gray-matter"; // Included in mdx-bundler but not re-exported, needed to parse all MDX files frontmatter
 import bundleMDXFileWithOptions from "./mdx-bundler";
+import { cwd } from "process";
 
 type Frontmatter = {
   title: string;
@@ -18,7 +19,7 @@ export type MDXPost = Slug & FrontmatterProperty & MDXCode;
 export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
 const MDX_RE = /\.mdx?$/;
-const BLOG_PATH = path.join(process.cwd(), "blog");
+const BLOG_PATH = path.join(cwd(), "blog");
 
 const getBlogFileNames = () =>
   fs.readdirSync(BLOG_PATH).filter((path) => MDX_RE.test(path));
