@@ -2,7 +2,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { AllBlogPosts } from "../../lib/blog";
+import { AllBlogPosts, getAllBlogPosts } from "../../lib/blog";
 // import Date from "../components/Date";
 
 // <Head>
@@ -34,10 +34,7 @@ export default function BlogIndex({ allPosts }: Props): JSX.Element {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  // const allPosts = getAllBlogPosts();
-  const allPosts: AllBlogPosts = [
-    { slug: "broken", frontmatter: { title: "title", date: "date" } },
-  ];
+export const getStaticProps: GetStaticProps = () => {
+  const allPosts = getAllBlogPosts();
   return { props: { allPosts } };
 };

@@ -38,7 +38,7 @@ export function getAllBlogPosts(): AllBlogPosts {
     };
   });
 
-  console.log(allPostsInfo);
+  // console.log("node", allPostsInfo);
 
   // Descending order
   return allPostsInfo.sort((post1, post2) =>
