@@ -38,6 +38,8 @@ export function getAllBlogPosts(): AllBlogPosts {
     };
   });
 
+  console.log(allPostsInfo);
+
   // Descending order
   return allPostsInfo.sort((post1, post2) =>
     post1.frontmatter.date > post2.frontmatter.date ? -1 : 1
