@@ -4,7 +4,6 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import Layout from "../../components/Layout";
-import mdxComponents from "../../components/mdx-components";
 import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 
 type Props = { post: MDXPost };
@@ -14,6 +13,8 @@ export default function PostPage({ post }: Props): JSX.Element {
     () => getMDXComponent(post.mdxCode),
     [post.mdxCode]
   );
+
+  console.log(MDXComponent, post);
   // const MDXComponent = getMDXComponent(post.mdxCode);
 
   return (
@@ -22,15 +23,19 @@ export default function PostPage({ post }: Props): JSX.Element {
         <title>{post.frontmatter.title}</title>
       </Head>
       <article className="grid-core">
-        <MDXComponent components={mdxComponents} />
+        {/* <MDXComponent components={mdxComponents} /> */}
       </article>
     </Layout>
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => ({
-  props: { post: await getPost(params?.slug) },
-});
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = await getPost(params?.slug);
+  console.log("getStaticProps", post);
+  return {
+    props: { post },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: getAllBlogPostSlugs(),
