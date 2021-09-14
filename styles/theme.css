@@ -20,7 +20,8 @@ body {
     @apply text-logo-black;
   }
 
-  a {
+  a,
+  .v-underline {
     text-decoration-line: underline;
     text-underline-position: under;
     text-underline-offset: 1px;

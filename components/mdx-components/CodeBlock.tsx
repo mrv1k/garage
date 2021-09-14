@@ -1,4 +1,4 @@
-import Highlight, { defaultProps } from "prism-react-renderer";
+import Highlight, { defaultProps, Language } from "prism-react-renderer";
 
 type Props = {
   // "children" is compiledMDX, thus always a string
@@ -11,9 +11,8 @@ const CodeBlock = ({
   className: languageClass = "",
 }: Props): JSX.Element => {
   const code = children.trim();
-  const language = languageClass.replace(/language-/, "");
+  const language = languageClass.replace(/language-/, "") as Language;
 
-  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <Highlight
       // Default props imports stripped PrismJS and a theme, provide to avoid providing custom Prism version
@@ -26,8 +25,10 @@ const CodeBlock = ({
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
           {tokens.map((line, i) => (
+            // eslint-disable-next-line react/jsx-key
             <div {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
+                // eslint-disable-next-line react/jsx-key
                 <span {...getTokenProps({ token, key })} />
               ))}
             </div>
@@ -36,7 +37,6 @@ const CodeBlock = ({
       )}
     </Highlight>
   );
-  /* eslint-enable react/jsx-props-no-spreading */
 };
 
 export default CodeBlock;

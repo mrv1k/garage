@@ -1,49 +1,62 @@
-import { ComponentMap } from "mdx-bundler/client";
 import Link from "next/link";
 import CodeBlock from "./CodeBlock";
 
-const CustomLink = ({ as, href, ...otherProps }) => {
+type LinkProps = { href: string };
+const CustomLink: React.FC<LinkProps> = ({ href, ...otherProps }) => {
   return (
-    <>
-      <Link as={as} href={href}>
-        <a className="text-5xl custom-link" {...otherProps} />
-      </Link>
-    </>
+    <Link href={href}>
+      <a className="v-underline" {...otherProps} />
+    </Link>
   );
 };
 
-const mdxComponents: ComponentMap = {
-  // Default Markdown
-  pre: (props: any) => <div {...props} />,
+// const Img: React.FC<any> = (props) => {
+//   return (
+//     <div className="relative w-full">
+//       <Image {...props} layout="fill" objectFit="none" />
+//     </div>
+//   );
+// };
+
+// export type ComponentMap = {
+//     [name: string]: string | React.ComponentType<{}> | ComponentMap;
+// };
+// xmd map is slightly different from @mdx/loader
+// ComponentMap causes more trouble than it's worth, break out of it
+const mdxComponents: any = {
+  /* Custom */
+
+  /* Default Markdown */
+  pre: (props: any) => <span {...props} />,
   code: CodeBlock,
   a: CustomLink,
-  // p: undefined,
+  // blockquote: undefined,
+  // em: undefined,
+
+  // [name: string]: string | React.ComponentType<{}> | ComponentMap;
   // h1: undefined,
   // h2: undefined,
   // h3: undefined,
   // h4: undefined,
   // h5: undefined,
   // h6: undefined,
-  // blockquote: undefined,
-  // ul: undefined,
-  // ol: undefined,
-  // li: undefined,
-  // table: undefined,
-  // thead: undefined,
-  // tbody: undefined,
-  // tr: undefined,
-  // td: undefined,
-  // th: undefined,
-  // inlineCode: undefined,
-  // em: undefined,
-  // strong: undefined,
-  // del: undefined,
   // hr: undefined,
   // img: undefined,
+  // li: undefined,
+  // ol: undefined,
+  // p: undefined,
+  // pre: undefined,
+  // strong: undefined,
+  // ul: undefined,
 
   /* GitHub flavored markdown (GFM) */
-
-  /* Custom */
+  // del: undefined,
+  // table: undefined,
+  // tbody: undefined,
+  // td: undefined,
+  // th: undefined,
+  // thead: undefined,
+  // tr: undefined,
 };
 
 export default mdxComponents;
