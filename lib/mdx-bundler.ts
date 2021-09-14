@@ -1,26 +1,8 @@
 import { bundleMDXFile } from "mdx-bundler";
 import { BundleMDXOptions } from "mdx-bundler/dist/types";
-import path from "path";
 import { cwd } from "process";
 
 const bundleMDXFileWithOptions = async (mdxPath: string) => {
-  if (process.platform === "win32") {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      "node_modules",
-      "esbuild",
-      "esbuild.exe"
-    );
-  } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      "node_modules",
-      "esbuild",
-      "bin",
-      "esbuild"
-    );
-  }
-
   const xdmOptions: BundleMDXOptions["xdmOptions"] = (options) => {
     options.remarkPlugins = [
       // built in plugins
