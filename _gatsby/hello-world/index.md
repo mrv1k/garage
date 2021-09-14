@@ -1,6 +1,6 @@
 ---
-title: "Zdarova zaebal"
-date: 2015-05-01
+title: "Zdarova"
+date: "2015-05-01"
 ---
 
 This is my first post on my new fake blog! How exciting!

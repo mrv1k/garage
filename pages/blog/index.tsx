@@ -5,10 +5,6 @@ import Layout from "../../components/Layout";
 import { AllBlogPosts, getAllBlogPosts } from "../../lib/blog";
 // import Date from "../components/Date";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = getAllBlogPosts();
-  return { props: { allPosts } };
-};
 // <Head>
 //   <title>{siteTitle}</title>
 // </Head>
@@ -37,3 +33,8 @@ export default function BlogIndex({ allPosts }: Props): JSX.Element {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPosts = getAllBlogPosts();
+  return { props: { allPosts } };
+};
