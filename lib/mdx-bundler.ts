@@ -1,7 +1,7 @@
 import { bundleMDXFile } from "mdx-bundler";
 import { BundleMDXOptions } from "mdx-bundler/dist/types";
-import path from "node:path";
-import { cwd } from "node:process";
+import path from "path";
+import { cwd } from "process";
 
 const bundleMDXFileWithOptions = async (mdxPath: string) => {
   if (process.platform === "win32") {

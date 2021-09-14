@@ -1,7 +1,7 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from "fs";
+import path from "path";
 import matter from "gray-matter"; // Included in mdx-bundler but not re-exported, needed to parse all MDX files frontmatter
-import { cwd } from "node:process";
+import { cwd } from "process";
 import bundleMDXFileWithOptions from "./mdx-bundler";
 // import bundleMDXFileWithOptions from "./mdx-bundler";
 
