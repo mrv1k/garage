@@ -1,5 +1,4 @@
 // import Date from "../../components/Date";
-import { getMDXComponent } from "mdx-bundler/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
@@ -9,10 +8,10 @@ import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 type Props = { post: MDXPost };
 
 export default function PostPage({ post }: Props): JSX.Element {
-  const MDXComponent = React.useMemo(
-    () => getMDXComponent(post.mdxCode),
-    [post.mdxCode]
-  );
+  // const MDXComponent = React.useMemo(
+  //   () => getMDXComponent(post.mdxCode),
+  //   [post.mdxCode]
+  // );
 
   // const MDXComponent = getMDXComponent(post.mdxCode);
 
