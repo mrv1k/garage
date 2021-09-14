@@ -20,10 +20,11 @@ const CustomLink = ({ href, ...otherProps }: LinkProps) => {
 // export type ComponentMap = {
 //     [name: string]: string | React.ComponentType<{}> | ComponentMap;
 // };
-// xmd map is slightly different from @mdx/loader
+// xdm map is slightly different from @mdx/loader
 // ComponentMap causes more trouble than it's worth, break out of it
 const mdxComponents: any = {
   /* Custom */
+
   /* Default Markdown */
   pre: (props: any) => <div {...props} />,
   // code: CodeBlock,
@@ -45,6 +46,7 @@ const mdxComponents: any = {
   // pre: undefined,
   // strong: undefined,
   // ul: undefined,
+
   /* GitHub flavored markdown (GFM) */
   // del: undefined,
   // table: undefined,

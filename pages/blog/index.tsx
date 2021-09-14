@@ -19,11 +19,11 @@ export default function BlogIndex({ allPosts }: Props): JSX.Element {
           {allPosts.map(({ slug, frontmatter }) => (
             <li key={slug}>
               <Link href={`/blog/${slug}`}>
-                <a>{frontmatter.title}</a>
+                <a>{frontmatter.title || slug}</a>
               </Link>
               <br />
               <small>
-                {frontmatter.date}
+                {frontmatter.date || "00-00-00"}
                 {/* <Date dateString={date} /> */}
               </small>
             </li>
