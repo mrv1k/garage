@@ -15,27 +15,25 @@ type FrontmatterProperty = { frontmatter: Frontmatter };
 type MDXCode = { mdxCode: string };
 
 export type MDXPost = Slug & FrontmatterProperty & MDXCode;
-
 export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
-const BLOG_PATH = path.join(process.cwd(), "blog");
 const MDX_RE = /\.mdx?$/;
+const BLOG_PATH = path.join(process.cwd(), "blog");
 
 const getBlogFileNames = () =>
   fs.readdirSync(BLOG_PATH).filter((path) => MDX_RE.test(path));
 
+const makePath = (fileName: string) => path.join(BLOG_PATH, fileName);
+
 export function getAllBlogPosts(): AllBlogPosts {
   const allPostsInfo = getBlogFileNames().map((fileName) => {
-    // Read markdown file as string
-    const fullPath = path.join(BLOG_PATH, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-
+    const fileContents = fs.readFileSync(makePath(fileName), "utf8");
     const matterFile = matter(fileContents);
 
+    const slug = fileName.replace(MDX_RE, "");
+
     return {
-      // The reason why slug is typed as string and not Slug is because Slug type is an object property
-      slug: fileName.replace(MDX_RE, ""),
-      // TODO: dont spread frontmatter, keep it as object
+      slug,
       frontmatter: matterFile.data as Frontmatter,
     };
   });
@@ -60,13 +58,11 @@ export async function getPost(
   if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
 
-  const mdxPath = path.join(BLOG_PATH, `${slug}.mdx`);
-
-  const { code: mdxCode, frontmatter } = await bundleMDXFile(mdxPath);
+  const mdxPath = makePath(`${slug}.mdx`);
+  const { code: mdxCode, frontmatter } = await bundleMDXFile(mdxPath, {});
 
   return {
     slug,
-    // TODO: dont spread frontmatter, keep it as object
     frontmatter: frontmatter as Frontmatter,
     mdxCode,
   };

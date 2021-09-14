@@ -10,11 +10,11 @@ import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 type Props = { post: MDXPost };
 
 export default function PostPage({ post }: Props): JSX.Element {
-  // const MDXComponent = React.useMemo(
-  //   () => getMDXComponent(post.mdxCode),
-  //   [post.mdxCode]
-  // );
-  const MDXComponent = getMDXComponent(post.mdxCode);
+  const MDXComponent = React.useMemo(
+    () => getMDXComponent(post.mdxCode),
+    [post.mdxCode]
+  );
+  // const MDXComponent = getMDXComponent(post.mdxCode);
 
   return (
     <Layout title={post.frontmatter.title}>

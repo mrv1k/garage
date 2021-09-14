@@ -1,8 +1,7 @@
 import Link from "next/link";
-import CodeBlock from "./CodeBlock";
 
-type LinkProps = { href: string };
-const CustomLink: React.FC<LinkProps> = ({ href, ...otherProps }) => {
+type LinkProps = React.PropsWithChildren<{ href: string }>;
+const CustomLink = ({ href, ...otherProps }: LinkProps) => {
   return (
     <Link href={href}>
       <a className="v-underline" {...otherProps} />
@@ -25,14 +24,12 @@ const CustomLink: React.FC<LinkProps> = ({ href, ...otherProps }) => {
 // ComponentMap causes more trouble than it's worth, break out of it
 const mdxComponents: any = {
   /* Custom */
-
   /* Default Markdown */
-  pre: (props: any) => <span {...props} />,
-  code: CodeBlock,
+  pre: (props: any) => <div {...props} />,
+  // code: CodeBlock,
   a: CustomLink,
   // blockquote: undefined,
   // em: undefined,
-
   // [name: string]: string | React.ComponentType<{}> | ComponentMap;
   // h1: undefined,
   // h2: undefined,
@@ -48,7 +45,6 @@ const mdxComponents: any = {
   // pre: undefined,
   // strong: undefined,
   // ul: undefined,
-
   /* GitHub flavored markdown (GFM) */
   // del: undefined,
   // table: undefined,
