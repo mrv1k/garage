@@ -18,27 +18,19 @@ type MDXCode = { mdxCode: string };
 export type MDXPost = Slug & FrontmatterProperty & MDXCode;
 export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
-// const MDX_RE = /\.mdx?$/;
 const BLOG_PATH = path.join(cwd(), "blog");
 
-const getBlogDirs = () => {
-  const t = fs.readdirSync(BLOG_PATH); //.filter((path) => MDX_RE.test(path));
-  console.log(t);
-  return t;
-};
-
-const makePath = (dirName: string) =>
-  path.join(BLOG_PATH, dirName, "index.mdx");
+const getBlogDirs = () => fs.readdirSync(BLOG_PATH);
 
 export function getAllBlogPosts(): AllBlogPosts {
   const allPostsInfo = getBlogDirs().map((dir) => {
-    const fileContents = fs.readFileSync(makePath(dir));
+    const fileContents = fs.readFileSync(
+      path.join(BLOG_PATH, dir, "index.mdx")
+    );
     const matterFile = matter(fileContents);
 
-    const slug = dir; //.replace(MDX_RE, "");
-
     return {
-      slug,
+      slug: dir,
       frontmatter: matterFile.data as Frontmatter,
     };
   });
@@ -63,8 +55,8 @@ export async function getPost(
   if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
 
-  const mdxFilePath = makePath(slug);
-  const { code, frontmatter } = await bundleMDXFileWithOptions(mdxFilePath);
+  const mdxPostDir = path.join(BLOG_PATH, slug);
+  const { code, frontmatter } = await bundleMDXFileWithOptions(mdxPostDir);
 
   return {
     slug,

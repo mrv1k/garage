@@ -1,12 +1,13 @@
 import { bundleMDXFile } from "mdx-bundler";
 import { BundleMDXOptions } from "mdx-bundler/dist/types";
 import path from "path";
-import { cwd } from "process";
+import process from "process";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
-import remarkMdxImages from "remark-mdx-images";
+import { remarkMdxImages } from "remark-mdx-images";
 
-const applyCwdENONETFix = () => {
+// Next.JS esbuild ENOENT https://github.com/kentcdodds/mdx-bundler#nextjs-esbuild-enoent
+const patchENOENT = () => {
   if (process.platform === "win32") {
     process.env.ESBUILD_BINARY_PATH = path.join(
       process.cwd(),
@@ -24,10 +25,9 @@ const applyCwdENONETFix = () => {
     );
   }
 };
-applyCwdENONETFix();
 
-const bundleMDXFileWithOptions = async (mdxPath: string) => {
-  // const remarkGfm = await import("remark-gfm");
+const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
+  patchENOENT();
 
   const xdmOptions: BundleMDXOptions["xdmOptions"] = (options) => {
     options.remarkPlugins = [
@@ -40,14 +40,24 @@ const bundleMDXFileWithOptions = async (mdxPath: string) => {
     return options;
   };
 
-  return await bundleMDXFile(mdxPath, {
-    cwd: path.join(cwd(), "blog"),
+  const mdxIndex = path.join(mdxPostDir, "index.mdx");
+
+  return await bundleMDXFile(mdxIndex, {
+    cwd: mdxPostDir,
     xdmOptions,
     esbuildOptions: (options) => {
+      options.outdir = path.join(process.cwd(), "public", "imag_es");
       options.loader = {
         ...options.loader,
-        ".jpg": "dataurl",
+        ".png": "file",
+        ".jpg": "file",
+        ".jpeg": "file",
+        ".gif": "file",
       };
+
+      options.publicPath = "/imag_es";
+      // Set write to true so that esbuild will output the files.
+      options.write = true;
 
       return options;
     },
