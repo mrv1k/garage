@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter"; // needed to parse all MDX files frontmatter
-import { bundleMDXFile } from "mdx-bundler";
+import matter from "gray-matter"; // Included in mdx-bundler but not re-exported, needed to parse all MDX files frontmatter
+import bundleMDXFileWithOptions from "./mdx-bundler";
 
 type Frontmatter = {
   title: string;
@@ -58,12 +58,12 @@ export async function getPost(
   if (Array.isArray(slug))
     throw Error("Function needs an update to support array");
 
-  const mdxPath = makePath(`${slug}.mdx`);
-  const { code: mdxCode, frontmatter } = await bundleMDXFile(mdxPath, {});
+  const mdxFilePath = makePath(`${slug}.mdx`);
+  const { code, frontmatter } = await bundleMDXFileWithOptions(mdxFilePath);
 
   return {
     slug,
     frontmatter: frontmatter as Frontmatter,
-    mdxCode,
+    mdxCode: code,
   };
 }
