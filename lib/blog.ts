@@ -20,7 +20,8 @@ export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
 const BLOG_PATH = path.join(cwd(), "blog");
 
-const getBlogDirs = () => fs.readdirSync(BLOG_PATH);
+const getBlogDirs = () =>
+  fs.readdirSync(BLOG_PATH).filter((dir) => !dir.startsWith("."));
 
 export function getAllBlogPosts(): AllBlogPosts {
   const allPostsInfo = getBlogDirs().map((dir) => {
