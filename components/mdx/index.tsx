@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PropsWithChildren } from "react";
+import { Grid } from "./Grid";
 import MDXImage from "./Image";
 import MDXParagraph from "./Paragraph";
 
@@ -18,16 +18,12 @@ const CustomLink = ({ href, ...otherProps }: LinkProps) => {
 // };
 // xdm map is slightly different from @mdx/loader
 
-const Grid = ({
-  children,
-  className,
-}: PropsWithChildren<{ className: string }>) => {
-  return <div className={className}>{children}</div>;
-};
-
 const mdxComponents: any = {
   /* Custom */
   Grid,
+  // Default Layout wrapper, can enable as base line and provide a fragment component to opt out, but <NoGrid> component feels weird
+  // Which is why default wrapper disabled
+  // wrapper: Grid,
 
   /* Default Markdown */
   p: MDXParagraph,
@@ -38,8 +34,7 @@ const mdxComponents: any = {
   // code: CodeBlock,
   a: CustomLink,
   // blockquote: undefined,
-  // em: (props) => <div>BRUH</div>,
-  // [name: string]: string | React.ComponentType<{}> | ComponentMap;
+  // em: undefined
   // h1: undefined,
   // h2: undefined,
   // h3: undefined,

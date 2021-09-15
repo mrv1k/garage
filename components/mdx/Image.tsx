@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// ! Images are not as optimized on Gatsby
 const MDXImage = ({ src, alt: altWithSize }: { src: string; alt: string }) => {
   const [alt, size] = altWithSize.split(",");
   const [width, height = "512"] = size.split("x");
