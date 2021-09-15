@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import Layout from "../../components/Layout";
-import mdxComponents from "../../components/mdx-components";
+import mdxComponents from "../../components/mdx";
 import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 
 type Props = { post: MDXPost };
