@@ -20,6 +20,7 @@ export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
 const BLOG_PATH = path.join(cwd(), "blog");
 
+// Filter out dirs like: .DS_Store and .templates
 const getBlogDirs = () =>
   fs.readdirSync(BLOG_PATH).filter((dir) => !dir.startsWith("."));
 

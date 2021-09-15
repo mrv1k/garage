@@ -11,7 +11,7 @@ Port gatsby to next.js:
 
 New
 
-- [ ] Tailwind component support (use twin?)
+- X (drop) Tailwind component support (use twin?)
 - [ ] Set up SEO
 - [x] Deploy on Vercel
 
