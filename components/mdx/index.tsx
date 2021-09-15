@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PropsWithChildren } from "react";
 import MDXImage from "./Image";
 import MDXParagraph from "./Paragraph";
 
@@ -17,11 +18,20 @@ const CustomLink = ({ href, ...otherProps }: LinkProps) => {
 // };
 // xdm map is slightly different from @mdx/loader
 
+const Grid = ({
+  children,
+  className,
+}: PropsWithChildren<{ className: string }>) => {
+  return <div className={className}>{children}</div>;
+};
+
 const mdxComponents: any = {
   /* Custom */
+  Grid,
 
   /* Default Markdown */
   p: MDXParagraph,
+
   // ! image is unfinished
   img: MDXImage,
   // pre: undefined,

@@ -21,9 +21,7 @@ export default function PostPage({ post }: Props): JSX.Element {
       <Head>
         <title>{post.frontmatter.title}</title>
       </Head>
-      <article className="grid-core">
-        <MDXComponent components={mdxComponents} />
-      </article>
+      <MDXComponent components={mdxComponents} />
     </Layout>
   );
 }

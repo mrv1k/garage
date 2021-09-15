@@ -1,3 +1,4 @@
+<Grid className="col-span-7">
 This is my first post on my new fake blog! How exciting!
 
 <span className="text-logo-orange">Hello World</span>
@@ -15,16 +16,26 @@ Oh, and here's a great quote from this Wikipedia on
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
 > firm-textured, round yolk that is bright orange-red in color.
 
-![Chinese Salty Egg, 2048x1536](./salty_egg.jpg)
+</Grid>
+
+<Grid className="col-span-12">
+  ![Chinese Salty Egg, 2048x1536](./salty_egg.jpg)
+</Grid>
 
 {/** remote images are not handled yet ![Alt Text](https://get.svg.workers.dev/?s=64&f=gray "Image Title") **/}
 
-You can also write code blocks here!
+<Grid className="col-span-7">You can also write code blocks here!</Grid>
+
+<Grid className="col-span-12">
+{/** white spaces are required to avoid prettier putting all code on one line **/}
 
 ```js
 const saltyDuckEgg = "chinese preserved food product";
 ```
 
+</Grid>
+
+<Grid className="col-span-7">
 | Number | Title                                    | Year |
 | :----- | :--------------------------------------- | ---: |
 | 1      | Harry Potter and the Philosopher’s Stone | 2001 |
@@ -222,3 +233,5 @@ _single underscores_
 This paragraph has some `code` in it.
 
     This paragraph has some `code` in it.
+
+</Grid>
