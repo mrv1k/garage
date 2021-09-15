@@ -6,14 +6,14 @@ Port gatsby to next.js:
 - [x] Port about page
 - [x] Add MDX
 - [x] About me picture
-- [ ] Add support for posts nested in folders
+- [x] Add support for posts nested in folders
 - [ ] Pretty Blog post layout
 
 New
 
 - [ ] Tailwind component support (use twin?)
 - [ ] Set up SEO
-- [x] Try deploy on Vercel
+- [x] Deploy on Vercel
 
 ---
 
