@@ -6,6 +6,8 @@ import process from "process";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import { remarkMdxImages } from "remark-mdx-images";
+import remarkFootnotes from "remark-footnotes";
+
 import { SUPPORTED_IMAGE_EXTENSIONS } from "./constants";
 
 // ! Can't use named exports from this file. Well, can export, can't import.
@@ -49,6 +51,7 @@ const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
       ...(options.remarkPlugins ?? []),
       remarkGfm,
       remarkMdxImages,
+      remarkFootnotes,
     ];
     options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeHighlight];
 
