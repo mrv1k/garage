@@ -1,3 +1,4 @@
+import { BuildOptions } from "esbuild";
 import { bundleMDXFile } from "mdx-bundler";
 import { BundleMDXOptions } from "mdx-bundler/dist/types";
 import path from "path";
@@ -5,6 +6,12 @@ import process from "process";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import { remarkMdxImages } from "remark-mdx-images";
+import { SUPPORTED_IMAGE_EXTENSIONS } from "./constants";
+
+// ! Can't use named exports from this file. Well, can export, can't import.
+// Module not found: Can't resolve 'builtin-modules'
+// ESBuild uses node:*, next.js doesn't support node:* prefix yet
+// export const BREAKS = {};
 
 // Next.JS esbuild ENOENT https://github.com/kentcdodds/mdx-bundler#nextjs-esbuild-enoent
 const patchENOENT = () => {
@@ -25,6 +32,14 @@ const patchENOENT = () => {
     );
   }
 };
+
+// 80% flex, 20% usefulness. One source for image extensions
+// Result without flex: { ".png": "file", ".jpg": "file", ".jpeg": "file", ".gif": "file", }
+const imageExtensions: BuildOptions["loader"] =
+  SUPPORTED_IMAGE_EXTENSIONS.reduce(
+    (acc, extension) => ({ ...acc, [extension]: "file" }),
+    {}
+  );
 
 const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
   patchENOENT();
@@ -49,10 +64,7 @@ const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
       options.outdir = path.join(process.cwd(), "public", "imag_es");
       options.loader = {
         ...options.loader,
-        ".png": "file",
-        ".jpg": "file",
-        ".jpeg": "file",
-        ".gif": "file",
+        ...imageExtensions,
       };
 
       options.publicPath = "/imag_es";
