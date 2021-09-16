@@ -4,9 +4,15 @@ type Props = {
   children: React.ReactNode;
   title: string;
   date?: string;
+  className?: string;
 };
 
-const Layout = ({ children, title, date }: Props): JSX.Element => {
+const Layout = ({
+  children,
+  title,
+  date,
+  className = "",
+}: Props): JSX.Element => {
   return (
     <div className="grid max-w-screen-xl grid-cols-5 m-4 md:mb-8 md:mx-auto">
       <header
@@ -19,7 +25,9 @@ const Layout = ({ children, title, date }: Props): JSX.Element => {
 
       <Navigation />
 
-      <main className="grid grid-cols-12 gap-1 md:col-span-4 col-span-full">
+      <main
+        className={`grid grid-cols-12 gap-1 md:col-span-4 col-span-full ${className}`}
+      >
         {children}
       </main>
     </div>

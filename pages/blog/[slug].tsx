@@ -17,7 +17,7 @@ export default function PostPage({ post }: Props): JSX.Element {
   // const MDXComponent = getMDXComponent(post.mdxCode);
 
   return (
-    <Layout title={post.frontmatter.title}>
+    <Layout title={post.frontmatter.title} className="mdx-prose">
       <Head>
         <title>{post.frontmatter.title}</title>
       </Head>

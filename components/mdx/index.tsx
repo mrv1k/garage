@@ -27,14 +27,16 @@ const mdxComponents: any = {
 
   /* Default Markdown */
   p: MDXParagraph,
-
   // ! image is unfinished
   img: MDXImage,
-  // pre: undefined,
-  // code: CodeBlock,
   a: CustomLink,
+  // pre: undefined,
+  // code: undefined,
   // blockquote: undefined,
+
   // em: undefined
+  // strong: undefined,
+
   // h1: undefined,
   // h2: undefined,
   // h3: undefined,
@@ -43,11 +45,9 @@ const mdxComponents: any = {
   // h6: undefined,
   // hr: undefined,
 
-  // li: undefined,
   // ol: undefined,
-  // pre: undefined,
-  // strong: undefined,
   // ul: undefined,
+  // li: undefined,
 
   /* GitHub flavored markdown (GFM) */
   // del: undefined,

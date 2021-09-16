@@ -31,41 +31,43 @@ html {
 }
 
 @layer utilities {
-  .grid-full {
+  .v-layout-full {
     @apply col-span-full;
   }
 
-  .grid-core {
+  .v-layout-core {
     @apply md:col-start-1 md:col-end-8 col-span-full;
   }
 
-  .grid-right {
+  .v-layout-right {
     @apply md:col-start-9 md:col-end-13 col-span-full;
   }
-}
 
-@layer base {
-  a,
   .v-underline {
     text-decoration-line: underline;
     text-underline-position: under;
     text-underline-offset: 1px;
   }
-  a.active {
+}
+
+@layer base {
+  a {
+    @apply pr-4 md:pr-0 v-underline;
+  }
+
+  .v-underline.active,
+  .v-underline:active {
     text-decoration-thickness: 0.15rem;
     text-decoration-color: var(--logo-orange);
   }
 
-  main p {
-    @apply mb-4;
+  .v-underline:hover:not(.active) {
+    text-decoration-thickness: 0.15rem;
+    text-decoration-color: var(--logo-black);
   }
 
-  main p:last-child {
-    @apply mb-0;
-  }
-
-  .nav li {
-    @apply pr-4 md:pr-0;
+  a.text-logo-orange {
+    text-decoration-color: var(--logo-black);
   }
 
   .blog-list-date {
@@ -135,12 +137,42 @@ code[class*="language-"] ::selection {
  * MDX
  */
 
-.mdx,
-hr {
-  @apply grid-full;
+/* Important,do not div tag @apply, div is used to customize from mdx */
+
+.mdx-prose .nextjs-image-wrapper {
+  @apply v-layout-full;
+  /* grid-column: span 12 !important; */
 }
-.mdx h1,
-.mdx h2,
-.mdx h3 {
-  @apply grid-core;
+
+/* Code blocks are wrapped in pre, inline code wrapped in whatever parent */
+/* .mdx-prose code, */
+.mdx-prose > pre,
+.mdx-prose > hr {
+  @apply v-layout-full;
 }
+
+.mdx-prose > h1,
+.mdx-prose > h2,
+.mdx-prose > h3,
+.mdx-prose > p,
+.mdx-prose > ul,
+.mdx-prose > ol,
+/* .mdx-prose li, */
+.mdx-prose > blockquote,
+.mdx-prose > em,
+.mdx-prose > strong {
+  @apply v-layout-core;
+}
+
+/* GitHub flavored markdown (GFM) */
+.mdx-prose > del,
+.mdx-prose > table,
+.mdx-prose > tbody,
+.mdx-prose > td,
+.mdx-prose > th,
+.mdx-prose > thead,
+.mdx-prose > tr {
+  @apply v-layout-core;
+}
+
+/* TODO: Displaye footnotes as sidenotes on desktop */

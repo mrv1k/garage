@@ -12,7 +12,7 @@ const AboutPage = (): JSX.Element => (
   <Layout title="About">
     {/* <Seo titleLeft="About" path={path} /> */}
 
-    <section className="grid-core">
+    <section className="v-layout-core">
       <h2 className="text-3xl font-semibold">
         Hi, I'm
         <span className="text-logo-orange"> Viktor</span>
@@ -27,7 +27,7 @@ const AboutPage = (): JSX.Element => (
       </p>
     </section>
 
-    <aside className="row-start-2 grid-right">
+    <aside className="row-start-2 v-layout-right">
       <Image
         src={profileBig}
         alt="Image of Viktor"
@@ -35,7 +35,7 @@ const AboutPage = (): JSX.Element => (
       />
     </aside>
 
-    <section className="grid-core">
+    <section className="v-layout-core">
       <h2 className="text-3xl font-semibold">How I got here</h2>
       <div>
         <p>I wasn't always as happy and as determined with my career path.</p>
@@ -64,7 +64,7 @@ const AboutPage = (): JSX.Element => (
       </div>
     </section>
 
-    <section className="grid-core">
+    <section className="v-layout-core">
       <h2 className="text-3xl font-semibold">Offline</h2>
 
       <p>
@@ -74,7 +74,7 @@ const AboutPage = (): JSX.Element => (
       </p>
     </section>
 
-    <section className="socials grid-core">
+    <section className="socials v-layout-core">
       <h2 className="text-3xl font-semibold">Online</h2>
       <ul className="list-disc list-inside">
         <li>
@@ -92,7 +92,7 @@ const AboutPage = (): JSX.Element => (
       </ul>
     </section>
 
-    <footer className="grid-core md:pb-0">
+    <footer className="v-layout-core md:pb-0">
       <h2 className="text-3xl font-semibold">Get in touch</h2>
       <p>
         Always happy to meet interesting people. Email is: <EmailContactLink />{" "}

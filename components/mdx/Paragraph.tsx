@@ -9,7 +9,7 @@ const MDXParagraph = ({ children }: any) => {
     // console.log(children.props);
     if (children.props.src) {
       if (checkImageExtension(children.props.src as string)) {
-        return <>{children}</>;
+        return <div className="nextjs-image-wrapper">{children}</div>;
       }
     }
   }
