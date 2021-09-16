@@ -9,12 +9,16 @@ const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";
 // const NAME = "Viktor Khotimchenko";
 
 const AboutPage = (): JSX.Element => (
-  <Layout title="About">
-    <section className="v-layout-core">
-      <h2 className="text-3xl font-semibold">
+  <Layout title="About" className="about">
+    {/* ! FIXME: temporary use of !important tailwind */}
+    <section className="!pt-0 v-layout-core">
+      <h2 className="!pb-2 text-3xl font-semibold">
         Hi, I'm
         <span className="text-logo-orange"> Viktor</span>
       </h2>
+    </section>
+
+    <section className="!pt-0 v-layout-core">
       <p>
         I'm front-end developer based in Toronto, Canada. Currently, I work on
         personal projects and open to new opportunities.
@@ -25,7 +29,7 @@ const AboutPage = (): JSX.Element => (
       </p>
     </section>
 
-    <aside className="row-start-2 v-layout-right">
+    <aside className="row-start-2 row-end-4 md:row-start-1 v-layout-right wrapper-of-me">
       <Image
         src={profileBig}
         alt="Image of Viktor"
@@ -90,7 +94,7 @@ const AboutPage = (): JSX.Element => (
       </ul>
     </section>
 
-    <footer className="v-layout-core md:pb-0">
+    <footer className="pb-8 v-layout-core">
       <h2 className="text-3xl font-semibold">Get in touch</h2>
       <p>
         Always happy to meet interesting people. Email is: <EmailContactLink />{" "}

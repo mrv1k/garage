@@ -30,6 +30,21 @@ html {
   margin-right: calc(-1 * (100vw - 100%));
 }
 
+/* FIXME: temp tailwind to make about page look OK  */
+.about p {
+  @apply pb-3;
+}
+.about h2 {
+  @apply pb-4;
+}
+.about .wrapper-of-me {
+  @apply pb-4;
+}
+.about section,
+.about footer {
+  @apply pt-4;
+}
+
 @layer utilities {
   .v-layout-full {
     @apply col-span-full;
@@ -118,15 +133,15 @@ html {
   }
 
   .mdx-prose > h1,
-.mdx-prose > h2,
-.mdx-prose > h3,
-.mdx-prose > p,
-.mdx-prose > ul,
-.mdx-prose > ol,
-/* .mdx-prose li, */
-.mdx-prose > blockquote,
-.mdx-prose > em,
-.mdx-prose > strong {
+  .mdx-prose > h2,
+  .mdx-prose > h3,
+  .mdx-prose > p,
+  .mdx-prose > ul,
+  .mdx-prose > ol,
+  /* .mdx-prose li, */
+  .mdx-prose > blockquote,
+  .mdx-prose > em,
+  .mdx-prose > strong {
     @apply v-layout-core;
   }
 

@@ -15,17 +15,17 @@ const Layout = ({
   title,
   created,
   updated,
-  className,
+  className = "",
 }: Props): JSX.Element => {
   return (
-    <div className="grid max-w-screen-xl grid-cols-5 m-4 md:mb-8 md:mx-auto">
+    <div className="grid max-w-screen-xl m-4 sm:grid-cols-5 md:mb-8 md:mx-auto">
       <Head>
         <title>{title}</title>
       </Head>
 
-      <header className="relative mb-5 col-span-full md:col-start-2 md:col-end-6">
+      <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6">
         {/* double height to fit 2 line title */}
-        <h1 className="text-3xl font-bold md:mb-2 md:text-5xl text-logo-orange md:h-24">
+        <h1 className="text-3xl font-bold md:text-5xl text-logo-orange md:h-24">
           {title}
         </h1>
         <div className="bottom-0 right-0 pr-2 font-mono text-sm text-gray-400 md:absolute md:text-right min-w-max md:mr-8 xl:mr-0">
@@ -37,7 +37,7 @@ const Layout = ({
       <Navigation />
 
       <main
-        className={`grid grid-cols-12 gap-1 md:col-span-4 col-span-full ${className}`}
+        className={`grid sm:grid-cols-12 gap-1 md:col-span-4 col-span-full ${className}`}
       >
         {children}
       </main>
