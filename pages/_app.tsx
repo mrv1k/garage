@@ -2,7 +2,7 @@
 // light- hard, medium, soft
 // preview on https://highlightjs.org/static/demo/
 import type { AppProps /*, AppContext */ } from "next/app";
-import "../styles/theme.css";
+import "../styles/globals.css";
 
 function Garage({ Component, pageProps }: AppProps): JSX.Element {
   return (

@@ -27,7 +27,7 @@ const AboutPage = (): JSX.Element => (
       </p>
     </section>
 
-    <aside className="row-start-2 pb-8 md:row-start-2 md:row-end-5 col-aside md:pb-0">
+    <aside className="row-start-2 grid-right">
       <Image
         src={profileBig}
         alt="Image of Viktor"
@@ -76,7 +76,7 @@ const AboutPage = (): JSX.Element => (
 
     <section className="socials grid-core">
       <h2 className="text-3xl font-semibold">Online</h2>
-      <ul className="list-disc">
+      <ul className="list-disc list-inside">
         <li>
           Projects are up on{" "}
           <a href={GITHUB} target="_blank" rel="nofollow noopener noreferrer">
