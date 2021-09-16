@@ -1,8 +1,31 @@
-import { parseISO, format } from "date-fns";
+import { format, parseISO } from "date-fns";
 
-type Props = { dateString: string };
+type Optional = {
+  className?: string;
+};
+type Created = {
+  created: string;
+  updated?: never;
+};
+type Updated = {
+  created?: never;
+  updated: string;
+};
 
-export default function Date({ dateString }: Props) {
-  const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, "LLLL d, yyyy")}</time>;
-}
+type Props = (Created | Updated) & Optional;
+
+const Date = ({ created, updated }: Props) => {
+  const date = created ?? updated;
+  if (!date) throw Error("Date component requires 1 date to be present");
+
+  const label = created ? "Created: " : "Updated: ";
+  const prettyDate = format(parseISO(date), "LLL d, yyyy");
+  return (
+    <>
+      {label}
+      <time dateTime={date}>{prettyDate}</time>
+    </>
+  );
+};
+
+export default Date;
