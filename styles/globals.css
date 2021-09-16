@@ -51,8 +51,11 @@ html {
 }
 
 @layer base {
+  .nav li {
+    @apply pr-4 md:pr-0 md:ml-8 xl:ml-0;
+  }
   a {
-    @apply pr-4 md:pr-0 v-underline;
+    @apply v-underline;
   }
 
   .v-underline.active,
@@ -90,17 +93,55 @@ html {
   h1:hover .autolink svg,
   h2:hover .autolink svg,
   h3:hover .autolink svg,
-  h4:hover .autolink svg,
-  h5:hover .autolink svg,
-  h6:hover .autolink svg,
   h1 .autolink:focus svg,
   h2 .autolink:focus svg,
-  h3 .autolink:focus svg,
-  h4 .autolink:focus svg,
-  h5 .autolink:focus svg,
-  h6 .autolink:focus svg {
+  h3 .autolink:focus svg {
     visibility: visible;
   }
+
+  /**
+ * MDX
+ */
+
+  /* Important,do not div tag @apply, div is used to customize from mdx */
+
+  .mdx-prose .nextjs-image-wrapper {
+    @apply v-layout-full;
+    /* grid-column: span 12 !important; */
+  }
+
+  /* Code blocks are wrapped in pre, inline code wrapped in whatever parent */
+  /* .mdx-prose code, */
+  .mdx-prose > pre,
+  .mdx-prose > hr {
+    @apply v-layout-full;
+  }
+
+  .mdx-prose > h1,
+.mdx-prose > h2,
+.mdx-prose > h3,
+.mdx-prose > p,
+.mdx-prose > ul,
+.mdx-prose > ol,
+/* .mdx-prose li, */
+.mdx-prose > blockquote,
+.mdx-prose > em,
+.mdx-prose > strong {
+    @apply v-layout-core;
+  }
+
+  /* GitHub flavored markdown (GFM) */
+  .mdx-prose > del,
+  .mdx-prose > table,
+  .mdx-prose > tbody,
+  .mdx-prose > td,
+  .mdx-prose > th,
+  .mdx-prose > thead,
+  .mdx-prose > tr {
+    @apply v-layout-core;
+  }
+
+  /* TODO: Displaye footnotes as sidenotes on desktop */
 }
 
 /**
@@ -132,47 +173,3 @@ code[class*="language-"] ::selection {
   /* color: #fbf1c7;
   background: #7c6f64; */
 }
-
-/**
- * MDX
- */
-
-/* Important,do not div tag @apply, div is used to customize from mdx */
-
-.mdx-prose .nextjs-image-wrapper {
-  @apply v-layout-full;
-  /* grid-column: span 12 !important; */
-}
-
-/* Code blocks are wrapped in pre, inline code wrapped in whatever parent */
-/* .mdx-prose code, */
-.mdx-prose > pre,
-.mdx-prose > hr {
-  @apply v-layout-full;
-}
-
-.mdx-prose > h1,
-.mdx-prose > h2,
-.mdx-prose > h3,
-.mdx-prose > p,
-.mdx-prose > ul,
-.mdx-prose > ol,
-/* .mdx-prose li, */
-.mdx-prose > blockquote,
-.mdx-prose > em,
-.mdx-prose > strong {
-  @apply v-layout-core;
-}
-
-/* GitHub flavored markdown (GFM) */
-.mdx-prose > del,
-.mdx-prose > table,
-.mdx-prose > tbody,
-.mdx-prose > td,
-.mdx-prose > th,
-.mdx-prose > thead,
-.mdx-prose > tr {
-  @apply v-layout-core;
-}
-
-/* TODO: Displaye footnotes as sidenotes on desktop */
