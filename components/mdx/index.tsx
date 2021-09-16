@@ -4,10 +4,11 @@ import MDXImage from "./Image";
 import MDXParagraph from "./Paragraph";
 
 type LinkProps = React.PropsWithChildren<{ href: string }>;
+// TODO: custom attrs for outbound links
 const CustomLink = ({ href, ...otherProps }: LinkProps) => {
   return (
     <Link href={href}>
-      <a className="v-underline" {...otherProps} />
+      <a {...otherProps} />
     </Link>
   );
 };

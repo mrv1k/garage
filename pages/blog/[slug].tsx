@@ -1,7 +1,5 @@
-// import Date from "../../components/Date";
 import { getMDXComponent } from "mdx-bundler/client";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
 import React from "react";
 import Layout from "../../components/Layout";
 import mdxComponents from "../../components/mdx";
@@ -14,13 +12,13 @@ export default function PostPage({ post }: Props): JSX.Element {
     () => getMDXComponent(post.mdxCode),
     [post.mdxCode]
   );
-  // const MDXComponent = getMDXComponent(post.mdxCode);
 
   return (
-    <Layout title={post.frontmatter.title} className="mdx-prose">
-      <Head>
-        <title>{post.frontmatter.title}</title>
-      </Head>
+    <Layout
+      title={post.frontmatter.title}
+      created={post.frontmatter.date}
+      className="mdx-prose"
+    >
       <MDXComponent components={mdxComponents} />
     </Layout>
   );

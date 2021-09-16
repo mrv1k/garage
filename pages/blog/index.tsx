@@ -3,11 +3,6 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import { AllBlogPosts, getAllBlogPosts } from "../../lib/blog";
-// import Date from "../components/Date";
-
-// <Head>
-//   <title>{siteTitle}</title>
-// </Head>
 
 type Props = { allPosts: AllBlogPosts };
 
@@ -22,10 +17,7 @@ export default function BlogIndex({ allPosts }: Props): JSX.Element {
                 <a>{frontmatter.title || slug}</a>
               </Link>
               <br />
-              <small>
-                {frontmatter.date || "00-00-00"}
-                {/* <Date dateString={date} /> */}
-              </small>
+              <small>{frontmatter.date || "00-00-00"}</small>
             </li>
           ))}
         </ul>

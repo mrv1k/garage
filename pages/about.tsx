@@ -10,8 +10,6 @@ const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";
 
 const AboutPage = (): JSX.Element => (
   <Layout title="About">
-    {/* <Seo titleLeft="About" path={path} /> */}
-
     <section className="v-layout-core">
       <h2 className="text-3xl font-semibold">
         Hi, I'm
