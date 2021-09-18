@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-export const Grid = ({
+const LocalGrid = ({
   children,
   className = "v-layout-core",
 }: PropsWithChildren<{ className: string }>) => {
@@ -11,4 +11,4 @@ export const Grid = ({
   return <div className={className}>{children}</div>;
 };
 
-export default Grid;
+export default LocalGrid;

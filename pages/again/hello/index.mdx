@@ -1,0 +1,215 @@
+export const name = "Zdarova";
+export const title = "2021-09-15";
+
+# {title}
+
+import { Grid } from "../../../components/mdx/Grid";
+import image from "./salty_egg.jpg";
+import { CustomImage } from "../../../components/mdx/Image";
+import Layout from "../../../components/Layout";
+import LocalGrid from "./LocalGrid";
+
+export default function Test({ children, ...rest }) {
+  console.log("test", rest);
+  return <Layout className="mdx-prose">{children}</Layout>;
+}
+
+```js
+const hello = "world";
+```
+
+wooop woop
+
+<LocalGrid className="col-start-1 col-end-12">
+  <CustomImage src={image} />
+</LocalGrid>
+
+```jsx
+(function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+})();
+
+return () => <App />;
+```
+
+asdasdasda
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, tempore
+iure adipisci optio ea dolorem dolor sit! Quis ab, accusamus, eaque hic a,
+voluptates laborum doloribus dicta eos quidem minima. Lorem ipsum dolor sit
+amet consectetur adipisicing elit. Voluptatibus, tempore iure adipisci optio
+ea dolorem dolor sit! Quis ab, accusamus, eaque hic a, voluptates laborum
+doloribus dicta eos quidem minima.
+
+Oh, and here's a great quote from this Wikipedia on
+[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+
+```md
+Oh, and here's a great quote from this Wikipedia on
+[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg)
+```
+
+> A salted duck egg is a Chinese preserved food product made by soaking duck
+> eggs in brine, or packing each egg in damp, salted charcoal.
+
+```md
+> A salted duck egg is a Chinese preserved food product made by soaking duck
+> eggs in brine, or packing each egg in damp, salted charcoal.
+```
+
+image col-span-4, height=2028
+
+{/**_ ![Chinese Salty Egg ||height=700,cover](./salty_egg.jpg) _**/}
+
+image with fallback size
+
+{/** remote images are not handled yet ![Alt Text](https://get.svg.workers.dev/?s=64&f=gray "Image Title") **/}
+
+| Number | Title                                    | Year |
+| :----- | :--------------------------------------- | ---: |
+| 1      | Harry Potter and the Philosopher’s Stone | 2001 |
+| 2      | Harry Potter and the Chamber of Secrets  | 2002 |
+| 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
+
+```md
+| Number | Title                                    | Year |
+| :----- | :--------------------------------------- | ---: |
+| 1      | Harry Potter and the Philosopher’s Stone | 2001 |
+| 2      | Harry Potter and the Chamber of Secrets  | 2002 |
+| 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
+```
+
+This is a paragraph.
+
+```md
+This is a paragraph.
+```
+
+# Header 1
+
+## Header 2
+
+### Header 3
+
+#### Header 4
+
+##### Header 5
+
+###### Header 6
+
+```md
+# Header 1
+
+## Header 2
+
+### Header 3
+
+#### Header 4
+
+##### Header 5
+
+###### Header 6
+```
+
+> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+```md
+> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+```
+
+> ## This is a header.
+>
+> 1. This is the first list item.
+> 2. This is the second list item.
+>
+> Here's some example code:
+>
+>     Markdown.generate();
+
+```md
+> ## This is a header.
+>
+> 1. This is the first list item.
+> 2. This is the second list item.
+>
+> Here's some example code:
+>
+>     Markdown.generate();
+```
+
+- Red
+- Green
+- Blue
+
+```markdown
+- Red
+- Green
+- Blue
+```
+
+- `code goes` here in this line
+- **bold** goes here
+
+```markdown
+- `code goes` here in this line
+- **bold** goes here
+```
+
+1. Buy flour and salt
+1. Mix together with water
+1. Bake
+
+```markdown
+1. Buy flour and salt
+1. Mix together with water
+1. Bake
+```
+
+1. `code goes` here in this line
+1. **bold** goes here
+
+```markdown
+1. `code goes` here in this line
+1. **bold** goes here
+```
+
+horizontal break below
+
+---
+
+horizontal break above
+
+```md
+horizontal break below
+
+---
+
+horizontal break above
+```
+
+This is [an example](http://example.com "Example") link.
+
+[This link](http://example.com) has no title attr.
+
+```md
+This is [an example](http://example.com "Example") link.
+
+[This link](http://example.com) has no title attr.
+```
+
+_single underscores_
+
+**double asterisks**
+
+```md
+_single asterisks_
+
+**double asterisks**
+```
+
+This paragraph has some `code` in it.
+
+```md
+This paragraph has some `code` in it.
+```
