@@ -3,15 +3,17 @@ export const title = "2021-09-15";
 
 # {title}
 
+import egg from "../../../public/blog-assets/salty_egg.jpg";
 import { Grid } from "../../../components/mdx/Grid";
-import { CustomImage } from "../../../components/mdx/Image";
+import CustomImage from "../../../components/mdx/Image";
 import Layout from "../../../components/Layout";
 import LocalGrid from "./LocalGrid";
 
 export default function Test({ children, ...rest }) {
-  console.log("test", rest);
   return <Layout className="mdx-prose">{children}</Layout>;
 }
+
+<CustomImage src={egg} />
 
 ```js
 const hello = "world";
