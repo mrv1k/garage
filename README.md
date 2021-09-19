@@ -1,31 +1,28 @@
-# Garage WIP
+# [mrv1k.me](https://mrv1k.me) [WIP]
 
-Port gatsby to next.js:
+Personal portfolio & blog
 
-- [x] VScode Eslint
-- [x] Port about page
-- [x] Add MDX
-- [x] About me picture
-- [x] Add support for posts nested in folders
-- [ ] Pretty Blog post layout
+- Portfolio is about me
+- Blog is about
+  - public learning math & computer science
+  - development adventures
 
-New
+## Tech Stack:
 
-- X (drop) Tailwind component support (use twin?)
-- [ ] Set up SEO
-- [x] Deploy on Vercel
+- TypeScript
+- React
+- Next.js
+- MDX via xdm
+- Node.js@14 via Volta
 
----
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+## To run locally:
 
 ```bash
 npm install
+```
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
