@@ -1,52 +1,46 @@
 // @ts-check
-// const path = require("path");
+
+// const { default: remarkFootnotes } = require("remark-footnotes");
+// import remarkGfm from "remark-footnotes";
+// const { default: remarkGfm } = require("remark-gfm");
+
+/**
+ * @type {import('xdm/lib/compile').CompileOptions}
+ */
+const xdmOptions = {
+  remarkPlugins: [
+    // remarkGfm,
+    // remarkMdxImages,
+    // remarkFootnotes,
+  ],
+  rehypePlugins: [
+    // rehypeHighlight
+  ],
+};
 
 /**
  * @type {import('next').NextConfig}
- **/
+ */
 const nextConfig = {
+  // experimental: { esmExternals: true },
   reactStrictMode: true,
-};
 
-// copypaste from xdm
-module.exports = {
-  // Support MDX files as pages:
   pageExtensions: ["mdx", "tsx", "ts", "jsx", "js"],
-  // Support loading `.mdx`:
-  webpack(config) {
+  // https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
+  webpack: (config, context) => {
     config.module.rules.push({
       test: /\.mdx$/,
-      use: [{ loader: "xdm/webpack.cjs", options: {} }],
+      use: [
+        context.defaultLoaders.babel,
+        {
+          loader: "xdm/webpack.cjs",
+          options: xdmOptions,
+        },
+      ],
     });
 
     return config;
   },
 };
 
-// copypaste from https://github.com/vercel/next.js/blob/canary/packages/next-mdx/index.js
-// module.exports =
-//   (pluginOptions = {}) =>
-//   (nextConfig = {}) => {
-//     const extension = pluginOptions.extension || /\.mdx$/;
-
-//     return Object.assign({}, nextConfig, {
-//       webpack(config, options) {
-//         config.module.rules.push({
-//           test: extension,
-//           use: [
-//             options.defaultLoaders.babel,
-//             {
-//               loader: require.resolve("@mdx-js/loader"),
-//               options: pluginOptions.options,
-//             },
-//           ],
-//         });
-
-//         if (typeof nextConfig.webpack === "function") {
-//           return nextConfig.webpack(config, options);
-//         }
-
-//         return config;
-//       },
-//     });
-//   };
+module.exports = nextConfig;
