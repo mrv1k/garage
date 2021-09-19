@@ -1,21 +1,15 @@
 // @ts-check
 
-// const { default: remarkFootnotes } = require("remark-footnotes");
-// import remarkGfm from "remark-footnotes";
-// const { default: remarkGfm } = require("remark-gfm");
+const remarkGfm = require("remark-gfm");
+const remarkFootnotes = require("remark-footnotes");
+const rehypeHighlight = require("rehype-highlight");
 
 /**
  * @type {import('xdm/lib/compile').CompileOptions}
  */
 const xdmOptions = {
-  remarkPlugins: [
-    // remarkGfm,
-    // remarkMdxImages,
-    // remarkFootnotes,
-  ],
-  rehypePlugins: [
-    // rehypeHighlight
-  ],
+  remarkPlugins: [remarkGfm, remarkFootnotes],
+  rehypePlugins: [rehypeHighlight],
 };
 
 /**
