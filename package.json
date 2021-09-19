@@ -41,6 +41,10 @@
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.4.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-prettier": "^1.2.0",
     "tailwindcss": "^2.2.15",
     "typescript": "^4.4.3"
   },
