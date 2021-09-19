@@ -23,11 +23,11 @@
     "next": "^11.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "rehype-highlight": "^5.0.0",
-    "remark-footnotes": "^4.0.1",
-    "remark-gfm": "^2.0.0",
-    "remark-mdx-images": "^1.0.3",
-    "sharp": "^0.29.1"
+    "rehype-highlight": "^4.1.0",
+    "remark-footnotes": "^3.0.0",
+    "remark-gfm": "^1.0.0",
+    "sharp": "^0.29.1",
+    "xdm": "^2.0.3"
   },
   "devDependencies": {
     "@types/node": "^16.9.1",
