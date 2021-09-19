@@ -4,7 +4,6 @@ export const title = "2021-09-15";
 # {title}
 
 import { Grid } from "../../../components/mdx/Grid";
-import image from "./salty_egg.jpg";
 import { CustomImage } from "../../../components/mdx/Image";
 import Layout from "../../../components/Layout";
 import LocalGrid from "./LocalGrid";
@@ -20,8 +19,8 @@ const hello = "world";
 
 wooop woop
 
-<LocalGrid className="col-start-1 col-end-12">
-  <CustomImage src={image} />
+<LocalGrid className="col-start-1 col-end-12 bg-logo-orange">
+  I am col-start-1 col-end-12
 </LocalGrid>
 
 ```jsx
@@ -59,8 +58,6 @@ Oh, and here's a great quote from this Wikipedia on
 ```
 
 image col-span-4, height=2028
-
-{/**_ ![Chinese Salty Egg ||height=700,cover](./salty_egg.jpg) _**/}
 
 image with fallback size
 

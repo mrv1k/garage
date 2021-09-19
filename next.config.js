@@ -24,8 +24,8 @@ const xdmOptions = {
 const nextConfig = {
   // experimental: { esmExternals: true },
   reactStrictMode: true,
+  pageExtensions: ["page.tsx", "page.ts", "page.jsx", "page.js", "page.mdx"],
 
-  pageExtensions: ["mdx", "tsx", "ts", "jsx", "js"],
   // https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
   webpack: (config, context) => {
     config.module.rules.push({
