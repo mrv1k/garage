@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Grid } from "./Grid";
-import MDXImage from "./Image";
-import MDXParagraph from "./Paragraph";
+// import MDXImage from "./Image";
+// import MDXParagraph from "./Paragraph";
 
 type LinkProps = React.PropsWithChildren<{ href: string }>;
 // TODO: custom attrs for outbound links
@@ -27,9 +27,9 @@ const mdxComponents: any = {
   // wrapper: Grid,
 
   /* Default Markdown */
-  p: MDXParagraph,
+  // p: MDXParagraph,
   // ! image is unfinished
-  img: MDXImage,
+  // img: MDXImage,
   a: CustomLink,
   // pre: undefined,
   // code: undefined,

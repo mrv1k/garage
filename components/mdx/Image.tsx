@@ -1,12 +1,17 @@
 // ! Images are not as optimized on Gatsby
 import Image from "next/image";
 
-const MDXImage = ({ src }) => {
+type Props = {
+  src: string;
+  alt: string;
+};
+
+const MDXImage = ({ src, alt }: Props) => {
   // return <div>wtf</div>;
   // return <Image src={src} layout="fill" />;
   return (
     <Image
-      // alt={alt}
+      alt={alt}
       src={src}
       // intrinsic is default, alternative would be to use responsive
       layout="intrinsic"
@@ -15,6 +20,5 @@ const MDXImage = ({ src }) => {
     />
   );
 };
-export { MDXImage };
 
 export default MDXImage;
