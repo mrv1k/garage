@@ -1,7 +1,7 @@
-export const name = "Zdarova";
-export const title = "2021-09-15";
-
-# {title}
+---
+title: "Zdarova"
+date: "2021-09-15"
+---
 
 import egg from "./salty_egg.jpg";
 import { Grid } from "../../../components/mdx/Grid";
@@ -10,6 +10,7 @@ import Layout from "../../../components/Layout";
 import LocalGrid from "./LocalGrid";
 
 export default function Test({ children, ...rest }) {
+  console.log("mdx layout export props", rest);
   return <Layout className="mdx-prose">{children}</Layout>;
 }
 

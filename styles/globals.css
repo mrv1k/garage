@@ -125,6 +125,14 @@ html {
     /* grid-column: span 12 !important; */
   }
 
+  .mdx-propse h1 {
+    color: red;
+  }
+
+  .whatever {
+    color: blue;
+  }
+
   /* Code blocks are wrapped in pre, inline code wrapped in whatever parent */
   /* .mdx-prose code, */
   .mdx-prose > pre,

@@ -4,6 +4,7 @@ const remarkGfm = require("remark-gfm");
 const remarkFootnotes = require("remark-footnotes");
 const rehypeHighlight = require("rehype-highlight");
 
+// Webpack wrapper uses compile under the hood
 /**
  * @type {import('xdm/lib/compile').CompileOptions}
  */

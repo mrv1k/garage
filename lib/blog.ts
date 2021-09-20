@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter"; // Included in mdx-bundler but not re-exported, needed to parse all MDX files frontmatter
-import bundleMDXFileWithOptions from "./mdx-bundler";
+import matter from "gray-matter";
 import { cwd } from "process";
 
 type Frontmatter = {
@@ -18,16 +17,19 @@ type MDXCode = { mdxCode: string };
 export type MDXPost = Slug & FrontmatterProperty & MDXCode;
 export type AllBlogPosts = Array<Slug & FrontmatterProperty>;
 
-const BLOG_PATH = path.join(cwd(), "blog");
+const BLOG_PATH = path.join(cwd(), "pages/blog");
 
 // Filter out dirs like: .DS_Store and .templates
 const getBlogDirs = () =>
-  fs.readdirSync(BLOG_PATH).filter((dir) => !dir.startsWith("."));
+  fs
+    .readdirSync(BLOG_PATH)
+    .filter((path) => path !== "index.page.tsx")
+    .filter((path) => !path.startsWith("."));
 
 export function getAllBlogPosts(): AllBlogPosts {
   const allPostsInfo = getBlogDirs().map((dir) => {
     const fileContents = fs.readFileSync(
-      path.join(BLOG_PATH, dir, "index.mdx")
+      path.join(BLOG_PATH, dir, "index.page.mdx")
     );
     const matterFile = matter(fileContents);
 
@@ -50,19 +52,19 @@ export const getAllBlogPostSlugs = () =>
     } as Slug,
   }));
 
-export async function getPost(
-  slug: string | string[] | undefined
-): Promise<MDXPost> {
-  if (!slug) throw Error("Can't get post without a slug.");
-  if (Array.isArray(slug))
-    throw Error("Function needs an update to support array");
+// export async function getPost(
+//   slug: string | string[] | undefined
+// ): Promise<MDXPost> {
+//   if (!slug) throw Error("Can't get post without a slug.");
+//   if (Array.isArray(slug))
+//     throw Error("Function needs an update to support array");
 
-  const mdxPostDir = path.join(BLOG_PATH, slug);
-  const { code, frontmatter } = await bundleMDXFileWithOptions(mdxPostDir);
+//   const mdxPostDir = path.join(BLOG_PATH, slug);
+//   const { code, frontmatter } = await bundleMDXFileWithOptions(mdxPostDir);
 
-  return {
-    slug,
-    frontmatter: frontmatter as Frontmatter,
-    mdxCode: code,
-  };
-}
+//   return {
+//     slug,
+//     frontmatter: frontmatter as Frontmatter,
+//     mdxCode: code,
+//   };
+// }

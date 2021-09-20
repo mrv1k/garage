@@ -16,9 +16,12 @@ const Layout = ({
   created,
   updated,
   className = "",
+  ...props
 }: Props): JSX.Element => {
+  console.log(props);
+
   return (
-    <div className="grid max-w-screen-xl m-4 sm:grid-cols-5 md:mb-8 md:mx-auto">
+    <div className="grid max-w-screen-xl m-4 sm:grid-cols-5 md:mb-8 md:mx-auto v-layout">
       <Head>
         <title>{title}</title>
       </Head>
