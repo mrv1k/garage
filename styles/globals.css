@@ -80,6 +80,7 @@ html {
   }
 
   .v-underline:hover:not(.active) {
+    @apply cursor-pointer;
     text-decoration-thickness: 0.15rem;
     text-decoration-color: var(--logo-black);
   }
@@ -115,44 +116,44 @@ html {
   }
 
   /**
- * MDX
- */
+   * MDX
+   */
 
   /* Important,do not div tag @apply, div is used to customize from mdx */
 
-  .mdx-prose .nextjs-image-wrapper {
+  .v-layout .nextjs-image-wrapper {
     @apply v-layout-full;
     /* grid-column: span 12 !important; */
   }
 
   /* Code blocks are wrapped in pre, inline code wrapped in whatever parent */
-  /* .mdx-prose code, */
-  .mdx-prose > pre,
-  .mdx-prose > hr {
+  /* .v-layout code, */
+  .v-layout > pre,
+  .v-layout > hr {
     @apply v-layout-full;
   }
 
-  .mdx-prose > h1,
-  .mdx-prose > h2,
-  .mdx-prose > h3,
-  .mdx-prose > p,
-  .mdx-prose > ul,
-  .mdx-prose > ol,
-  /* .mdx-prose li, */
-  .mdx-prose > blockquote,
-  .mdx-prose > em,
-  .mdx-prose > strong {
+  .v-layout > h1,
+  .v-layout > h2,
+  .v-layout > h3,
+  .v-layout > p,
+  .v-layout > ul,
+  .v-layout > ol,
+  /* .v-layout li, */
+  .v-layout > blockquote,
+  .v-layout > em,
+  .v-layout > strong {
     @apply v-layout-core;
   }
 
   /* GitHub flavored markdown (GFM) */
-  .mdx-prose > del,
-  .mdx-prose > table,
-  .mdx-prose > tbody,
-  .mdx-prose > td,
-  .mdx-prose > th,
-  .mdx-prose > thead,
-  .mdx-prose > tr {
+  .v-layout > del,
+  .v-layout > table,
+  .v-layout > tbody,
+  .v-layout > td,
+  .v-layout > th,
+  .v-layout > thead,
+  .v-layout > tr {
     @apply v-layout-core;
   }
 

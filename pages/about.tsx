@@ -2,7 +2,6 @@
 import Image from "next/image";
 import EmailContactLink from "../components/EmailContactLink";
 import Layout from "../components/Layout";
-import profileBig from "../public/images/profile-big.jpg";
 
 const GITHUB = "https://github.com/mrv1k";
 const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";

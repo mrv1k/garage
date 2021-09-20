@@ -23,7 +23,7 @@ export default function PostPage({ post }: Props): JSX.Element {
     <Layout
       title={post.frontmatter.title}
       created={post.frontmatter.date}
-      className="mdx-prose"
+      className="prose v-layout"
     >
       <MDXComponent components={mdxComponents} />
     </Layout>
