@@ -41,13 +41,21 @@ Oh, and here's a great quote from this Wikipedia on
 > eggs in brine, or packing each egg in damp, salted charcoal.
 ```
 
-<Grid className="col-span-4">
-  ![Chinese Salty Egg, 2048x1536](./salty_egg.jpg)
+col start 1, end 4
+
+<Grid className="col-start-1 col-end-4">
+  <Image src="/blog/salty_egg.jpg" width={2048} height={1536} />
 </Grid>
 
-<Grid>![Chinese Salty Egg, 2048x1536](./salty_egg.jpg)</Grid>
+grid default (v-layout-core)
 
-![Chinese Salty Egg, 2048x1536](./salty_egg.jpg)
+<Grid>
+  <Image src="/blog/salty_egg.jpg" width={2048} height={1536} />
+</Grid>
+
+image without grid
+
+<Image src="/blog/salty_egg.jpg" width={2048} height={1536} />
 
 {/** remote images are not handled yet ![Alt Text](https://get.svg.workers.dev/?s=64&f=gray "Image Title") **/}
 

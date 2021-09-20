@@ -9,6 +9,7 @@ import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 type Props = { post: MDXPost };
 
 export default function PostPage({ post }: Props): JSX.Element {
+  // ! This uses undocumented Next API and may break at any time
   useRemoteRefresh({
     shouldRefresh: (path) => path.includes(post.slug),
   });

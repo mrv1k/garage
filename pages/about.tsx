@@ -31,7 +31,9 @@ const AboutPage = (): JSX.Element => (
 
     <aside className="row-start-2 row-end-4 md:row-start-1 v-layout-right wrapper-of-me">
       <Image
-        src={profileBig}
+        src="/portfolio/profile-big.jpg"
+        width={340}
+        height={340}
         alt="Image of Viktor"
         className="rounded image-of-me"
       />
