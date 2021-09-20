@@ -19,7 +19,7 @@ const AboutPage = (): JSX.Element => (
     </section>
 
     <section className="!pt-0 v-layout-core">
-      <p className="whatever">
+      <p>
         I'm front-end developer based in Toronto, Canada. Currently, I work on
         personal projects and open to new opportunities.
       </p>

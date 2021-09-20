@@ -1,41 +1,52 @@
 // @ts-check
-
-const remarkGfm = require("remark-gfm");
-const remarkFootnotes = require("remark-footnotes");
-const rehypeHighlight = require("rehype-highlight");
-
-// Webpack wrapper uses compile under the hood
-/**
- * @type {import('xdm/lib/compile').CompileOptions}
- */
-const xdmOptions = {
-  remarkPlugins: [remarkGfm, remarkFootnotes],
-  rehypePlugins: [rehypeHighlight],
-};
+// const path = require("path");
 
 /**
  * @type {import('next').NextConfig}
- */
+ **/
 const nextConfig = {
-  // experimental: { esmExternals: true },
   reactStrictMode: true,
-  pageExtensions: ["page.tsx", "page.ts", "page.jsx", "page.js", "page.mdx"],
+};
 
-  // https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
-  webpack: (config, context) => {
+// copypaste from xdm
+module.exports = {
+  // Support MDX files as pages:
+  pageExtensions: ["mdx", "tsx", "ts", "jsx", "js"],
+  // Support loading `.mdx`:
+  webpack(config) {
     config.module.rules.push({
       test: /\.mdx$/,
-      use: [
-        context.defaultLoaders.babel,
-        {
-          loader: "xdm/webpack.cjs",
-          options: xdmOptions,
-        },
-      ],
+      use: [{ loader: "xdm/webpack.cjs", options: {} }],
     });
 
     return config;
   },
 };
 
-module.exports = nextConfig;
+// copypaste from https://github.com/vercel/next.js/blob/canary/packages/next-mdx/index.js
+// module.exports =
+//   (pluginOptions = {}) =>
+//   (nextConfig = {}) => {
+//     const extension = pluginOptions.extension || /\.mdx$/;
+
+//     return Object.assign({}, nextConfig, {
+//       webpack(config, options) {
+//         config.module.rules.push({
+//           test: extension,
+//           use: [
+//             options.defaultLoaders.babel,
+//             {
+//               loader: require.resolve("@mdx-js/loader"),
+//               options: pluginOptions.options,
+//             },
+//           ],
+//         });
+
+//         if (typeof nextConfig.webpack === "function") {
+//           return nextConfig.webpack(config, options);
+//         }
+
+//         return config;
+//       },
+//     });
+//   };

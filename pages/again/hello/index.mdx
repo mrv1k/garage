@@ -1,20 +1,18 @@
----
-title: "Zdarova"
-date: "2021-09-15"
----
+export const name = "Zdarova";
+export const title = "2021-09-15";
 
-import egg from "./salty_egg.jpg";
+# {title}
+
 import { Grid } from "../../../components/mdx/Grid";
-import CustomImage from "../../../components/mdx/Image";
+import image from "./salty_egg.jpg";
+import { CustomImage } from "../../../components/mdx/Image";
 import Layout from "../../../components/Layout";
 import LocalGrid from "./LocalGrid";
 
 export default function Test({ children, ...rest }) {
-  console.log("mdx layout export props", rest);
+  console.log("test", rest);
   return <Layout className="mdx-prose">{children}</Layout>;
 }
-
-<CustomImage src={egg} />
 
 ```js
 const hello = "world";
@@ -22,8 +20,8 @@ const hello = "world";
 
 wooop woop
 
-<LocalGrid className="col-start-1 col-end-12 bg-logo-orange">
-  I am col-start-1 col-end-12
+<LocalGrid className="col-start-1 col-end-12">
+  <CustomImage src={image} />
 </LocalGrid>
 
 ```jsx
@@ -61,6 +59,8 @@ Oh, and here's a great quote from this Wikipedia on
 ```
 
 image col-span-4, height=2028
+
+{/**_ ![Chinese Salty Egg ||height=700,cover](./salty_egg.jpg) _**/}
 
 image with fallback size
 

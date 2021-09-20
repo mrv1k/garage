@@ -1,5 +1,6 @@
 import { getMDXComponent } from "mdx-bundler/client";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useRemoteRefresh } from "next-remote-refresh/hook";
 import React from "react";
 import Layout from "../../components/Layout";
 import mdxComponents from "../../components/mdx";
@@ -8,6 +9,10 @@ import { getAllBlogPostSlugs, getPost, MDXPost } from "../../lib/blog";
 type Props = { post: MDXPost };
 
 export default function PostPage({ post }: Props): JSX.Element {
+  useRemoteRefresh({
+    shouldRefresh: (path) => path.includes(post.slug),
+  });
+
   const MDXComponent = React.useMemo(
     () => getMDXComponent(post.mdxCode),
     [post.mdxCode]
