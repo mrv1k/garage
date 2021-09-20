@@ -1,3 +1,10 @@
+// based on my favicon
+const logo = {
+  orange: "#eb4a2e", // hand // rgb(235, 74, 46)
+  black: "#1d3131", // wrench // rgb(29, 49, 49)
+  beige: "#fcf8ed", // background // rgb(252, 248, 237)
+};
+
 module.exports = {
   mode: "jit",
   purge: {
@@ -18,11 +25,40 @@ module.exports = {
       // font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       // },
       colors: {
-        // based on my favicon
-        logo: {
-          orange: "#eb4a2e", // hand
-          black: "#1d3131", // wrench
-          beige: "#fcf8ed", // background
+        logo,
+      },
+
+      // customize tailwind/typography aka .prose
+      // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
+      typography: {
+        DEFAULT: {
+          css: {
+            // default globals
+            "max-width": "inherit",
+            color: logo.black,
+            lineHeight: 1.5,
+
+            // touch ups
+            "ul > li::before": {
+              backgroundColor: "currentColor",
+            },
+            h1: { color: false },
+            h2: { color: false },
+            h3: { color: false },
+            h4: { color: false },
+
+            // custom implementation
+            a: false,
+            pre: false,
+            code: false,
+            "pre code": false,
+
+            // these add too much spacing
+            // ol: { marginTop: false },
+            // ul: { marginTop: false },
+            // li: false,
+            // p: false,
+          },
         },
       },
     },
