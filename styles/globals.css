@@ -67,7 +67,7 @@ html {
 
 @layer base {
   .nav li {
-    @apply pr-4 md:pr-0 md:ml-8 xl:ml-0;
+    @apply pr-4 md:pr-0 md:ml-8;
   }
   a {
     @apply v-underline;
@@ -119,14 +119,14 @@ html {
    * MDX
    */
 
-  /* Important,do not div tag @apply, div is used to customize from mdx */
+  /* ! Important, do not div tag @apply, div is used to break out of it from within mdx */
 
   .v-layout .nextjs-image-wrapper {
     @apply v-layout-full;
     /* grid-column: span 12 !important; */
   }
 
-  /* Code blocks are wrapped in pre, inline code wrapped in whatever parent */
+  /* Code blocks are wrapped in pre, inline code wrapped in whatever parent *
   /* .v-layout code, */
   .v-layout > pre,
   .v-layout > hr {
@@ -163,6 +163,10 @@ html {
 /**
  * highlight.js customization
  */
+
+.hljs {
+  @apply overflow-auto;
+}
 
 .inline-code,
 :not(pre) > code {
