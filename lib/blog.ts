@@ -58,11 +58,22 @@ export async function getPost(
     throw Error("Function needs an update to support array");
 
   const mdxPostDir = path.join(BLOG_PATH, slug);
-  const { code, frontmatter } = await bundleMDXFileWithOptions(mdxPostDir);
+
+  let code: string;
+  let frontmatter: Frontmatter;
+
+  try {
+    const mdx = await bundleMDXFileWithOptions(mdxPostDir);
+    code = mdx.code;
+    frontmatter = mdx.frontmatter as Frontmatter;
+  } catch (error) {
+    console.error("! MDX Bundler failed " + mdxPostDir);
+    throw error;
+  }
 
   return {
     slug,
-    frontmatter: frontmatter as Frontmatter,
+    frontmatter,
     mdxCode: code,
   };
 }
