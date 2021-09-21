@@ -18,7 +18,7 @@ const Layout = ({
   className = "",
 }: Props): JSX.Element => {
   return (
-    <div className="grid m-4 xl:max-w-screen-xl sm:grid-cols-5 md:mb-8 md:mx-auto">
+    <div className="grid m-5 xl:max-w-screen-xl sm:grid-cols-5 md:mb-8 md:mx-auto">
       <Head>
         <title>{title}</title>
       </Head>

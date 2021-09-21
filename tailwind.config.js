@@ -1,4 +1,4 @@
-// based on my favicon
+// based on my logo
 const logo = {
   orange: "#eb4a2e", // hand // rgb(235, 74, 46)
   black: "#1d3131", // wrench // rgb(29, 49, 49)
@@ -34,7 +34,7 @@ module.exports = {
         DEFAULT: {
           css: {
             // default globals
-            "max-width": "inherit",
+            "max-width": "none",
             color: logo.black,
             lineHeight: 1.5,
 
@@ -57,7 +57,10 @@ module.exports = {
             // ol: { marginTop: false },
             // ul: { marginTop: false },
             // li: false,
-            // p: false,
+            p: {
+              marginBottom: "1rem",
+              marginTop: false,
+            },
           },
         },
       },

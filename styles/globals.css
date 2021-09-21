@@ -69,6 +69,7 @@ html {
   .nav li {
     @apply pr-4 md:pr-0 md:ml-8;
   }
+
   a {
     @apply v-underline;
   }
@@ -94,27 +95,6 @@ html {
     min-width: 15ch;
   }
 
-  .autolink.before {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateX(-100%) translateY(-50%);
-    padding-right: 4px;
-  }
-
-  .autolink svg {
-    visibility: hidden;
-  }
-
-  h1:hover .autolink svg,
-  h2:hover .autolink svg,
-  h3:hover .autolink svg,
-  h1 .autolink:focus svg,
-  h2 .autolink:focus svg,
-  h3 .autolink:focus svg {
-    visibility: visible;
-  }
-
   /**
    * MDX
    */
@@ -136,6 +116,9 @@ html {
   .v-layout > h1,
   .v-layout > h2,
   .v-layout > h3,
+  .v-layout > h4,
+  .v-layout > h5,
+  .v-layout > h6,
   .v-layout > p,
   .v-layout > ul,
   .v-layout > ol,
@@ -161,7 +144,45 @@ html {
 }
 
 /**
- * highlight.js customization
+ * Customize @tailwindcss/typography
+ */
+
+/* * {
+  border: 1px groove;
+} */
+
+.prose .anchor {
+  float: left;
+  line-height: 1;
+  text-decoration: none;
+  @apply -ml-5;
+}
+
+svg.jamicon {
+  display: inline-block;
+}
+
+.autolink svg {
+  visibility: hidden;
+}
+
+h1:hover .autolink svg,
+h2:hover .autolink svg,
+h3:hover .autolink svg,
+h4:hover .autolink svg,
+h5:hover .autolink svg,
+h6:hover .autolink svg,
+h1 .autolink:focus svg,
+h2 .autolink:focus svg,
+h3 .autolink:focus svg,
+h4 .autolink:focus svg,
+h5 .autolink:focus svg,
+h6 .autolink:focus svg {
+  visibility: visible;
+}
+
+/**
+ * Customize highlight.js
  */
 
 .hljs {
