@@ -1,6 +1,6 @@
 import CustomLink from "./CustomLink";
 import Grid from "./Grid";
-import Image from "next/image";
+import Image from "./Image";
 
 // ComponentMap causes more trouble than it's worth, break out of it
 // export type ComponentMap = {
@@ -16,6 +16,7 @@ const mdxComponents: any = {
   /* Custom */
   Grid,
   Image,
+
   // Default Layout wrapper, can enable as base line and provide a fragment component to opt out, but <NoGrid> component feels weird
   // Which is why default wrapper disabled
   // wrapper: Grid,
