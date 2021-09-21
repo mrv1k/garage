@@ -16,24 +16,22 @@ import { SUPPORTED_IMAGE_EXTENSIONS } from "./constants";
 // export const BREAKS = {};
 
 // Next.JS esbuild ENOENT https://github.com/kentcdodds/mdx-bundler#nextjs-esbuild-enoent
-const patchENOENT = () => {
-  if (process.platform === "win32") {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      "node_modules",
-      "esbuild",
-      "esbuild.exe"
-    );
-  } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      "node_modules",
-      "esbuild",
-      "bin",
-      "esbuild"
-    );
-  }
-};
+if (process.platform === "win32") {
+  process.env.ESBUILD_BINARY_PATH = path.join(
+    process.cwd(),
+    "node_modules",
+    "esbuild",
+    "esbuild.exe"
+  );
+} else {
+  process.env.ESBUILD_BINARY_PATH = path.join(
+    process.cwd(),
+    "node_modules",
+    "esbuild",
+    "bin",
+    "esbuild"
+  );
+}
 
 // 80% flex, 20% usefulness. One source for image extensions
 // Result without flex: { ".png": "file", ".jpg": "file", ".jpeg": "file", ".gif": "file", }
@@ -44,8 +42,6 @@ const imageExtensions: BuildOptions["loader"] =
   );
 
 const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
-  patchENOENT();
-
   const xdmOptions: BundleMDXOptions["xdmOptions"] = (options) => {
     options.remarkPlugins = [
       ...(options.remarkPlugins ?? []),
