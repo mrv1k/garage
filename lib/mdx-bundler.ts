@@ -2,7 +2,7 @@ import { bundleMDXFile } from "mdx-bundler";
 import { BundleMDXOptions } from "mdx-bundler/dist/types";
 import path from "path";
 import process from "process";
-import rehypeHighlight from "rehype-highlight";
+import rehypeHighlight, { Options as RehypeOptions } from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import remarkFootnotes from "remark-footnotes";
 
@@ -36,7 +36,15 @@ const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
       remarkGfm,
       remarkFootnotes,
     ];
-    options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeHighlight];
+
+    const rehypeOptions: RehypeOptions = {
+      aliases: { plaintext: "no-highlight" },
+    };
+
+    options.rehypePlugins = [
+      ...(options.rehypePlugins ?? []),
+      [rehypeHighlight, rehypeOptions],
+    ];
 
     return options;
   };
