@@ -147,9 +147,9 @@ html {
  * Customize @tailwindcss/typography
  */
 
-/* * {
-  border: 1px groove;
-} */
+* {
+  /* border: 1px groove; */
+}
 
 /* Heads up, margins don't collapse because I'm using grid.
   Elements are treated as horizontal siblings
@@ -204,12 +204,30 @@ h6 .autolink:focus svg {
   visibility: visible;
 }
 
+.prose table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.prose thead,
+.prose tbody tr {
+  @apply border-gray-400;
+}
+
+.prose thead th,
+.prose tbody td {
+  @apply p-2 align-middle border border-gray-400;
+}
+
 /**
  * Customize highlight.js
  */
 
 .hljs {
-  @apply overflow-auto;
+  @apply mb-4 overflow-x-auto;
+  font-size: 14px;
 }
 
 .inline-code,
