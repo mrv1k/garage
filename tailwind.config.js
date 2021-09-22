@@ -33,6 +33,9 @@ module.exports = {
       // },
       colors: {
         logo,
+        gray: {
+          350: "#b7bcc5",
+        },
       },
 
       // customize tailwind/typography aka .prose
@@ -40,16 +43,23 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            // default globals
-            "max-width": "none",
-            color: logo.black,
+            maxWidth: false,
             lineHeight: 1.5,
 
-            // touch ups
-            "ul > li::before": {
-              backgroundColor: "currentColor",
+            // Really don't like it customizing font colors ;)
+            color: logo.black,
+            strong: { color: false },
+            em: { color: false },
+            "ol > li::before": {
+              backgroundColor: false,
             },
+            "ul > li::before": {
+              backgroundColor: logo.black,
+            },
+            hr: false,
+            "figure figcaption": false,
 
+            // copypaste but disable color
             h1: {
               color: false,
               fontSize: em(36, 16),
@@ -79,10 +89,13 @@ module.exports = {
               marginBottom: "1rem",
               lineHeight: round(24 / 16),
             },
-            // custom implementation
+
             a: false,
+            "a code": { color: false },
             pre: false,
             code: false,
+            "code::before": false,
+            "code::after": false,
             "pre code": false,
 
             // these add too much spacing
@@ -110,6 +123,10 @@ module.exports = {
             "tbody td": false,
             "tbody td:first-child": false,
             "tbody td:last-child": false,
+
+            blockquote: false,
+            "blockquote p:first-of-type::before": false,
+            "blockquote p:last-of-type::after": false,
           },
         },
       },

@@ -28,7 +28,7 @@ const Layout = ({
         <h1 className="text-3xl font-bold md:text-5xl text-logo-orange md:h-24">
           {title}
         </h1>
-        <div className="bottom-0 right-0 pr-2 font-mono text-sm text-gray-400 md:absolute md:text-right min-w-max md:mr-8 xl:mr-0">
+        <div className="bottom-0 right-0 pr-2 font-mono text-sm text-gray-350 md:absolute md:text-right min-w-max md:mr-8 xl:mr-0">
           <div>{created && <Date created={created} />}</div>
           <div>{updated && <Date updated={updated} />}</div>
         </div>

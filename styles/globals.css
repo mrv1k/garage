@@ -213,12 +213,23 @@ h6 .autolink:focus svg {
 
 .prose thead,
 .prose tbody tr {
-  @apply border-gray-400;
+  @apply border-gray-350;
 }
 
 .prose thead th,
 .prose tbody td {
-  @apply p-2 align-middle border border-gray-400;
+  @apply p-2 align-middle border border-gray-350;
+}
+
+.prose blockquote {
+  @apply mb-4 border-gray-350 text-gray-500 italic border-l-4 px-4;
+}
+.prose blockquote p {
+  margin-bottom: 0;
+}
+
+.prose hr {
+  @apply border-gray-350 border-t-2 mt-2 mb-4;
 }
 
 /**
