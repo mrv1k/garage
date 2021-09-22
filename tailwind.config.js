@@ -1,3 +1,10 @@
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, "$1")
+    .replace(/\.0$/, "");
+const em = (px, base) => `${round(px / base)}em`;
+
 // based on my logo
 const logo = {
   orange: "#eb4a2e", // hand // rgb(235, 74, 46)
@@ -42,11 +49,36 @@ module.exports = {
             "ul > li::before": {
               backgroundColor: "currentColor",
             },
-            h1: { color: false },
-            h2: { color: false },
-            h3: { color: false },
-            h4: { color: false },
 
+            h1: {
+              color: false,
+              fontSize: em(36, 16),
+              marginTop: "1.5rem",
+              marginBottom: "1rem",
+              paddingBottom: "0.3em",
+              lineHeight: round(40 / 36),
+            },
+            h2: {
+              color: false,
+              fontSize: em(24, 16),
+              marginTop: "1.5rem",
+              marginBottom: "1rem",
+              paddingBottom: "0.3em",
+              lineHeight: round(32 / 24),
+            },
+            h3: {
+              color: false,
+              fontSize: em(20, 16),
+              marginTop: "1.5rem",
+              marginBottom: "1rem",
+              lineHeight: round(32 / 20),
+            },
+            h4: {
+              color: false,
+              marginTop: "1.5rem",
+              marginBottom: "1rem",
+              lineHeight: round(24 / 16),
+            },
             // custom implementation
             a: false,
             pre: false,
@@ -54,13 +86,19 @@ module.exports = {
             "pre code": false,
 
             // these add too much spacing
-            // ol: { marginTop: false },
-            // ul: { marginTop: false },
-            // li: false,
+            img: false,
+            ol: { marginTop: false, marginBottom: "1rem" },
+            ul: { marginTop: false, marginBottom: "1rem" },
+            li: false,
             p: {
               marginBottom: "1rem",
               marginTop: false,
             },
+            table: {
+              marginTop: false,
+              marginBottom: false,
+            },
+            thead: { color: false },
           },
         },
       },

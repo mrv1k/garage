@@ -151,6 +151,29 @@ html {
   border: 1px groove;
 } */
 
+/* Heads up, margins don't collapse because I'm using grid.
+  Elements are treated as horizontal siblings
+  from the spec: "the margins of adjacent grid items do not collapse."
+
+  Fine. I'll colapse them myself v.v
+ */
+
+.prose * + h1,
+.prose * + h2,
+.prose * + h3,
+.prose * + h4 {
+  @apply mt-2;
+}
+
+.prose li + li {
+  @apply mt-1;
+}
+
+.prose p > img {
+  display: initial;
+  vertical-align: initial;
+}
+
 .prose .anchor {
   float: left;
   line-height: 1;
