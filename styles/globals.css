@@ -90,13 +90,6 @@ html {
     text-decoration-color: var(--logo-black);
   }
 
-  .goto-button {
-    @apply font-mono right-4 no-underline text-gray-350;
-  }
-  .goto-button:hover {
-    @apply text-gray-400;
-  }
-
   #top .goto-button {
     visibility: hidden;
   }
