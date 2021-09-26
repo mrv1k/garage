@@ -1,4 +1,4 @@
-// import Head from "next/head";
+import { format, parseISO } from "date-fns";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../../components/Layout";
@@ -9,15 +9,18 @@ type Props = { allPosts: AllBlogPosts };
 export default function BlogIndex({ allPosts }: Props): JSX.Element {
   return (
     <Layout title="Blog">
-      <section className="v-layout-core">
-        <ul>
+      <section className="v-layout-core blog-list">
+        <ul className="list-decimal">
           {allPosts.map(({ slug, frontmatter }) => (
-            <li key={slug}>
+            <li key={slug} className="pb-4">
               <Link href={`/blog/${slug}`}>
-                <a>{frontmatter.title || slug}</a>
+                <a className="text-3xl">{frontmatter.title || slug}</a>
               </Link>
-              <br />
-              <small>{frontmatter.date || "00-00-00"}</small>
+              <div className="pt-2 text-sm text-gray-500">
+                <time dateTime={frontmatter.date}>
+                  {format(parseISO(frontmatter.date), "LLL d, yyyy")}
+                </time>
+              </div>
             </li>
           ))}
         </ul>

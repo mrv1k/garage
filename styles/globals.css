@@ -23,6 +23,20 @@
   --logo-beige: #fcf8ed;
 }
 
+/**
+  * Font-sizes
+
+  * Website title:
+    3rem / md:5xl
+    mobile: 1.875rem / 3xl
+  *
+  * Prose
+  * h1: 2.25rem / 4xl
+  * h2: 1.5rem / 2xl
+  * h3: 1.25rem / text-xl
+  * h4: inherit
+  */
+
 html {
   @apply bg-logo-beige text-logo-black;
   /* fix layout shift on scrollbar, src: https://stackoverflow.com/a/39289453/7138644 */
@@ -98,9 +112,8 @@ html {
     visibility: visible;
   }
 
-  .blog-list-date {
-    @apply inline-block font-mono text-xs text-right;
-    min-width: 15ch;
+  .blog-list ul li::marker {
+    @apply text-gray-500 text-sm;
   }
 
   /**
