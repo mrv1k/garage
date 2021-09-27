@@ -10,13 +10,13 @@ export default function BlogIndex({ allPosts }: Props): JSX.Element {
   return (
     <Layout title="Blog">
       <section className="v-layout-core blog-list">
-        <ul className="list-decimal list-inside">
+        <ul>
           {allPosts.map(({ slug, frontmatter }) => (
             <li key={slug} className="pb-4">
               <Link href={`/blog/${slug}`}>
                 <a className="text-3xl">{frontmatter.title || slug}</a>
               </Link>
-              <div className="pt-2 pl-4 text-sm text-gray-500">
+              <div className="text-sm text-gray-500">
                 <time dateTime={frontmatter.date}>
                   {format(parseISO(frontmatter.date), "LLL d, yyyy")}
                 </time>

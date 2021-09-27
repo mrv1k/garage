@@ -82,24 +82,21 @@ html {
     @apply pr-4 md:pr-0 md:ml-8;
   }
 
-  a {
+  .v-underline-links a {
     @apply v-underline;
+    text-decoration-thickness: 1.25px;
+  }
+
+  a:hover:not(.active) {
+    @apply v-underline;
+    text-decoration-color: var(--logo-black);
+    text-decoration-thickness: 2.5px;
   }
 
   .v-underline.active,
   .v-underline:active {
-    text-decoration-thickness: 0.15rem;
     text-decoration-color: var(--logo-orange);
-  }
-
-  .v-underline:hover:not(.active) {
-    @apply cursor-pointer;
-    text-decoration-thickness: 0.15rem;
-    text-decoration-color: var(--logo-black);
-  }
-
-  a.text-logo-orange {
-    text-decoration-color: var(--logo-black);
+    text-decoration-thickness: 2.5px;
   }
 
   #top .goto-button {
