@@ -56,6 +56,7 @@ html {
 .about footer {
   @apply pt-4;
 }
+/* FIX THE ABOVE */
 
 @layer utilities {
   .v-layout-full {
@@ -74,6 +75,7 @@ html {
     text-decoration-line: underline;
     text-underline-position: under;
     text-underline-offset: 1px;
+    cursor: pointer;
   }
 }
 
@@ -81,21 +83,27 @@ html {
   .nav li {
     @apply pr-4 md:pr-0 md:ml-8;
   }
+  .nav li a {
+    @apply v-underline;
+  }
+  .nav li a.active,
+  .nav li a:active {
+    text-decoration-color: var(--logo-orange);
+    text-decoration-thickness: 2.5px;
+  }
 
   .v-underline-links a {
     @apply v-underline;
-    text-decoration-thickness: 1.25px;
+    text-decoration-thickness: 1px;
+  }
+
+  .v-underline-links a:visited[target="_blank"] {
+    text-decoration-color: purple;
   }
 
   a:hover:not(.active) {
     @apply v-underline;
     text-decoration-color: var(--logo-black);
-    text-decoration-thickness: 2.5px;
-  }
-
-  .v-underline.active,
-  .v-underline:active {
-    text-decoration-color: var(--logo-orange);
     text-decoration-thickness: 2.5px;
   }
 

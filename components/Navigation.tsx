@@ -7,7 +7,7 @@ const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <nav className="row-start-1 mb-4 nav md:row-start-2 md:mb-0 v-underline-links">
+    <nav className="row-start-1 mb-4 nav md:row-start-2 md:mb-0">
       <ol className="flex md:flex-col">
         {paths.map((path) => (
           <li key={path}>
