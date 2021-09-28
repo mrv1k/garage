@@ -13,7 +13,7 @@ const CustomLink = ({ href, ...props }: Props) => {
     );
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return <a target="_blank" rel="noopener noreferrer" href={href} {...props} />;
 };
 
 export default CustomLink;
