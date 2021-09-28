@@ -115,6 +115,25 @@ html {
     visibility: visible;
   }
 
+  .v-home-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  .v-home-flex > * {
+    @apply flex-initial;
+  }
+
+  @screen md {
+    .v-home-flex > * {
+      flex: 0 1 51%;
+    }
+    .v-home-flex .basis-75 {
+      flex-basis: 75%;
+    }
+  }
+
   .blog-list ul li::marker {
     @apply text-gray-500 text-sm;
   }
