@@ -13,7 +13,7 @@ const AboutPage = (): JSX.Element => (
     <section className="!pt-0 v-layout-core">
       <h2 className="!pb-2 text-3xl font-semibold">
         Hi, I'm
-        <span className="text-logo-orange"> Viktor</span>
+        <span className="text-v-orange"> Viktor</span>
       </h2>
     </section>
 

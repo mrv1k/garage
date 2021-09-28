@@ -32,16 +32,20 @@ module.exports = {
       // font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       // },
       colors: {
-        logo,
+        // customize built in colors
         gray: { 350: "#b7bcc5" },
+
+        // custom colors
+        "v-black": logo.black,
+        "v-beige": logo.beige,
         "v-orange": {
-          DEFAULT: "#eb4a2e",
+          DEFAULT: logo.orange,
           50: "#ffffff",
           100: "#fdebe8",
           200: "#f8c3ba",
           300: "#f49b8b",
           400: "#ef725d",
-          500: "#eb4a2e",
+          500: logo.orange,
           600: "#d23014",
           700: "#a32610",
           800: "#751b0b",

@@ -11,7 +11,7 @@ const IndexPage = (): JSX.Element => (
       <span className="text-xl">Hi, I’m</span>
       <header>
         <h1 className="text-5xl font-bold">
-          <span className="text-logo-orange">Viktor Khotimchenko</span>.
+          <span className="text-v-orange">Viktor Khotimchenko</span>.
         </h1>
       </header>
     </div>
@@ -25,7 +25,7 @@ const IndexPage = (): JSX.Element => (
       to new opportunities.
       <div className="mt-8">
         <a
-          className="!no-underline border rounded py-3 px-11 border-v-orange hover:bg-v-orange hover:text-logo-beige"
+          className="!no-underline border rounded py-3 px-11 border-v-orange hover:bg-v-orange hover:text-v-beige"
           href="mailto:viktorkhotimchenko@gmail.com"
         >
           Get in touch

@@ -27,7 +27,7 @@ const Layout = ({
 
       <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6">
         {/* double height to fit 2 line title */}
-        <h1 className="text-5xl font-bold text-logo-orange md:h-24">{title}</h1>
+        <h1 className="text-5xl font-bold text-v-orange md:h-24">{title}</h1>
         <div className="bottom-0 right-0 pr-2 font-mono text-sm text-gray-350 md:absolute md:text-right min-w-max md:mr-8 xl:mr-0">
           <div>{created && <Date created={created} />}</div>
           <div>{updated && <Date updated={updated} />}</div>
