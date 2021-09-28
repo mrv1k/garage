@@ -19,9 +19,11 @@ const Layout = ({
 }: Props): JSX.Element => {
   return (
     <div className="grid p-5 xl:max-w-screen-xl sm:grid-cols-5 md:pb-8 md:mx-auto">
-      <Head>
-        <title>{title}</title>
-      </Head>
+      {title && (
+        <Head>
+          <title>{title}</title>
+        </Head>
+      )}
 
       <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6">
         {/* double height to fit 2 line title */}
