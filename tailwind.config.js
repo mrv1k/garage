@@ -33,8 +33,19 @@ module.exports = {
       // },
       colors: {
         logo,
-        gray: {
-          350: "#b7bcc5",
+        gray: { 350: "#b7bcc5" },
+        "v-orange": {
+          DEFAULT: "#eb4a2e",
+          50: "#ffffff",
+          100: "#fdebe8",
+          200: "#f8c3ba",
+          300: "#f49b8b",
+          400: "#ef725d",
+          500: "#eb4a2e",
+          600: "#d23014",
+          700: "#a32610",
+          800: "#751b0b",
+          900: "#461007",
         },
       },
 
