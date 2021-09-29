@@ -80,14 +80,11 @@ html {
 }
 
 @layer base {
-  .nav li {
-    @apply pr-4 md:pr-0 md:ml-8;
-  }
-  .nav li a {
+  .nav a {
     @apply v-underline;
   }
-  .nav li a.active,
-  .nav li a:active {
+  .nav a.active,
+  .nav a:active {
     text-decoration-color: var(--v-orange);
     text-decoration-thickness: 2.5px;
   }
