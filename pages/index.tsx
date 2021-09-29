@@ -7,7 +7,7 @@ const IndexPage = (): JSX.Element => (
       <title>Viktor Khotimchenko </title>
     </Head>
 
-    <div className="min-h-screen v-layout-full v-home-flex">
+    <div className="md:v-h-remaining-screen v-layout-full v-home-flex">
       <header>
         <span className="text-xl">Hi, my name is</span>
         <h1 className="text-5xl font-bold">

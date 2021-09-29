@@ -42,6 +42,12 @@ html {
   margin-right: calc(-1 * (100vw - 100%));
 }
 
+/* body,
+#__next,
+.garage {
+  min-height: 100vh;
+} */
+
 /* FIXME: temp tailwind to make about page look OK  */
 .about p {
   @apply pb-3;
@@ -71,6 +77,12 @@ html {
     @apply md:col-start-9 md:col-end-13 col-span-full;
   }
 
+  .v-h-remaining-screen {
+    /* screen        - header size - header spacing - page spacing */
+    /* tailwind`ish  - h-24        - p-4            - p-5 */
+    height: calc(100vh - 6rem - 1rem - 1.25rem);
+  }
+
   .v-underline {
     text-decoration-line: underline;
     text-underline-position: under;
@@ -80,11 +92,11 @@ html {
 }
 
 @layer base {
-  .nav a {
+  .v-main-nav a {
     @apply v-underline;
   }
-  .nav a.active,
-  .nav a:active {
+  .v-main-nav a.active,
+  .v-main-nav a:active {
     text-decoration-color: var(--v-orange);
     text-decoration-thickness: 2.5px;
   }
@@ -138,7 +150,7 @@ html {
   }
 
   .blog-list ul li::marker {
-    @apply text-gray-500 text-sm;
+    @apply text-sm text-gray-500;
   }
 
   /**
@@ -268,14 +280,14 @@ h6 .autolink:focus svg {
 }
 
 .prose blockquote {
-  @apply mb-4 border-gray-350 text-gray-500 italic border-l-4 px-4;
+  @apply px-4 mb-4 italic text-gray-500 border-l-4 border-gray-350;
 }
 .prose blockquote p {
   margin-bottom: 0;
 }
 
 .prose hr {
-  @apply border-gray-350 border-t-2 mt-2 mb-4;
+  @apply mt-2 mb-4 border-t-2 border-gray-350;
 }
 
 /**

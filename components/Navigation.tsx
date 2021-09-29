@@ -7,17 +7,12 @@ const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <nav className="flex justify-between row-start-1 mb-4 nav md:row-start-2 md:mb-0 md:flex-col">
-      <span
-        className="flex md:flex-col"
-        style={{
-          flex: "0 1 70vh",
-        }}
-      >
+    <nav className="flex justify-between row-start-1 mb-4 md:v-h-remaining-screen v-main-nav md:row-start-2 md:mb-0 md:flex-col">
+      <span className="flex md:flex-col">
         {paths.map((path) => (
           <Link key={path} href={path}>
             <a
-              className={`pr-4 md:pr0 md:ml-8 ${
+              className={`pr-4 md:ml-8 ${
                 router.pathname === path ? "active" : ""
               }`}
             >
@@ -30,8 +25,8 @@ const Navigation = (): JSX.Element => {
         ))}
       </span>
 
-      <span className="flex flex-auto md:flex-col">
-        <span className="pl-3">
+      <span className="flex pl-0 md:flex-col md:pl-4">
+        <span className="pl-3 md:pr-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-2 -2 24 24"
@@ -44,7 +39,7 @@ const Navigation = (): JSX.Element => {
           </svg>
         </span>
 
-        <span className="pl-3">
+        <span className="pl-3 md:pr-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-2 -2 24 24"
