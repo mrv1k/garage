@@ -15,26 +15,22 @@ const IndexPage = (): JSX.Element => (
         </h1>
       </header>
 
-      <div className="col-span-9 pt-3 pb-6 text-5xl font-bold basis-75 ">
+      <div className="col-span-9 pt-3 text-5xl font-bold basis-75 ">
         I bring designs to life with React and TypeScript
       </div>
 
-      <p>
-        Frontend Developer. Currently, building this website to serve as my
-        self-education log. Open to new opportunities.
+      <p className="py-6">
+        Currently, working on making this website the coziest place on the
+        Internet for myself. Open to new opportunities.
       </p>
+      <div></div>
 
-      <div className="mt-8">
-        <a
-          className="!no-underline border rounded py-3 px-11 text-v-orange border-v-orange hover:bg-v-orange hover:text-v-beige"
-          href="mailto:viktorkhotimchenko@gmail.com"
-        >
-          Get in touch
-        </a>
-      </div>
-      {/* <button className="p-4 rounded bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ...">
-          Sign up
-        </button> */}
+      <a
+        className="!no-underline w-1/2 py-3 text-center align-middle border rounded md:w-auto basis-25 text-v-orange border-v-orange hover:bg-v-orange hover:text-v-beige active:bg-v-orange-600 active:border-v-orange-600"
+        href="mailto:viktorkhotimchenko@gmail.com"
+      >
+        Get in touch
+      </a>
     </div>
 
     <div className="min-h-screen v-layout-full">page 2</div>
