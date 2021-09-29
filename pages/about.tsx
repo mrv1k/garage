@@ -3,8 +3,8 @@ import Image from "next/image";
 import EmailContactLink from "../components/EmailContactLink";
 import Layout from "../components/Layout";
 
-const GITHUB = "https://github.com/mrv1k";
-const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";
+export const GITHUB = "https://github.com/mrv1k";
+export const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";
 // const NAME = "Viktor Khotimchenko";
 
 const AboutPage = (): JSX.Element => (

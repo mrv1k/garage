@@ -101,6 +101,13 @@ html {
     text-decoration-thickness: 2.5px;
   }
 
+  .v-social-icons a svg {
+    fill: currentColor;
+  }
+  .v-social-icons a:hover .border {
+    fill: var(--v-orange);
+  }
+
   .v-underline-links a {
     @apply v-underline;
     text-decoration-thickness: 1px;
