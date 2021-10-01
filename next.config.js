@@ -9,6 +9,16 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
+const withNextPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+
+withNextPWA({
+  pwa: {
+    dest: "public",
+    runtimeCaching,
+  },
+});
+
 const blogPath = path.resolve("./blog/**/*.mdx");
 
 const withRemoteRefresh = require("next-remote-refresh")({
@@ -16,6 +26,6 @@ const withRemoteRefresh = require("next-remote-refresh")({
   ignored: "**/*.json",
 });
 
-module.exports = withRemoteRefresh(nextConfig);
+module.exports = withNextPWA(withRemoteRefresh(nextConfig));
 
 module.exports = nextConfig;
