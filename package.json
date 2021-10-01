@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
-    "date-fns": "^2.23.0",
+    "date-fns": "^2.24.0",
     "esbuild": "^0.12.27",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.2.0",
