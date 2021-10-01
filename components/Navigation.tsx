@@ -26,12 +26,12 @@ const Navigation = (): JSX.Element => {
         ))}
       </span>
 
-      <span className="flex pl-0 md:flex-col md:pl-4 v-social-icons">
+      <span className="flex md:ml-8 v-social-icons">
         <a
           target="_blank"
           rel="noopener noreferrer"
           href={LINKEDIN}
-          className="pl-3 md:pr-4"
+          className="pl-3 md:pl-0"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const Navigation = (): JSX.Element => {
           target="_blank"
           rel="noopener noreferrer"
           href={GITHUB}
-          className="pl-3 md:pr-4"
+          className="pl-3 md:pl-0 md:ml-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
