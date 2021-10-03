@@ -17,7 +17,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
     "date-fns": "^2.24.0",
-    "esbuild": "^0.12.27",
+    "esbuild": "^0.13.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.2.0",
     "mdx-bundler": "^6.0.2",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.10.2",
-    "@types/react": "^17.0.20",
+    "@types/react": "^17.0.26",
     "autoprefixer": "^10.3.6",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
