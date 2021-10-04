@@ -4,7 +4,6 @@ import path from "path";
 import process from "process";
 import rehypeHighlight, { Options as HighlightOptions } from "rehype-highlight";
 import remarkGfm from "remark-gfm";
-import remarkFootnotes from "remark-footnotes";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings, {
   Options as AutolinkOptions,
@@ -58,11 +57,7 @@ const autolinkContent: AutolinkOptions["content"] = {
 
 const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
   const xdmOptions: BundleMDXOptions["xdmOptions"] = (options) => {
-    options.remarkPlugins = [
-      ...(options.remarkPlugins ?? []),
-      remarkGfm,
-      remarkFootnotes,
-    ];
+    options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
 
     const highlightOptions: HighlightOptions = {
       aliases: { plaintext: "no-highlight" },
