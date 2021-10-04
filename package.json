@@ -15,7 +15,6 @@
     "export": "next export"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
     "date-fns": "^2.24.0",
     "esbuild": "^0.13.3",
     "gray-matter": "^4.0.3",
@@ -33,6 +32,8 @@
     "sharp": "^0.29.1"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/typography": "^0.4.1",
     "@types/node": "^16.10.2",
     "@types/react": "^17.0.26",
     "autoprefixer": "^10.3.6",
