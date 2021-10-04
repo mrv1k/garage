@@ -112,11 +112,12 @@ body,
   .v-main-nav svg {
     fill: currentColor;
   }
-  .v-main-nav a:hover .border {
-    fill: var(--v-orange);
+  .v-main-nav a:hover svg {
+    box-shadow: inset 0 0 0 1px var(--v-black);
+    border-radius: 5px;
   }
 
-  .v-underline-links a {
+  .v-underline-links a:not([role^="doc-"]) {
     @apply v-underline;
     text-decoration-color: var(--v-black);
     text-decoration-thickness: 1px;
