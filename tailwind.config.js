@@ -118,6 +118,8 @@ module.exports = {
             ol: { marginTop: false, marginBottom: "1rem" },
             ul: { marginTop: false, marginBottom: "1rem" },
             li: false,
+            "> ul > li > *:last-child": false,
+            "> ul > li > *:first-child": false,
             p: {
               marginBottom: "1rem",
               marginTop: false,

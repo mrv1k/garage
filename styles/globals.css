@@ -55,6 +55,10 @@ body,
 }
 
 @layer utilities {
+  .v-align-start {
+    align-items: start;
+  }
+
   .v-layout-full {
     @apply col-span-full;
   }
@@ -82,8 +86,8 @@ body,
   /* full vh - above spacing and height */
   /* used only for md screen and above, ignore mobile for calc */
   .v-h-remaining-screen {
-    max-height: calc(
-      100vh - theme("spacing.2") - theme("spacing.8") - theme("spacing.24")
+    height: calc(
+      100vh - theme("spacing.2") - theme("spacing.10") - theme("spacing.24")
     );
   }
 
@@ -105,10 +109,10 @@ body,
     text-decoration-thickness: 2.5px;
   }
 
-  .v-social-icons a svg {
+  .v-main-nav svg {
     fill: currentColor;
   }
-  .v-social-icons a:hover .border {
+  .v-main-nav a:hover .border {
     fill: var(--v-orange);
   }
 
