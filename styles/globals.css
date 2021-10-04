@@ -222,11 +222,12 @@ html {
   /* border: 1px groove; */
 }
 
-/* Heads up, margins don't collapse because I'm using grid.
+/*
+  Heads up, margins don't collapse because I'm using grid.
   Elements are treated as horizontal siblings
   from the spec: "the margins of adjacent grid items do not collapse."
 
-  Fine. I'll colapse them myself v.v
+  Fine. I'll collapse them myself v.v
  */
 
 .prose * + h1,
@@ -247,7 +248,6 @@ html {
 
 .prose .anchor {
   float: left;
-  line-height: 1;
   text-decoration: none;
   @apply -ml-5;
 }
@@ -257,7 +257,7 @@ svg.jamicon {
 }
 
 .autolink svg {
-  visibility: hidden;
+  @apply md:invisible;
 }
 
 h1:hover .autolink svg,
@@ -272,7 +272,7 @@ h3 .autolink:focus svg,
 h4 .autolink:focus svg,
 h5 .autolink:focus svg,
 h6 .autolink:focus svg {
-  visibility: visible;
+  @apply md:visible;
 }
 
 .prose table {
