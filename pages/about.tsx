@@ -5,19 +5,17 @@ import Layout from "../components/Layout";
 
 export const GITHUB = "https://github.com/mrv1k";
 export const LINKEDIN = "https://www.linkedin.com/in/vkhotimchenko/";
-// const NAME = "Viktor Khotimchenko";
 
 const AboutPage = (): JSX.Element => (
-  <Layout title="About" className="about">
-    {/* ! FIXME: temporary use of !important tailwind */}
-    <section className="!pt-0 v-layout-core">
-      <h2 className="!pb-2 text-3xl font-semibold">
+  <Layout title="About" className="prose">
+    <section className="v-layout-core">
+      <h2 className="">
         Hi, I'm
         <span className="text-v-orange"> Viktor</span>
       </h2>
     </section>
 
-    <section className="!pt-0 v-layout-core">
+    <section className="v-layout-core">
       <p>
         I'm front-end developer based in Toronto, Canada. Currently, I work on
         personal projects and open to new opportunities.
@@ -75,24 +73,6 @@ const AboutPage = (): JSX.Element => (
         exhaust my working capacity I enjoy cycling, playing board games and
         watching movies.
       </p>
-    </section>
-
-    <section className="socials v-layout-core">
-      <h2 className="text-3xl font-semibold">Online</h2>
-      <ul className="list-disc list-inside">
-        <li>
-          Projects are up on{" "}
-          <a href={GITHUB} target="_blank" rel="nofollow noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-        <li>
-          Social network of choice is{" "}
-          <a href={LINKEDIN} target="_blank" rel="nofollow noopener noreferrer">
-            LinkedIn
-          </a>
-        </li>
-      </ul>
     </section>
 
     <footer className="pb-8 v-layout-core">

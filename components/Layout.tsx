@@ -18,16 +18,17 @@ const Layout = ({
   className = "",
 }: Props): JSX.Element => {
   return (
-    <div className="grid p-5 xl:max-w-screen-xl sm:grid-cols-5 md:pb-8 md:mx-auto">
+    <div className="grid xl:max-w-screen-xl md:grid-cols-5 v-global-wrapper">
       {title && (
         <Head>
           <title>{title}</title>
         </Head>
       )}
 
-      <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6">
-        {/* double height to fit 2 line title */}
-        <h1 className="text-5xl font-bold text-v-orange md:h-24">{title}</h1>
+      <header className="relative col-span-full md:col-start-2 md:col-end-6 v-global-header">
+        <h1 className="font-bold text-v-orange v-text-giant v-2-line-giant">
+          {title}
+        </h1>
         <div className="bottom-0 right-0 pr-2 font-mono text-sm text-gray-350 md:absolute md:text-right min-w-max md:mr-8 xl:mr-0">
           <div>{created && <Date created={created} />}</div>
           <div>{updated && <Date updated={updated} />}</div>
@@ -37,7 +38,7 @@ const Layout = ({
       <Navigation />
 
       <main
-        className={`grid sm:grid-cols-12 gap-1 md:col-span-4 col-span-full ${className}`}
+        className={`grid md:grid-cols-12 gap-1 md:col-span-4 col-span-full ${className}`}
       >
         {children}
       </main>

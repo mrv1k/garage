@@ -42,27 +42,12 @@ html {
   margin-right: calc(-1 * (100vw - 100%));
 }
 
-/* body,
+body,
 #__next,
 .garage {
-  min-height: 100vh;
-} */
-
-/* FIXME: temp tailwind to make about page look OK  */
-.about p {
-  @apply pb-3;
+  min-width: 100%;
+  min-height: 100%;
 }
-.about h2 {
-  @apply pb-4;
-}
-.about .wrapper-of-me {
-  @apply pb-4;
-}
-.about section,
-.about footer {
-  @apply pt-4;
-}
-/* FIX THE ABOVE */
 
 @layer utilities {
   .v-layout-full {
@@ -77,10 +62,33 @@ html {
     @apply md:col-start-9 md:col-end-13 col-span-full;
   }
 
+  /* needs to match v-global-wrapper spacing, else is off */
+  .v-space-absolute-r {
+    @apply right-5;
+  }
+  .v-space-absolute-l {
+    @apply left-5;
+  }
+
+  /* Keep here as classes, used for `md:v-h-remaining-screen` calc */
+  .v-global-wrapper {
+    @apply pt-4 pb-8 mx-5 md:mx-auto;
+  }
+  .v-global-header {
+    @apply mb-4;
+  }
+
+  .v-text-giant {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  .v-2-line-giant {
+    @apply max-h-20 md:h-24;
+  }
+
+  /* full vh - above spacing and height */
+  /* used only for md screen and above, ignore mobile for calc */
   .v-h-remaining-screen {
-    /* screen        - header size - header spacing - page spacing */
-    /* tailwind`ish  - h-24        - p-4            - p-5 */
-    height: calc(100vh - 6rem - 1rem - 1.25rem);
+    height: calc(100vh - 2rem - 1rem - 6rem);
   }
 
   .v-underline {
@@ -151,13 +159,13 @@ html {
     .v-home-flex > * {
       flex: 0 1 50%;
     }
-    .v-home-flex .basis-75 {
+    .v-home-flex .v-basis-75 {
       flex-basis: 75%;
     }
-    .v-home-flex .basis-50 {
+    .v-home-flex .v-basis-50 {
       flex-basis: 50%;
     }
-    .v-home-flex .basis-25 {
+    .v-home-flex .v-basis-25 {
       flex-basis: 25%;
     }
   }
@@ -211,16 +219,16 @@ html {
     @apply v-layout-core;
   }
 
-  /* TODO: Displaye footnotes as sidenotes on desktop */
+  /* TODO: Display footnotes as sidenotes on desktop */
 }
 
 /**
  * Customize @tailwindcss/typography
  */
 
-* {
-  /* border: 1px groove; */
-}
+/* * {
+  border: 1px groove;
+} */
 
 /*
   Heads up, margins don't collapse because I'm using grid.
@@ -249,7 +257,7 @@ html {
 .prose .anchor {
   float: left;
   text-decoration: none;
-  @apply -ml-5;
+  @apply -ml-4;
 }
 
 svg.jamicon {

@@ -15,7 +15,7 @@ function Garage({ Component, pageProps }: AppProps): JSX.Element {
       <Component {...pageProps} />
 
       {isBlogPost && (
-        <div id="top" className="absolute top-5 right-5">
+        <div id="top" className="absolute top-0 v-absolute-r">
           <a href="#bottom" className="goto-button">
             goto bottom
           </a>
@@ -23,7 +23,7 @@ function Garage({ Component, pageProps }: AppProps): JSX.Element {
       )}
 
       {isBlogPost && (
-        <div id="bottom" className="absolute bottom-5 right-5">
+        <div id="bottom" className="absolute v-absolute-b v-absolute-r">
           <a href="#top" className="goto-button">
             goto top
           </a>
@@ -31,7 +31,7 @@ function Garage({ Component, pageProps }: AppProps): JSX.Element {
       )}
       {/* go to top on the left side for my homie @JemboDev */}
       {isBlogPost && (
-        <div id="jembottom" className="absolute bottom-5 left-5">
+        <div id="jembottom" className="absolute v-absolute-b v-absolute-l">
           <a href="#top" className="goto-button">
             goto top
           </a>
