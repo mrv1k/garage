@@ -8,12 +8,12 @@ const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <nav className="flex items-center justify-between row-start-1 pb-0 md:pb-8 md:items-start md:v-h-remaining-screen v-main-nav md:row-start-2 md:flex-col">
+    <nav className="flex items-center justify-between row-start-1 pb-0 md:ml-8 md:pb-12 md:items-start md:v-h-remaining-screen v-main-nav md:row-start-2 md:flex-col">
       <span className="flex md:flex-col">
         {paths.map((path) => (
           <Link key={path} href={path}>
             <a
-              className={`pr-4 md:ml-8 ${
+              className={`pr-4 md:pr-0 ${
                 router.pathname === path ? "active" : ""
               }`}
             >
@@ -26,7 +26,7 @@ const Navigation = (): JSX.Element => {
         ))}
       </span>
 
-      <span className="flex md:ml-8 v-social-icons">
+      <span className="flex v-social-icons">
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -55,6 +55,7 @@ const Navigation = (): JSX.Element => {
           target="_blank"
           rel="noopener noreferrer"
           href={GITHUB}
+          // ml-1 to add spacing between icons without making it clickable
           className="pl-3 md:pl-0 md:ml-1"
         >
           <svg
