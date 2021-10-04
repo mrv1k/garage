@@ -1,5 +1,9 @@
 // @ts-check
 const path = require("path");
+const withPlugins = require("next-compose-plugins");
+const withNextPWA = require("next-pwa");
+// const runtimeCaching = require("next-pwa/cache");
+const withRemoteRefresh = require("next-remote-refresh");
 
 /**
  * @type {import('next').NextConfig}
@@ -9,23 +13,23 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-const withNextPWA = require("next-pwa");
-const runtimeCaching = require("next-pwa/cache");
-
-withNextPWA({
-  pwa: {
-    dest: "public",
-    runtimeCaching,
-  },
-});
-
 const blogPath = path.resolve("./blog/**/*.mdx");
 
-const withRemoteRefresh = require("next-remote-refresh")({
-  paths: [blogPath],
-  ignored: "**/*.json",
-});
-
-module.exports = withNextPWA(withRemoteRefresh(nextConfig));
-
-module.exports = nextConfig;
+module.exports = withPlugins(
+  [
+    withNextPWA,
+    {
+      pwa: {
+        dest: "public",
+        disable: process.env.NODE_ENV !== "production",
+        // runtimeCaching,
+      },
+    },
+    withRemoteRefresh,
+    {
+      paths: [blogPath],
+      ignored: "**/*.json",
+    },
+  ],
+  nextConfig
+);
