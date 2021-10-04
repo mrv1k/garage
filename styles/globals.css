@@ -123,11 +123,17 @@ html {
     text-decoration-thickness: 2.5px;
   }
 
-  #top .goto-button {
+  .goto-button {
+    @apply font-mono no-underline text-gray-350 hover:text-gray-400;
+  }
+
+  #top .goto-button,
+  #jembottom .goto-button {
     visibility: hidden;
   }
 
-  #top:hover .goto-button {
+  #top:hover .goto-button,
+  #jembottom:hover .goto-button {
     visibility: visible;
   }
 
