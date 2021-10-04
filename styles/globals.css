@@ -23,6 +23,11 @@
   --v-beige: #fcf8ed;
 }
 
+/* layout debugging */
+* {
+  /* border: 1px groove; */
+}
+
 /**
   * Font-sizes
 
@@ -62,20 +67,9 @@ body,
     @apply md:col-start-9 md:col-end-13 col-span-full;
   }
 
-  /* needs to match v-global-wrapper spacing, else is off */
-  .v-space-absolute-r {
-    @apply right-5;
-  }
-  .v-space-absolute-l {
-    @apply left-5;
-  }
-
   /* Keep here as classes, used for `md:v-h-remaining-screen` calc */
   .v-global-wrapper {
-    @apply pt-4 pb-8 mx-5 md:mx-auto;
-  }
-  .v-global-header {
-    @apply mb-4;
+    @apply pt-2 pb-10 mx-5 md:mx-auto;
   }
 
   .v-text-giant {
@@ -88,7 +82,9 @@ body,
   /* full vh - above spacing and height */
   /* used only for md screen and above, ignore mobile for calc */
   .v-h-remaining-screen {
-    height: calc(100vh - 2rem - 1rem - 6rem);
+    max-height: calc(
+      100vh - theme("spacing.2") - theme("spacing.8") - theme("spacing.24")
+    );
   }
 
   .v-underline {
@@ -118,29 +114,32 @@ body,
 
   .v-underline-links a {
     @apply v-underline;
+    text-decoration-color: var(--v-black);
     text-decoration-thickness: 1px;
   }
 
   .v-underline-links a:visited[target="_blank"] {
-    text-decoration-color: purple;
+    text-decoration-color: theme("colors.purple.800");
   }
 
-  a:hover:not(.active) {
-    @apply v-underline;
-    text-decoration-color: var(--v-black);
-    text-decoration-thickness: 2.5px;
+  @screen md {
+    a:hover:not(.active) {
+      @apply v-underline;
+      text-decoration-thickness: 2px;
+    }
   }
 
   .goto-button {
-    @apply font-mono no-underline text-gray-350 hover:text-gray-400;
+    writing-mode: vertical-lr;
+    @apply font-mono text-sm !no-underline text-gray-350 hover:text-gray-400;
   }
 
-  #top .goto-button,
+  .go-bottom .goto-button,
   #jembottom .goto-button {
     visibility: hidden;
   }
 
-  #top:hover .goto-button,
+  .go-bottom:hover .goto-button,
   #jembottom:hover .goto-button {
     visibility: visible;
   }
@@ -177,12 +176,10 @@ body,
   /**
    * MDX
    */
-
   /* ! Important, do not div tag @apply, div is used to break out of it from within mdx */
 
   .v-layout .nextjs-image-wrapper {
     @apply v-layout-full;
-    /* grid-column: span 12 !important; */
   }
 
   /* Code blocks are wrapped in pre, inline code wrapped in whatever parent *
@@ -225,10 +222,6 @@ body,
 /**
  * Customize @tailwindcss/typography
  */
-
-/* * {
-  border: 1px groove;
-} */
 
 /*
   Heads up, margins don't collapse because I'm using grid.
