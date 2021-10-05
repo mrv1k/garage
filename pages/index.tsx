@@ -2,7 +2,10 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 
 const IndexPage = (): JSX.Element => (
-  <Layout title="">
+  <Layout
+    title=""
+    className="items-center min-h-[calc(100vh-8px-24px-16px)] md:min-h-0"
+  >
     <Head>
       <title>Viktor Khotimchenko</title>
     </Head>

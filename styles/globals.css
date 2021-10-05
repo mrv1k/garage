@@ -49,14 +49,18 @@ html {
 
 body,
 #__next,
-.garage {
-  min-width: 100%;
-  min-height: 100%;
+.garage,
+.v-global-wrapper {
+  height: 100vh;
 }
 
 @layer utilities {
-  .v-align-start {
+  .v-items-start {
     align-items: start;
+  }
+
+  .v-content-baseline {
+    align-content: baseline;
   }
 
   .v-layout-full {
@@ -101,7 +105,7 @@ body,
 
 @layer base {
   .v-main-nav a {
-    @apply v-underline;
+    @apply mr-4 v-underline;
   }
   .v-main-nav a.active,
   .v-main-nav a:active {
@@ -141,7 +145,7 @@ body,
 
   .go-bottom .goto-button,
   #jembottom .goto-button {
-    visibility: hidden;
+    /* visibility: hidden; */
   }
 
   .go-bottom:hover .goto-button,
