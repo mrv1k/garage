@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 
 type Props = {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   created?: string;
   updated?: string;
   className?: string;
@@ -25,13 +25,13 @@ const Layout = ({
         </Head>
       )}
 
-      <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6">
-        <h1 className="font-bold text-v-orange v-text-giant v-2-line-giant">
-          {title}
-        </h1>
+      <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6 v-2-line-giant">
+        {title && (
+          <h1 className="font-bold text-v-orange v-text-giant ">{title}</h1>
+        )}
         <div className="bottom-0 right-0 pr-2 font-mono text-sm text-gray-350 md:absolute md:text-right min-w-max md:mr-8 xl:mr-0">
-          <div>{created && <Date created={created} />}</div>
-          <div>{updated && <Date updated={updated} />}</div>
+          {created && <Date created={created} />}
+          {updated && <Date updated={updated} />}
         </div>
       </header>
 

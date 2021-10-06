@@ -21,10 +21,10 @@ const Date = ({ created, updated }: Props) => {
   const label = created ? "Created: " : "Updated: ";
   const prettyDate = format(parseISO(date), "LLL d, yyyy");
   return (
-    <>
+    <div>
       {label}
       <time dateTime={date}>{prettyDate}</time>
-    </>
+    </div>
   );
 };
 
