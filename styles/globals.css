@@ -51,7 +51,7 @@ body,
 #__next,
 .garage,
 .v-global-wrapper {
-  height: 100vh;
+  height: 100%;
 }
 
 @layer utilities {
@@ -75,35 +75,68 @@ body,
     @apply md:col-start-9 md:col-end-13 col-span-full;
   }
 
-  /* Keep here as classes, used for `md:v-h-remaining-screen` calc */
-  .v-global-wrapper {
-    @apply pt-2 pb-10 mx-5 md:mx-auto;
-  }
-
-  .v-text-giant {
-    @apply text-4xl font-bold md:text-5xl;
-  }
-  .v-2-line-giant {
-    @apply max-h-20 md:h-24;
-  }
-
-  /* full vh - above spacing and height */
-  /* used only for md screen and above, ignore mobile for calc */
-  .v-h-remaining-screen {
-    height: calc(
-      100vh - theme("spacing.2") - theme("spacing.10") - theme("spacing.24")
-    );
-  }
-
   .v-underline {
     text-decoration-line: underline;
     text-underline-position: under;
     text-underline-offset: 1px;
     cursor: pointer;
   }
+
+  .v-basis-25 {
+    flex-basis: 25%;
+  }
+  .v-basis-50 {
+    flex-basis: 50%;
+  }
+  .v-basis-75 {
+    flex-basis: 75%;
+  }
+  .v-basis-100 {
+    flex-basis: 100%;
+  }
+
+  /* * Used for `v-h-remaining-screen` calc */
+  .v-global-wrapper {
+    @apply pt-2 pb-10 mx-5 md:mx-auto;
+  }
+  .v-text-giant {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  .v-2-line-giant {
+    /* max-h on mobile to make header collapsible */
+    @apply max-h-20 md:h-24;
+  }
+
+  /* Class order matters */
+
+  /* subtract global spacing top and bottom */
+  /* DON't subtract title, no header for landing page */
+  /* subtract everything up to content */
+  /* subtract header spacing instead of header */
+  /* subtract nav height too */
+  .v-h-remaining-screen {
+    height: 80vh;
+    height: calc(
+      100vh - (theme("spacing.2") - theme("spacing.10")) - theme("spacing.24") -
+        theme("spacing.4") - theme("spacing.6")
+    );
+  }
+  /* Calculation will come in handy if I go for second page on landing screen */
+  @screen md {
+    .v-h-remaining-screen {
+      height: auto;
+      /* height: calc(
+        100vh - (theme("spacing.2") - theme("spacing.10")) - theme("spacing.24")
+      ); */
+    }
+  }
 }
 
 @layer base {
+  .v-main-nav {
+    @apply h-6 md:h-auto;
+  }
+
   .v-main-nav a {
     @apply mr-4 v-underline;
   }
@@ -151,31 +184,6 @@ body,
   .go-bottom:hover .goto-button,
   #jembottom:hover .goto-button {
     visibility: visible;
-  }
-
-  .v-home-flex {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-  }
-
-  .v-home-flex > * {
-    @apply flex-initial;
-  }
-
-  @screen md {
-    .v-home-flex > * {
-      flex: 0 1 50%;
-    }
-    .v-home-flex .v-basis-75 {
-      flex-basis: 75%;
-    }
-    .v-home-flex .v-basis-50 {
-      flex-basis: 50%;
-    }
-    .v-home-flex .v-basis-25 {
-      flex-basis: 25%;
-    }
   }
 
   .blog-list ul li::marker {
