@@ -2,38 +2,36 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 
 const IndexPage = (): JSX.Element => (
-  <Layout
-    title=""
-    className="items-center min-h-[calc(100vh-8px-24px-16px)] md:min-h-0"
-  >
+  <Layout title="">
     <Head>
       <title>Viktor Khotimchenko</title>
     </Head>
 
-    <div className="md:v-h-remaining-screen v-layout-full v-home-flex">
-      <header>
+    <div className="flex flex-wrap content-center v-h-remaining-screen v-layout-full">
+      <header className="flex-initial md:v-basis-50">
         <span className="text-xl">Hi, my name is</span>
         <h1 className="font-bold v-text-giant">
           <span className="text-v-orange">Viktor Khotimchenko</span>.
         </h1>
       </header>
 
-      <div className="col-span-9 pt-3 v-text-giant v-basis-75">
+      <div className="flex-initial col-span-9 pt-3 v-text-giant md:v-basis-75">
         I bring designs to life with React and TypeScript
       </div>
 
-      <p className="py-6">
+      <p className="flex-initial py-6 md:v-basis-50">
         Currently, working on making this website the coziest place on the
         Internet for myself. Open to new opportunities.
       </p>
-      <div></div>
 
-      <a
-        className="!no-underline w-1/2 py-3 text-center align-middle border rounded md:w-auto v-basis-25 text-v-orange border-v-orange hover:bg-v-orange hover:text-v-beige active:bg-v-orange-600 active:border-v-orange-600"
-        href="mailto:viktorkhotimchenko@gmail.com"
-      >
-        Get in touch
-      </a>
+      <div className="flex-initial v-basis-100">
+        <a
+          className="!no-underline inline-block w-1/2 md:w-1/4 py-3 text-center align-middle border rounded text-v-orange border-v-orange hover:bg-v-orange hover:text-v-beige active:bg-v-orange-600 active:border-v-orange-600"
+          href="mailto:viktorkhotimchenko@gmail.com"
+        >
+          Get in touch
+        </a>
+      </div>
     </div>
   </Layout>
 );
