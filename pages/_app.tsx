@@ -3,10 +3,15 @@
 // preview on https://highlightjs.org/static/demo/
 import type { AppProps /*, AppContext */ } from "next/app";
 import { useRouter } from "next/dist/client/router";
+import { useEffect } from "react";
+import vhCheck from "vh-check";
 import "../styles/globals.css";
 
 function Garage({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
+  useEffect(() => {
+    vhCheck();
+  }, []);
 
   const isBlogPost = router.pathname.startsWith("/blog/");
 
