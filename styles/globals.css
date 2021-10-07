@@ -47,18 +47,9 @@ html {
   margin-right: calc(-1 * (100vw - 100%));
 }
 
-#__next,
-.garage,
-.v-global-wrapper {
-  min-height: 100vh;
+#__next {
+  min-height: 100vh - var(--vh-offset, 0px);
 }
-
-/* body, */
-/* #__next,
-.garage,
-.v-global-wrapper {
-  min-height: 100vh;
-} */
 
 @layer utilities {
   .v-items-start {
@@ -115,19 +106,20 @@ html {
 
   /* Class order matters */
 
+  /* calculating mobile height is a mess with all those folded/unfolded menus and notches */
   /* subtract global spacing top and bottom */
   /* DON't subtract title, no header for landing page */
-  /* subtract everything up to content */
-  /* subtract header spacing instead of header */
-  /* subtract nav height too */
+  /* subtract title margin bottom, that still present */
+  /* subtract nav height */
+  /* Voilà */
   .v-h-remaining-screen {
-    height: 80vh;
-    height: calc(
-      100vh - (theme("spacing.2") - theme("spacing.10")) - theme("spacing.24") -
-        theme("spacing.4") - theme("spacing.6")
+    min-height: 75vh;
+    min-height: calc(
+      100vh - (theme("spacing.2") - theme("spacing.10")) - theme("spacing.4") -
+        theme("spacing.6") - var(--vh-offset, 0px)
     );
   }
-  /* Calculation will come in handy if I go for second page on landing screen */
+  /* Calculation will come in handy if I go for second page on landing page */
   @screen md {
     .v-h-remaining-screen {
       height: auto;
