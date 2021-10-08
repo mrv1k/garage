@@ -8,14 +8,14 @@ type Props = PropsWithChildren<{ className: string }>;
 // had multiple columns instead of 1
 // Setting grid-col-1 on the grid also doesn't work
 
-export const Grid = ({ children, className = "v-layout-core" }: Props) => {
+export const Grid = ({ children, className = "v-col-core" }: Props) => {
   if (process.env.NODE_ENV === "development") {
     let error = false;
 
     if (className && !className.includes("v-layout")) {
       if (className.includes("span-start") || className.includes("span-end")) {
         error = true;
-        console.error("*-span floats around, be explicit or use v-layout-*");
+        console.error("*-span floats around, be explicit or use v-col-*");
       }
       if (tailwindBreakpoints.some((bp) => className.includes(bp)) === false) {
         console.log(

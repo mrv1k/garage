@@ -62,15 +62,15 @@ html {
     align-content: baseline;
   }
 
-  .v-layout-full {
+  .v-col-full {
     @apply col-span-full;
   }
 
-  .v-layout-core {
+  .v-col-core {
     @apply md:col-start-1 md:col-end-8 col-span-full;
   }
 
-  .v-layout-right {
+  .v-col-right {
     @apply md:col-start-9 md:col-end-13 col-span-full;
   }
 
@@ -171,14 +171,14 @@ html {
   /* ! Important, do not div tag @apply, div is used to break out of it from within mdx */
 
   .v-layout .nextjs-image-wrapper {
-    @apply v-layout-full;
+    @apply v-col-full;
   }
 
   /* Code blocks are wrapped in pre, inline code wrapped in whatever parent *
   /* .v-layout code, */
   .v-layout > pre,
   .v-layout > hr {
-    @apply v-layout-full;
+    @apply v-col-full;
   }
 
   .v-layout > h1,
@@ -194,7 +194,7 @@ html {
   .v-layout > blockquote,
   .v-layout > em,
   .v-layout > strong {
-    @apply v-layout-core;
+    @apply v-col-core;
   }
 
   /* GitHub flavored markdown (GFM) */
@@ -205,7 +205,7 @@ html {
   .v-layout > th,
   .v-layout > thead,
   .v-layout > tr {
-    @apply v-layout-core;
+    @apply v-col-core;
   }
 
   /* TODO: Display footnotes as sidenotes on desktop */

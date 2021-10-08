@@ -9,7 +9,7 @@ type Props = { allPosts: AllBlogPosts };
 export default function BlogIndex({ allPosts }: Props): JSX.Element {
   return (
     <Layout title="Blog">
-      <section className="v-layout-core blog-list">
+      <section className="v-col-core blog-list">
         <ul>
           {allPosts.map(({ slug, frontmatter }) => (
             <li key={slug} className="pb-4">

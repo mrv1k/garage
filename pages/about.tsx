@@ -18,7 +18,7 @@ const AboutPage = (): JSX.Element => (
       Internet for myself. Open to new opportunities.
     </p>
 
-    <aside className="relative row-start-2 row-end-7 md:row-start-1 v-layout-right">
+    <aside className="relative row-start-2 row-end-7 md:row-start-1 v-col-right">
       <Image
         src="/portfolio/profile-big.jpg"
         width={1212}
@@ -65,7 +65,7 @@ const AboutPage = (): JSX.Element => (
       couple years of hard work ;)
     </p>
 
-    <footer className="v-layout-core">
+    <footer className="v-col-core">
       <h2 className="!mt-2 text-3xl font-semibold">Get in touch</h2>
       <p>
         Always happy to meet interesting people. Email is: <EmailContactLink />{" "}

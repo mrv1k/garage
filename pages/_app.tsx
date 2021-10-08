@@ -24,19 +24,25 @@ function Garage({ Component, pageProps }: AppProps): JSX.Element {
         <>
           <div id="top" className="absolute top-0 left-0" />
 
-          <div className="absolute top-0 right-0 mt-16 mr-1 go-bottom md:mr-4">
+          <div className="absolute top-0 right-0 mt-16 mr-2 go-bottom md:mr-4">
             <a href="#bottom" className="goto-button">
               bottom
             </a>
           </div>
 
-          <div id="bottom" className="absolute bottom-0 right-0 mb-4 mr-1">
+          <div
+            id="bottom"
+            className="absolute bottom-0 right-0 mb-4 mr-2 md:mr-4"
+          >
             <a href="#top" className="goto-button ">
               top
             </a>
           </div>
 
-          <div id="jembottom" className="absolute bottom-0 left-0 mb-4 ml-1">
+          <div
+            id="jembottom"
+            className="absolute bottom-0 left-0 mb-4 ml-2 md:ml-4"
+          >
             <a href="#top" className="goto-button">
               j-top
             </a>

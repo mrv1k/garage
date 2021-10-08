@@ -10,7 +10,7 @@ const IndexPage = (): JSX.Element => (
       <title>Viktor Khotimchenko</title>
     </Head>
 
-    <div className="flex flex-wrap v-layout-full">
+    <div className="flex flex-wrap v-col-full">
       <header className="flex-initial md:v-basis-50">
         <span className="text-xl">Hi, my name is</span>
         <h1 className="font-bold v-text-giant">
