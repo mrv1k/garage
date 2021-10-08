@@ -2,12 +2,15 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 
 const IndexPage = (): JSX.Element => (
-  <Layout title="">
+  <Layout
+    title=""
+    className="absolute -translate-y-1/2 top-1/2 md:static md:translate-y-0 md:top-auto"
+  >
     <Head>
       <title>Viktor Khotimchenko</title>
     </Head>
 
-    <div className="flex flex-wrap content-center v-h-remaining-screen v-layout-full">
+    <div className="flex flex-wrap v-layout-full">
       <header className="flex-initial md:v-basis-50">
         <span className="text-xl">Hi, my name is</span>
         <h1 className="font-bold v-text-giant">

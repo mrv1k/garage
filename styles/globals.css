@@ -47,8 +47,10 @@ html {
   margin-right: calc(-1 * (100vw - 100%));
 }
 
-#__next {
-  min-height: 100vh - var(--vh-offset, 0px);
+#__next,
+.garage,
+.v-global-wrapper {
+  min-height: 100vh;
 }
 
 @layer utilities {
@@ -137,26 +139,26 @@ html {
     text-decoration-color: theme("colors.purple.800");
   }
 
-  @screen md {
-    a:hover:not(.active) {
-      @apply v-underline;
-      text-decoration-thickness: 2px;
-    }
-  }
-
   .goto-button {
     writing-mode: vertical-lr;
     @apply font-mono text-sm !no-underline text-gray-350 hover:text-gray-400;
   }
 
-  .go-bottom .goto-button,
-  #jembottom .goto-button {
-    visibility: hidden;
-  }
+  @screen md {
+    a:hover:not(.active) {
+      @apply v-underline;
+      text-decoration-thickness: 2px;
+    }
 
-  .go-bottom:hover .goto-button,
-  #jembottom:hover .goto-button {
-    visibility: visible;
+    .go-bottom .goto-button,
+    #jembottom .goto-button {
+      visibility: hidden;
+    }
+
+    .go-bottom:hover .goto-button,
+    #jembottom:hover .goto-button {
+      visibility: visible;
+    }
   }
 
   .blog-list ul li::marker {
