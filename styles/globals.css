@@ -103,31 +103,6 @@ html {
     /* max-h on mobile to make header collapsible */
     @apply max-h-20 md:h-24;
   }
-
-  /* Class order matters */
-
-  /* calculating mobile height is a mess with all those folded/unfolded menus and notches */
-  /* subtract global spacing top and bottom */
-  /* DON't subtract title, no header for landing page */
-  /* subtract title margin bottom, that still present */
-  /* subtract nav height */
-  /* Voilà */
-  .v-h-remaining-screen {
-    min-height: 75vh;
-    min-height: calc(
-      100vh - (theme("spacing.2") - theme("spacing.10")) - theme("spacing.4") -
-        theme("spacing.6") - var(--vh-offset, 0px)
-    );
-  }
-  /* Calculation will come in handy if I go for second page on landing page */
-  @screen md {
-    .v-h-remaining-screen {
-      min-height: auto;
-      /* height: calc(
-        100vh - (theme("spacing.2") - theme("spacing.10")) - theme("spacing.24")
-      ); */
-    }
-  }
 }
 
 @layer base {
