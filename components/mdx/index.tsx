@@ -23,34 +23,37 @@ const mdxComponents: any = {
 
   /* Default Markdown */
   a: CustomLink,
-  // img: undefined, // Customizing img tag is limits props to src, alt and title. Tried it, not a good idea. Use custom tag instead.
-  // pre: undefined,
-  // code: undefined,
-  // blockquote: undefined,
+  // img: () => null, // Customizing img tag is limits props to src, alt and title. Tried it, not a good idea. Use custom tag instead.
+  // pre: () => null,
+  // code: () => null,
+  // blockquote: () => null,
 
-  // em: undefined
-  // strong: undefined,
+  // em: () => null,
+  // strong: () => null,
 
-  // h1: undefined,
-  // h2: undefined,
-  // h3: undefined,
-  // h4: undefined,
-  // h5: undefined,
-  // h6: undefined,
-  // hr: undefined,
+  // h1: () => null,
+  // h2: () => null,
+  // h3: () => null,
+  // h4: () => null,
+  // h5: () => null,
+  // h6: () => null,
+  // hr: () => null,
 
-  // ol: undefined,
-  // ul: undefined,
-  // li: undefined,
+  // ol: () => null,
+  // ul: () => null,
+  // li: () => null,
 
   /* GitHub flavored markdown (GFM) */
-  // del: undefined,
-  // table: undefined,
-  // tbody: undefined,
-  // td: undefined,
-  // th: undefined,
-  // thead: undefined,
-  // tr: undefined,
+  // del: () => null,
+  // table: () => null,
+  // tbody: () => null,
+  // td: () => null,
+  // th: () => null,
+  // thead: () => null,
+  // tr: () => null,
+
+  // footnotes are
+  // section > hr
 };
 
 export default mdxComponents;

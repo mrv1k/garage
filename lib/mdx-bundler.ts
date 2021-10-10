@@ -3,7 +3,7 @@ import { BundleMDXOptions } from "mdx-bundler/dist/types";
 import path from "path";
 import process from "process";
 import rehypeHighlight, { Options as HighlightOptions } from "rehype-highlight";
-import remarkGfm from "remark-gfm";
+import remarkGfm, { Options as remarkGfmOptions } from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings, {
   Options as AutolinkOptions,
@@ -54,6 +54,8 @@ const autolinkContent: AutolinkOptions["content"] = {
     },
   ],
 };
+
+const wip: remarkGfmOptions = [];
 
 const bundleMDXFileWithOptions = async (mdxPostDir: string) => {
   const xdmOptions: BundleMDXOptions["xdmOptions"] = (options) => {
