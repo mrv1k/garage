@@ -101,10 +101,6 @@ html {
   .v-text-giant {
     @apply text-4xl font-bold md:text-5xl;
   }
-  .v-2-line-giant {
-    /* max-h on mobile to make header collapsible */
-    @apply max-h-20 md:h-24;
-  }
 }
 
 @layer base {

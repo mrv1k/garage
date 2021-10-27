@@ -8,7 +8,7 @@ const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <nav className="flex items-center row-start-1 md:ml-8 md:items-start md:row-start-2 md:flex-col v-main-nav">
+    <nav className="flex items-center row-start-1 mb-2 md:ml-8 md:items-start md:row-start-2 md:flex-col v-main-nav md:mb-0">
       {paths.map((path) => (
         <Link key={path} href={path}>
           <a className={`${router.pathname === path ? "active" : ""}`}>

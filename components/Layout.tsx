@@ -25,7 +25,7 @@ const Layout = ({
         </Head>
       )}
 
-      <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6 v-2-line-giant">
+      <header className="relative mb-4 col-span-full md:col-start-2 md:col-end-6">
         {title && (
           <h1 className="font-bold text-v-orange v-text-giant ">{title}</h1>
         )}
