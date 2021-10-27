@@ -23,18 +23,8 @@ const IndexPage = (): JSX.Element => (
       </div>
 
       <p className="flex-initial py-6 md:v-basis-50">
-        Currently, working on making this website the coziest place on the
-        Internet for myself.
+        Building this site to be the coziest corner of the web for myself.
       </p>
-
-      <div className="flex-initial v-basis-100">
-        <a
-          className="!no-underline inline-block w-1/2 md:w-1/4 py-3 text-center align-middle border rounded text-v-orange border-v-orange hover:bg-v-orange hover:text-v-beige active:bg-v-orange-600 active:border-v-orange-600"
-          href="mailto:viktorkhotimchenko@gmail.com"
-        >
-          Get in touch
-        </a>
-      </div>
     </div>
   </Layout>
 );
