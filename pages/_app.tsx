@@ -2,33 +2,27 @@
 // light- hard, medium, soft
 // preview on https://highlightjs.org/static/demo/
 import type { AppProps /*, AppContext */ } from "next/app";
-import { useRouter } from "next/dist/client/router";
-import { useEffect } from "react";
-import vhCheck from "vh-check";
+// import { useRouter } from "next/dist/client/router";
+// import { useEffect } from "react";
+// import vhCheck from "vh-check";
 import "../styles/globals.css";
 
 function Garage({ Component, pageProps }: AppProps): JSX.Element {
-  const router = useRouter();
-  useEffect(() => {
-    vhCheck();
-  }, []);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   vhCheck();
+  // }, []);
 
-  const isBlogPost = router.pathname.startsWith("/blog/");
+  // const isBlogPost = router.pathname.startsWith("/blog/");
 
   return (
     <div className="relative garage">
       <Component {...pageProps} />
 
       {/* can't nest bottom button inside #top div because then clicking top button wont' go to 0,0 top */}
-      {isBlogPost && (
+      {/* {isBlogPost && (
         <>
           <div id="top" className="absolute top-0 left-0" />
-
-          <div className="absolute top-0 right-0 mt-16 mr-2 go-bottom md:mr-4">
-            <a href="#bottom" className="goto-button">
-              bottom
-            </a>
-          </div>
 
           <div
             id="bottom"
@@ -48,7 +42,7 @@ function Garage({ Component, pageProps }: AppProps): JSX.Element {
             </a>
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 }
