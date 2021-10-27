@@ -24,7 +24,7 @@ const IndexPage = (): JSX.Element => (
 
       <p className="flex-initial py-6 md:v-basis-50">
         Currently, working on making this website the coziest place on the
-        Internet for myself. Open to new opportunities.
+        Internet for myself.
       </p>
 
       <div className="flex-initial v-basis-100">

@@ -13,9 +13,10 @@ const AboutPage = (): JSX.Element => (
     </h2>
 
     <p>
-      A front-end developer from a beautiful Toronto, originally Almaty.
-      Currently, working on making this website the coziest place on the
-      Internet for myself. Open to new opportunities.
+      A front-end developer from Toronto, originally Almaty. During the day
+      Software Engineer at Capgemini Engineering. During the night, trying to
+      make this website the perfect personal place for public learning. The idea
+      is to build a digital garden and a blog. Work in progress.
     </p>
 
     <aside className="relative row-start-2 row-end-7 md:row-start-1 v-col-right">
