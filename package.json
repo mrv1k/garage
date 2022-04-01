@@ -18,7 +18,7 @@
     "date-fns": "^2.24.0",
     "esbuild": "^0.13.3",
     "gray-matter": "^4.0.3",
-    "highlight.js": "^11.2.0",
+    "highlight.js": "^11.5.0",
     "mdx-bundler": "^6.0.2",
     "next": "^11.0.0",
     "next-compose-plugins": "^2.2.1",
